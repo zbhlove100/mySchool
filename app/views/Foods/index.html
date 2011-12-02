@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<input id="myAutoComplete" />
+<div id="grid"></div>
+<script type="text/javascript">
+$(function(){$("#grid").kendoGrid({
+    columns:[
+        {
+            field: "FirstName",
+            title: "First Name"
+        },
+        {
+            field: "LastName",
+            title: "Last Name"
+    }],
+    dataSource: {
+        data: [
+            {
+                FirstName: "Joe",
+                LastName: "Smith"
+            },
+            {
+                FirstName: "Jane",
+                LastName: "Smith"
+        }]
+    }
+});
+$("#myAutoComplete").kendoAutoComplete(["Apples", "Oranges", "Grapes"]);
+}
+);
+</script>
