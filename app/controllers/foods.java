@@ -1,5 +1,5 @@
 package controllers;
 
-public class foods extends CLOUDPICRUD{
+public class foods extends CRUD{
 
 }
