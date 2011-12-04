@@ -5,26 +5,30 @@
 <div id="page">
 	<div id="page-bgtop">
 		<div id="content">
+		<div class="post" >
 		<!-- the main carousel  -->
 		<div id="flavor_2"></div>
-		<div class="post">
-				<p class="meta"><span class="date">Sunday, April 26, 2009</span> 7:27 AM Posted by <a href="#">Someone</a></p>
-				<h2 class="title"><a href="#">Welcome to Assiduous  </a></h2>
-				<div class="entry">
-					<p>This is <strong>Assiduous  </strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>, released for free under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5</a> license.  You're free to use this template for anything as long as you link back to <a href="http://www.freecsstemplates.org/">my site</a>. Enjoy :)</p>
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. </p>
-				</div>
-			</div>
+		</div>
 		#{list items:foods,as:'food'}
-		
 			<div class="post" >
 				
 				<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
 				<h2 class="title"><a href="@{Foods.show(food.id)}">${food.foodName}  </a></h2>
 				<div class="entry">
 					<p>
-					<strong>${food.discription}</strong>
+						<!--<div style="background: url(/public/images/${food.mainPicture}) no-repeat scroll 50% 50% transparent;height: 396px;">-->
+						
+						<div>
+							<strong>${food.discription}</strong>
+						</div>
+						<br><br><br>
+						<div style="overflow: hidden;height: 300px;">
+							<a href="@{Foods.show(food.id)}">
+									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}"> 
+							</a>
+						</div>
 					</p>
+					
 				</div>
 			</div>
 		#{/list}

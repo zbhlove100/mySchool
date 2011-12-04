@@ -241,8 +241,7 @@ hr { display: none; }
 /* Post */
 
 .post {
-	margin-bottom: 45px;
-	padding-bottom: 30px;
+	padding-bottom: 15px;
 	border-bottom: 1px solid #E0E0E0;
 }
 
@@ -285,8 +284,6 @@ hr { display: none; }
 
 .post .comments {
 	display: block;
-	width: 120px;
-	height: 18px;
 	margin: 0px; 
 	padding: 3px 0px 0px 40px;
 	background: #90BF35;

@@ -4,27 +4,27 @@
 	<div id="page-bgtop">
 		<div id="content">
 		<!-- the main carousel  -->
-		<div id="flavor_2"></div>
-		<div class="post">
-				<p class="meta"><span class="date">Sunday, April 26, 2009</span> 7:27 AM Posted by <a href="#">Someone</a></p>
-				<h2 class="title"><a href="#">Welcome to Assiduous  </a></h2>
-				<div class="entry">
-					<p>This is <strong>Assiduous  </strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>, released for free under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5</a> license.  You're free to use this template for anything as long as you link back to <a href="http://www.freecsstemplates.org/">my site</a>. Enjoy :)</p>
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. </p>
-				</div>
-			</div>
-		#{list items:foods,as:'food'}
 		
 			<div class="post">
 				<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
 				<h2 class="title"><a href="#">${food.foodName}  </a></h2>
+				<div style="overflow: hidden;height: 500px;">
+							<a href="@{Foods.show(food.id)}">
+									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}"> 
+							</a>
+						</div>
 				<div class="entry">
 					<p>
 					<strong>${food.discription}</strong>
 					</p>
 				</div>
+				<p class="meta"><strong>做法：</strong></p>
+				#{list items:food.foodMethods,as:'method'}
+				<div class="comments">
+					<strong>${method.step}</strong><p>${method.methodDetail}</p>
+				</div>
+				#{/list}
 			</div>
-		#{/list}
 		</div>
 		<!-- end #content -->
 		<div id="sidebar">
