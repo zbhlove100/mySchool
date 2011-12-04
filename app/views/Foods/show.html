@@ -1,7 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-
-
 <div id="page">
 	<div id="page-bgtop">
 		<div id="content">
@@ -17,10 +15,9 @@
 			</div>
 		#{list items:foods,as:'food'}
 		
-			<div class="post" >
-				
+			<div class="post">
 				<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
-				<h2 class="title"><a href="@{Foods.show(food.id)}">${food.foodName}  </a></h2>
+				<h2 class="title"><a href="#">${food.foodName}  </a></h2>
 				<div class="entry">
 					<p>
 					<strong>${food.discription}</strong>
@@ -70,35 +67,5 @@
 		<div style="clear: both;">&nbsp;</div>
 	</div>
 	<!-- end #page -->
-</div>
 
-<script type="text/javascript">
-$(function(){
-$.getJSON("@{'/public/javascripts/agile_carousel_data.php'}", function(data) {
-    $(document).ready(function(){
-        $("#flavor_2").agile_carousel({
-            
-            // required settings
-            
-            carousel_data: data,
-            carousel_outer_height: 330,
-            carousel_height: 230,
-            slide_height: 230,
-            carousel_outer_width: 600,
-            slide_width: 600,
-                                            
-            // end required settings
-                                            
-            transition_type: "fade",
-            transition_time: 600,
-            timer: 3000,
-            continuous_scrolling: true,
-            control_set_1: "numbered_buttons",
-            control_set_2: "content_buttons",
-            change_on_hover: "content_buttons"
-        });
-    });
-});
-}
-);
-</script>
+</div>
