@@ -4,15 +4,69 @@
 	<div id="page-bgtop">
 		<div id="content">
 		<!-- the main carousel  -->
+			<h2 id="foodtitle"><a href="#" >${food.foodName}  </a></h2>
+			<div class="show_img_mater clearfix">
+				<div class="show_img" >
+						<a href="@{Foods.show(food.id)}">
+									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}" height="500"> 
+							</a>
+				</div>
+			
+				<div class="show_mater">
+					<div class="show_mater_tips">
+					
+					</div>
+					<div class="show_mater_main">
+						<ul class="clearfix" style="clear: both;">
+							#{list items:mainMaterials,as:'material'}
+							<li class="show_mater_materli">
+								<a href="#">
+									<div class="clearfix"></div>
+									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<strong>${material.materialsName}</strong>
+									<em>${material.foodMaterials.foodMaterialsCount}</em> 
+								</a>
+							</li>
+							#{/list}
+						</ul>
+					</div>
+					<div class="show_mater_aux">
+						<ul class="clearfix" style="clear: both;">
+							<li class="show_mater_materli">
+								<a href="#">
+									<div class="clearfix"></div>
+									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<strong>色拉油</strong>
+									<em>适量</em> 
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 			<div class="post">
 				<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
-				<h2 class="title"><a href="#">${food.foodName}  </a></h2>
-				<div style="overflow: hidden;height: 500px;">
-							<a href="@{Foods.show(food.id)}">
-									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}"> 
-							</a>
-						</div>
+				
 				<div class="entry">
 					<p>
 					<strong>${food.discription}</strong>

@@ -448,3 +448,99 @@ hr { display: none; }
 
 #footer a {
 }
+
+
+
+
+/*food content*/
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+#foodtitle {
+	height: 50px;
+	background: url(images/img09.jpg) no-repeat left 3px;
+	padding-left: 40px;
+}
+#foodtitle a {
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 30px;
+	color: #64BC31;
+}
+#showContentPic{
+	
+}
+
+.show_img_mater{
+	margin-top: 15px;
+}
+.show_img{
+	float: left;
+    width: 280px;
+    overflow: hidden;
+}
+.show_mater{
+	float: left;
+    width: 310px;
+    margin-left: 20px;	
+}
+.show_mater_tips{
+	height: 100px;
+	background-color: gray;
+}
+.show_mater_main {
+	height: 100px;
+	margin-top: 20px;
+	background-color: #EDFFCF;
+}
+.show_mater_aux{
+	height: 300px;
+	margin-top: 20px;
+	background-color: #FFC596;
+}
+.show_mater_materli{
+    float: left;
+    height: 40px;
+    padding-bottom: 6px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 6px;
+    margin-left:5px;
+    width: 92px;
+	;
+}
+.show_mater ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.show_mater li{
+	float: left;
+}
+.show_mater li a{
+	display: block;
+    height: 40px;
+    width: 92px;
+}
+.show_mater li a img {
+    display: block;
+    float: left;
+    height: 40px;
+    width: 40px;
+}
+.show_mater li a strong {
+    color: #555555;
+    display: block;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    padding-left: 4px;
+    width: 48px;
+}
+.show_mater li a em {
+    color: #555555;
+    padding-left: 6px;
+}
