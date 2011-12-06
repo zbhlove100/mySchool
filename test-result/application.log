@@ -1,0 +1,336 @@
+06 Dec 2011 13:48:45,714 INFO  ~ Starting /home/zhangbohan/myLearn/webWrok/greatfood
+06 Dec 2011 13:48:45,716 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.crud)
+06 Dec 2011 13:48:45,716 INFO  ~ Module crud is available (/usr/local/play-1.2.2/modules/crud)
+06 Dec 2011 13:48:45,717 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.secure)
+06 Dec 2011 13:48:45,717 INFO  ~ Module secure is available (/usr/local/play-1.2.2/modules/secure)
+06 Dec 2011 13:48:46,169 WARN  ~ You're running Play! in DEV mode
+06 Dec 2011 13:48:46,286 INFO  ~ Listening for HTTP on port 9999 (Waiting a first request to start) ...
+06 Dec 2011 13:48:51,423 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
+06 Dec 2011 13:48:52,012 INFO  ~ Application 'great food' is now started !
+06 Dec 2011 14:03:38,904 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 14:03:52,881 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 14:03:52,885 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 14:05:57,910 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 14:05:57,927 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 14:05:57,930 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 14:07:21,783 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 14:07:21,787 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 14:07:21,789 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 14:32:28,011 ERROR ~ 
+
+@68j5g93ja
+Internal Server Error (500) for request GET /@tests/init
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Materials.food_materials_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Materials.food_materials_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:32:28,129 ERROR ~ 
+
+@68j5g93jb
+Internal Server Error (500) for request GET /@tests?select=BasicTest.class
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Materials.food_materials_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Materials.food_materials_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:32:28,218 ERROR ~ 
+
+@68j5g93jc
+Internal Server Error (500) for request GET /@tests/end?result=passed
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Materials.food_materials_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Materials.food_materials_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:36:48,439 ERROR ~ 
+
+@68j5g93jd
+Internal Server Error (500) for request GET /@tests?select=BasicTest.class
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Materials.food_materials_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Materials.food_materials_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:36:59,804 ERROR ~ 
+
+@68j5g93je
+Internal Server Error (500) for request GET /@tests?select=BasicTest.class
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Materials.materials_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Materials.materials_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:37:06,639 ERROR ~ 
+
+@68j5g93jf
+Internal Server Error (500) for request GET /@tests?select=BasicTest.class
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): Map key property not found: models.Food.food_id
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:231)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:425)
+	at play.Play.start(Play.java:492)
+	at play.Play.detectChanges(Play.java:607)
+	at play.Invoker$Invocation.init(Invoker.java:186)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: Map key property not found: models.Food.food_id
+	at org.hibernate.cfg.annotations.MapBinder.bindKeyFromAssociationTable(MapBinder.java:142)
+	at org.hibernate.cfg.annotations.MapBinder.access$000(MapBinder.java:78)
+	at org.hibernate.cfg.annotations.MapBinder$1.secondPass(MapBinder.java:117)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1686)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1393)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1345)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1477)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1096)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:900)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:229)
+	... 5 more
+06 Dec 2011 14:51:42,258 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 14:51:42,261 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 14:51:42,262 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 14:51:42,264 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,736 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,742 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:06:44,744 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,745 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,746 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,747 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:06:44,881 DEBUG ~ select food0_.id as id115_, food0_.created_at as created2_115_, food0_.day_type as day3_115_, food0_.discription as discript4_115_, food0_.food_name as food5_115_, food0_.main_picture as main6_115_, food0_.owner as owner115_, food0_.removed_at as removed8_115_, food0_.state as state115_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:07:03,901 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:07:03,904 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:07:03,905 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:07:03,907 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:07:03,909 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:07:03,911 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:07:03,913 DEBUG ~ select food0_.id as id115_, food0_.created_at as created2_115_, food0_.day_type as day3_115_, food0_.discription as discript4_115_, food0_.food_name as food5_115_, food0_.main_picture as main6_115_, food0_.owner as owner115_, food0_.removed_at as removed8_115_, food0_.state as state115_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:07:03,920 DEBUG ~ select foodviewlo0_.id as id112_1_, foodviewlo0_.comment_times as comment2_112_1_, foodviewlo0_.cook_times as cook3_112_1_, foodviewlo0_.favorite_times as favorite4_112_1_, foodviewlo0_.food_id as food6_112_1_, foodviewlo0_.view_times as view5_112_1_, food1_.id as id115_0_, food1_.created_at as created2_115_0_, food1_.day_type as day3_115_0_, food1_.discription as discript4_115_0_, food1_.food_name as food5_115_0_, food1_.main_picture as main6_115_0_, food1_.owner as owner115_0_, food1_.removed_at as removed8_115_0_, food1_.state as state115_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:07:03,923 DEBUG ~ select foodmateri0_.food_id as food4_115_2_, foodmateri0_.id as id2_, foodmateri0_.id as id113_1_, foodmateri0_.food_id as food4_113_1_, foodmateri0_.food_materials_count as food2_113_1_, foodmateri0_.food_materials_type as food3_113_1_, foodmateri0_.food_materials_id as food5_113_1_, materials1_.id as id114_0_, materials1_.discription as discript2_114_0_, materials1_.materials_name as materials3_114_0_, materials1_.materials_nutrition as materials4_114_0_, materials1_.materials_picture as materials5_114_0_, materials1_.other_names as other6_114_0_ from food_materials foodmateri0_ left outer join materials materials1_ on foodmateri0_.food_materials_id=materials1_.id where foodmateri0_.food_id=?
+06 Dec 2011 15:08:10,081 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:10,084 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:08:10,085 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:10,087 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:10,089 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:08:10,091 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:08:10,093 DEBUG ~ select food0_.id as id115_, food0_.created_at as created2_115_, food0_.day_type as day3_115_, food0_.discription as discript4_115_, food0_.food_name as food5_115_, food0_.main_picture as main6_115_, food0_.owner as owner115_, food0_.removed_at as removed8_115_, food0_.state as state115_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:08:10,094 DEBUG ~ select foodviewlo0_.id as id112_1_, foodviewlo0_.comment_times as comment2_112_1_, foodviewlo0_.cook_times as cook3_112_1_, foodviewlo0_.favorite_times as favorite4_112_1_, foodviewlo0_.food_id as food6_112_1_, foodviewlo0_.view_times as view5_112_1_, food1_.id as id115_0_, food1_.created_at as created2_115_0_, food1_.day_type as day3_115_0_, food1_.discription as discript4_115_0_, food1_.food_name as food5_115_0_, food1_.main_picture as main6_115_0_, food1_.owner as owner115_0_, food1_.removed_at as removed8_115_0_, food1_.state as state115_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:08:10,095 DEBUG ~ select foodmateri0_.food_id as food4_115_2_, foodmateri0_.id as id2_, foodmateri0_.id as id113_1_, foodmateri0_.food_id as food4_113_1_, foodmateri0_.food_materials_count as food2_113_1_, foodmateri0_.food_materials_type as food3_113_1_, foodmateri0_.food_materials_id as food5_113_1_, materials1_.id as id114_0_, materials1_.discription as discript2_114_0_, materials1_.materials_name as materials3_114_0_, materials1_.materials_nutrition as materials4_114_0_, materials1_.materials_picture as materials5_114_0_, materials1_.other_names as other6_114_0_ from food_materials foodmateri0_ left outer join materials materials1_ on foodmateri0_.food_materials_id=materials1_.id where foodmateri0_.food_id=?
+06 Dec 2011 15:08:24,731 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:24,734 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:08:24,735 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:24,737 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:08:24,739 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:08:24,741 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:08:24,743 DEBUG ~ select food0_.id as id115_, food0_.created_at as created2_115_, food0_.day_type as day3_115_, food0_.discription as discript4_115_, food0_.food_name as food5_115_, food0_.main_picture as main6_115_, food0_.owner as owner115_, food0_.removed_at as removed8_115_, food0_.state as state115_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:08:24,744 DEBUG ~ select foodviewlo0_.id as id112_1_, foodviewlo0_.comment_times as comment2_112_1_, foodviewlo0_.cook_times as cook3_112_1_, foodviewlo0_.favorite_times as favorite4_112_1_, foodviewlo0_.food_id as food6_112_1_, foodviewlo0_.view_times as view5_112_1_, food1_.id as id115_0_, food1_.created_at as created2_115_0_, food1_.day_type as day3_115_0_, food1_.discription as discript4_115_0_, food1_.food_name as food5_115_0_, food1_.main_picture as main6_115_0_, food1_.owner as owner115_0_, food1_.removed_at as removed8_115_0_, food1_.state as state115_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:08:24,745 DEBUG ~ select foodmateri0_.food_id as food4_115_2_, foodmateri0_.id as id2_, foodmateri0_.id as id113_1_, foodmateri0_.food_id as food4_113_1_, foodmateri0_.food_materials_count as food2_113_1_, foodmateri0_.food_materials_type as food3_113_1_, foodmateri0_.food_materials_id as food5_113_1_, materials1_.id as id114_0_, materials1_.discription as discript2_114_0_, materials1_.materials_name as materials3_114_0_, materials1_.materials_nutrition as materials4_114_0_, materials1_.materials_picture as materials5_114_0_, materials1_.other_names as other6_114_0_ from food_materials foodmateri0_ left outer join materials materials1_ on foodmateri0_.food_materials_id=materials1_.id where foodmateri0_.food_id=?
+06 Dec 2011 15:13:42,917 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:13:42,920 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:14:39,529 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:14:39,532 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:14:39,534 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:14:39,535 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:14:39,536 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:14:39,537 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:14:39,540 DEBUG ~ select food0_.id as id128_, food0_.created_at as created2_128_, food0_.day_type as day3_128_, food0_.discription as discript4_128_, food0_.food_name as food5_128_, food0_.main_picture as main6_128_, food0_.owner as owner128_, food0_.removed_at as removed8_128_, food0_.state as state128_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:14:39,547 DEBUG ~ select foodmateri0_.id as id126_0_, materials1_.id as id127_1_, foodmateri0_.food_id as food4_126_0_, foodmateri0_.food_materials_count as food2_126_0_, foodmateri0_.food_materials_type as food3_126_0_, foodmateri0_.food_materials_id as food5_126_0_, materials1_.discription as discript2_127_1_, materials1_.materials_name as materials3_127_1_, materials1_.materials_nutrition as materials4_127_1_, materials1_.materials_picture as materials5_127_1_, materials1_.other_names as other6_127_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:15:09,117 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:15:09,120 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:15:09,121 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:15:09,123 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:15:09,125 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:15:09,126 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:15:09,127 DEBUG ~ select food0_.id as id128_, food0_.created_at as created2_128_, food0_.day_type as day3_128_, food0_.discription as discript4_128_, food0_.food_name as food5_128_, food0_.main_picture as main6_128_, food0_.owner as owner128_, food0_.removed_at as removed8_128_, food0_.state as state128_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:15:09,130 DEBUG ~ select foodviewlo0_.id as id125_1_, foodviewlo0_.comment_times as comment2_125_1_, foodviewlo0_.cook_times as cook3_125_1_, foodviewlo0_.favorite_times as favorite4_125_1_, foodviewlo0_.food_id as food6_125_1_, foodviewlo0_.view_times as view5_125_1_, food1_.id as id128_0_, food1_.created_at as created2_128_0_, food1_.day_type as day3_128_0_, food1_.discription as discript4_128_0_, food1_.food_name as food5_128_0_, food1_.main_picture as main6_128_0_, food1_.owner as owner128_0_, food1_.removed_at as removed8_128_0_, food1_.state as state128_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:15:09,133 DEBUG ~ select foodmateri0_.id as id126_0_, materials1_.id as id127_1_, foodmateri0_.food_id as food4_126_0_, foodmateri0_.food_materials_count as food2_126_0_, foodmateri0_.food_materials_type as food3_126_0_, foodmateri0_.food_materials_id as food5_126_0_, materials1_.discription as discript2_127_1_, materials1_.materials_name as materials3_127_1_, materials1_.materials_nutrition as materials4_127_1_, materials1_.materials_picture as materials5_127_1_, materials1_.other_names as other6_127_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:16:04,004 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:04,005 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:16:04,006 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:04,007 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:04,008 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:04,009 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:04,012 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:16:04,036 DEBUG ~ select foodmateri0_.id as id139_0_, materials1_.id as id140_1_, foodmateri0_.food_id as food4_139_0_, foodmateri0_.food_materials_count as food2_139_0_, foodmateri0_.food_materials_type as food3_139_0_, foodmateri0_.food_materials_id as food5_139_0_, materials1_.discription as discript2_140_1_, materials1_.materials_name as materials3_140_1_, materials1_.materials_nutrition as materials4_140_1_, materials1_.materials_picture as materials5_140_1_, materials1_.other_names as other6_140_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:16:46,856 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:46,858 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:16:46,860 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:46,862 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:46,864 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:46,865 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:46,866 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:16:46,868 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:16:46,868 DEBUG ~ select foodmateri0_.id as id139_0_, materials1_.id as id140_1_, foodmateri0_.food_id as food4_139_0_, foodmateri0_.food_materials_count as food2_139_0_, foodmateri0_.food_materials_type as food3_139_0_, foodmateri0_.food_materials_id as food5_139_0_, materials1_.discription as discript2_140_1_, materials1_.materials_name as materials3_140_1_, materials1_.materials_nutrition as materials4_140_1_, materials1_.materials_picture as materials5_140_1_, materials1_.other_names as other6_140_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:16:51,407 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:51,409 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:16:51,411 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:51,412 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:16:51,414 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:51,415 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:16:51,416 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:16:51,418 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:16:51,418 DEBUG ~ select foodmateri0_.id as id139_0_, materials1_.id as id140_1_, foodmateri0_.food_id as food4_139_0_, foodmateri0_.food_materials_count as food2_139_0_, foodmateri0_.food_materials_type as food3_139_0_, foodmateri0_.food_materials_id as food5_139_0_, materials1_.discription as discript2_140_1_, materials1_.materials_name as materials3_140_1_, materials1_.materials_nutrition as materials4_140_1_, materials1_.materials_picture as materials5_140_1_, materials1_.other_names as other6_140_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:17:34,560 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:17:34,562 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:17:34,564 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:17:34,565 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:17:34,567 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:17:34,569 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:17:34,571 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:17:34,575 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:17:34,575 DEBUG ~ select foodmateri0_.id as id139_0_, materials1_.id as id140_1_, foodmateri0_.food_id as food4_139_0_, foodmateri0_.food_materials_count as food2_139_0_, foodmateri0_.food_materials_type as food3_139_0_, foodmateri0_.food_materials_id as food5_139_0_, materials1_.discription as discript2_140_1_, materials1_.materials_name as materials3_140_1_, materials1_.materials_nutrition as materials4_140_1_, materials1_.materials_picture as materials5_140_1_, materials1_.other_names as other6_140_1_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:21:19,078 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:19,081 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:21:19,083 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:19,084 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:19,086 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:21:19,088 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:21:19,090 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:21:19,094 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:21:19,102 DEBUG ~ select materials0_.id as id140_, materials0_.discription as discript2_140_, materials0_.materials_name as materials3_140_, materials0_.materials_nutrition as materials4_140_, materials0_.materials_picture as materials5_140_, materials0_.other_names as other6_140_ from materials materials0_ where materials0_.id=?
+06 Dec 2011 15:21:34,901 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:34,904 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:21:34,905 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:34,907 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:21:34,909 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:21:34,910 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:21:34,912 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:21:34,915 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:21:34,916 DEBUG ~ select materials0_.id as id140_, materials0_.discription as discript2_140_, materials0_.materials_name as materials3_140_, materials0_.materials_nutrition as materials4_140_, materials0_.materials_picture as materials5_140_, materials0_.other_names as other6_140_ from materials materials0_ where materials0_.id=?
+06 Dec 2011 15:26:03,780 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:03,783 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:26:03,784 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:03,785 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:03,786 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:03,787 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:03,787 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:26:03,789 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:26:03,795 DEBUG ~ select foodmateri0_.id as id139_, foodmateri0_.food_id as food4_139_, foodmateri0_.food_materials_count as food2_139_, foodmateri0_.food_materials_type as food3_139_, foodmateri0_.food_materials_id as food5_139_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:26:15,692 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:15,695 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:26:15,697 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:15,699 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:15,701 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:15,705 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:15,712 DEBUG ~ select food0_.id as id141_, food0_.created_at as created2_141_, food0_.day_type as day3_141_, food0_.discription as discript4_141_, food0_.food_name as food5_141_, food0_.main_picture as main6_141_, food0_.owner as owner141_, food0_.removed_at as removed8_141_, food0_.state as state141_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:26:15,716 DEBUG ~ select foodviewlo0_.id as id138_1_, foodviewlo0_.comment_times as comment2_138_1_, foodviewlo0_.cook_times as cook3_138_1_, foodviewlo0_.favorite_times as favorite4_138_1_, foodviewlo0_.food_id as food6_138_1_, foodviewlo0_.view_times as view5_138_1_, food1_.id as id141_0_, food1_.created_at as created2_141_0_, food1_.day_type as day3_141_0_, food1_.discription as discript4_141_0_, food1_.food_name as food5_141_0_, food1_.main_picture as main6_141_0_, food1_.owner as owner141_0_, food1_.removed_at as removed8_141_0_, food1_.state as state141_0_ from food_viewlog foodviewlo0_ left outer join food food1_ on foodviewlo0_.food_id=food1_.id where foodviewlo0_.food_id=?
+06 Dec 2011 15:26:15,725 DEBUG ~ select materials1_.id as id140_, materials1_.discription as discript2_140_, materials1_.materials_name as materials3_140_, materials1_.materials_nutrition as materials4_140_, materials1_.materials_picture as materials5_140_, materials1_.other_names as other6_140_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:26:28,644 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:28,647 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:26:28,648 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:28,650 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:26:28,652 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:28,653 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:26:28,656 DEBUG ~ select food0_.id as id154_, food0_.created_at as created2_154_, food0_.day_type as day3_154_, food0_.discription as discript4_154_, food0_.food_name as food5_154_, food0_.main_picture as main6_154_, food0_.owner as owner154_, food0_.removed_at as removed8_154_, food0_.state as state154_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:26:28,662 DEBUG ~ select materials1_.id as id153_, materials1_.discription as discript2_153_, materials1_.materials_name as materials3_153_, materials1_.materials_nutrition as materials4_153_, materials1_.materials_picture as materials5_153_, materials1_.other_names as other6_153_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?
+06 Dec 2011 15:28:42,738 DEBUG ~ insert into food (id, created_at, day_type, discription, food_name, main_picture, owner, removed_at, state) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+06 Dec 2011 15:28:42,740 DEBUG ~ update food set created_at=?, day_type=?, discription=?, food_name=?, main_picture=?, owner=?, removed_at=?, state=? where id=?
+06 Dec 2011 15:28:42,742 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:28:42,743 DEBUG ~ insert into materials (id, discription, materials_name, materials_nutrition, materials_picture, other_names) values (null, ?, ?, ?, ?, ?)
+06 Dec 2011 15:28:42,745 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:28:42,745 DEBUG ~ insert into food_materials (id, food_id, food_materials_count, food_materials_type, food_materials_id) values (null, ?, ?, ?, ?)
+06 Dec 2011 15:28:42,748 DEBUG ~ select food0_.id as id167_, food0_.created_at as created2_167_, food0_.day_type as day3_167_, food0_.discription as discript4_167_, food0_.food_name as food5_167_, food0_.main_picture as main6_167_, food0_.owner as owner167_, food0_.removed_at as removed8_167_, food0_.state as state167_ from food food0_ where food0_.food_name=? limit ?
+06 Dec 2011 15:28:42,752 DEBUG ~ select materials1_.id as id166_, materials1_.discription as discript2_166_, materials1_.materials_name as materials3_166_, materials1_.materials_nutrition as materials4_166_, materials1_.materials_picture as materials5_166_, materials1_.other_names as other6_166_ from food_materials foodmateri0_ cross join materials materials1_ where foodmateri0_.food_id=? and foodmateri0_.food_materials_id=materials1_.id and foodmateri0_.food_materials_type=?

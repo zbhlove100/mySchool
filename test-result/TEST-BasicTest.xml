@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="1" time="0.017" errors="0" skipped="0" tests="1" name="BasicTest">
+  <testcase classname="BasicTest" name="aVeryImportantThingToTest" time="0">
+      </testcase>
+  <testcase classname="BasicTest" name="foodMaterialsManyToManyTest" time="0.017">
+                  <failure type="" message="Failure, expected:&lt;mater[1]&gt; but was:&lt;mater[2]&gt;">
+        <![CDATA[
+          In /test/BasicTest.java, line 48
+          
+                      	assertEquals("mater1", m.materialsName); :
+          
+        ]]>
+        </failure>
+        }
+                  </testcase>
+</testsuite>

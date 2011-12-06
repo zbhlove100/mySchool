@@ -3,11 +3,21 @@ package models;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKey;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.MapKeyManyToMany;
 
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
@@ -44,25 +54,5 @@ public class Food extends Model implements Serializable{
 
 	
 	
-	public Food(Long id,String foodName) {
-		this.id = id;
-		this.foodName = foodName;
-	}
-
-
-
-	public Food(Long id,String foodName,  String discription,
-			Date createdAt, Date removedAt, String state, String mainPicture,
-			String dayType, FoodViewlog foodViewlogs,
-			List<FoodMaterials> foodMaterials, List<FoodMethod> foodMethods) {
-		this.id = id;
-		this.foodName = foodName;
-		this.discription = discription;
-		this.createdAt = createdAt;
-		this.removedAt = removedAt;
-		this.state = state;
-		this.mainPicture = mainPicture;
-		this.dayType = dayType;
-	}
 	
 }
