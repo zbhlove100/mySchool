@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Food;
+import models.FoodViewlog;
 import models.Materials;
 
 public class Foods extends BasicCrud{
@@ -14,12 +15,21 @@ public class Foods extends BasicCrud{
 		public static void show(Long id){
 			
 			Food food = Food.findById(id);
+			if(food.foodViewlogs==null){
+				FoodViewlog foodViewlog = new FoodViewlog();
+				foodViewlog.food = food;
+				foodViewlog.save();
+				food.foodViewlogs = foodViewlog;
+			}
+			food.foodViewlogs.viewTimes++;
+			food.foodViewlogs.save();
 			List<Materials> mainMaterials = Materials.find("select B from FoodMaterials A ,Materials B where A.food.id=? and A.material.id = B.id and A.foodMaterialsType=?",
 	        		id,"main").fetch();
 			List<Materials> auxMaterials =  Materials.find("select B from FoodMaterials A ,Materials B where A.food.id=? and A.material.id = B.id and A.foodMaterialsType=?",
 					id,"auxiliary").fetch();
 			List<Materials> seaMaterials =  Materials.find("select B from FoodMaterials A ,Materials B where A.food.id=? and A.material.id = B.id and A.foodMaterialsType=?",
 					id,"seasoning").fetch();
+			
 			
 			renderArgs.put("mainMaterials", mainMaterials);
 			renderArgs.put("auxMaterials", auxMaterials);

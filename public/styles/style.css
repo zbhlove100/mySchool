@@ -284,16 +284,15 @@ hr { display: none; }
 
 .post .comments {
 	display: block;
-	margin: 0px; 
+	margin: 2px; 
 	padding: 3px 0px 0px 40px;
-	background: #90BF35;
+	background: #D1F9F6;
 	border: 1px solid #5F817E;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	text-decoration: none;
 	font-weight: bold;
-	color: #FFFFFF;
 }
 
 /* Sidebar */
@@ -482,24 +481,56 @@ hr { display: none; }
     width: 280px;
     overflow: hidden;
 }
+.show_food_scoure{
+	height: 70px;
+	border-style: solid;
+	border-width: 1px;
+}
+.show_food_scoure .view_times{
+	text-align:center;
+	height: 30px;
+	width: 265px;
+	margin-right: 5px;
+	padding-left: 5px;
+}
+.show_food_scoure .view_times span{
+	font-size:15px;
+	border-right-style: dotted;
+	border-right-width: 1px;
+}
+.show_food_scoure .favorite_area{
+	height:35px;
+	width: 265px;
+	margin-top:5px;
+	margin-right: 5px;
+}
 .show_mater{
 	float: left;
     width: 310px;
     margin-left: 20px;	
 }
+
 .show_mater_tips{
 	height: 100px;
 	background-color: gray;
 }
 .show_mater_main {
-	height: 100px;
+	height: 120px;
 	margin-top: 20px;
-	background-color: #EDFFCF;
+	border-style:solid;
+	border-color:gray;
+	border-width:1px;
+	padding-left: 15px;
+	padding-top: 5px;
 }
 .show_mater_aux{
 	height: 300px;
 	margin-top: 20px;
-	background-color: #FFC596;
+	border-style:solid;
+	border-color:gray;
+	border-width:1px;
+	padding-left: 15px;
+	padding-top: 5px;
 }
 .show_mater_materli{
     float: left;
@@ -544,3 +575,36 @@ hr { display: none; }
     color: #555555;
     padding-left: 6px;
 }
+
+
+/*start*/
+.jsstar  
+
+{  list-style: none;  
+
+margin: 0px;  
+
+padding: 0px;  
+
+width: 100px;  
+
+height: 20px;  
+
+position: relative;   }  
+
+.jsstar li    { 
+
+ padding:0px;  
+
+margin: 0px;  
+
+float: left;   
+
+width:20px;  
+
+height:20px;  
+
+background:url(star_rating.gif) 0 0 no-repeat;  }  
+
+
+

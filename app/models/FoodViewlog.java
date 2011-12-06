@@ -20,4 +20,14 @@ public class FoodViewlog extends Model {
 	public int cookTimes;
 	
 	public int commentTimes;
+
+	public FoodViewlog() {
+		super();
+		this.viewTimes = 0;
+		this.favoriteTimes = 0;
+		this.cookTimes = 0;
+		this.commentTimes = 0;
+	}
+	
+	
 }

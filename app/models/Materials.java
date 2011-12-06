@@ -23,7 +23,7 @@ public class Materials  extends Model{
 
 	public String materialsName;
 	
-	public String otherNames;
+	public String otherName;
 	
 	public String discription;
 	

@@ -5,11 +5,22 @@
 		<div id="content">
 		<!-- the main carousel  -->
 			<h2 id="foodtitle"><a href="#" >${food.foodName}  </a></h2>
+			
+			<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
 			<div class="show_img_mater clearfix">
 				<div class="show_img" >
 						<a href="@{Foods.show(food.id)}">
-									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}" height="500"> 
+									 <img  alt="${food.foodName}" src="@{'/public/images/'}/${food.mainPicture}" height="500" width="300"> 
 							</a>
+							<div class="show_food_scoure">
+								<div class="view_times">
+								<span><strong>${food.foodViewlogs.viewTimes} 浏览</strong></span>
+								<span><strong>${food.foodViewlogs.favoriteTimes} 喜欢</strong></span>
+								<span><strong>${food.foodViewlogs.cookTimes} 做过</strong></span>
+								</div>
+								<div class="favorite_area">
+								</div>
+							</div>
 				</div>
 			
 				<div class="show_mater">
@@ -17,6 +28,7 @@
 					
 					</div>
 					<div class="show_mater_main">
+						<div style="height: 20px;"><strong>主料</strong></div>
 						<ul class="clearfix" style="clear: both;">
 							#{list items:mainMaterials,as:'material'}
 							<li class="show_mater_materli">
@@ -31,51 +43,50 @@
 						</ul>
 					</div>
 					<div class="show_mater_aux">
+						<div style="height: 20px;"><strong>辅料</strong></div>
 						<ul class="clearfix" style="clear: both;">
+							#{list items:auxMaterials,as:'material'}
 							<li class="show_mater_materli">
 								<a href="#">
 									<div class="clearfix"></div>
 									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
-									<strong>色拉油</strong>
-									<em>适量</em> 
+									<strong>${material.materialsName}</strong>
+									<em>${material.foodMaterials.foodMaterialsCount}</em> 
 								</a>
 							</li>
+							#{/list}
+						</ul>
+						<div style="height: 20px;"><strong>调料</strong></div>
+						<ul class="clearfix" style="clear: both;">
+							#{list items:seaMaterials,as:'material'}
+							<li class="show_mater_materli">
+								<a href="#">
+									<div class="clearfix"></div>
+									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<strong>${material.materialsName}</strong>
+									<em>${material.foodMaterials.foodMaterialsCount}</em> 
+								</a>
+							</li>
+							#{/list}
 						</ul>
 					</div>
 				</div>
 			</div>
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 			<div class="post">
-				<p class="meta"><span class="date">${food.createdAt}</span>  Posted by <a href="#">Someone</a></p>
 				
-				<div class="entry">
+				
+				<div class="entry" >
+				<p class="meta"><strong style="font-size: 20px;">简介：</strong></p>
 					<p>
 					<strong>${food.discription}</strong>
 					</p>
 				</div>
-				<p class="meta"><strong>做法：</strong></p>
+				<p class="meta"><strong style="font-size: 20px;">做法：</strong></p>
 				#{list items:food.foodMethods,as:'method'}
 				<div class="comments">
-					<strong>${method.step}</strong><p>${method.methodDetail}</p>
+					<p><strong>${method.step} : </strong> ${method.methodDetail}</p>
 				</div>
 				#{/list}
 			</div>

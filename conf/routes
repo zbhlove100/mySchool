@@ -2,10 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-*     /admin           					module:crud
+*     /           					module:crud
 
 # Home page
-GET     /                                       Application.index
+# GET     /                                       Application.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -21,4 +21,4 @@ GET     /public/                                staticDir:public
 
 #foods
 
-GET    /foods                            Foods.index
+GET    /                            Foods.index
