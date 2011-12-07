@@ -43,6 +43,8 @@ public class Food extends Model implements Serializable{
 	
 	public String dayType;
 	
+	public int rating;
+	
 	@OneToOne(mappedBy="food")
 	public FoodViewlog foodViewlogs;
 	

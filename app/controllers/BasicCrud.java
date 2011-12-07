@@ -1,15 +1,68 @@
 package controllers;
 
 import java.lang.reflect.Constructor;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import play.data.binding.Binder;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
 import play.i18n.Messages;
-import controllers.CRUD.ObjectType;
 
 public class BasicCrud extends CRUD {
+	
+    private static String allMessage(String message){
+        
+   	 Object msgs = renderArgs.get("message");
+       
+   	 String allmessages = "";
+   	 
+       if(msgs != null){
+       	if(renderArgs.get("clear") != null){
+       		message = null;
+       	}
+       	if(msgs instanceof String){
+       		allmessages = String.format("%s<br>%s", msgs,(message==null? "":message)); 
+       	}else if(msgs instanceof List){
+       		List msglist = (List)msgs;
+       		
+       		if(message != null){
+       			msglist.add(message);
+       		}
+       		for(Object msg:msglist){
+       			allmessages = String.format("%s<br>%s", allmessages,msg);
+       		}
+       	}
+        }else{
+       	 allmessages = message;
+        }    	
+       return allmessages;
+   }
+   
+   protected static Map jsonError(String message){
+   	return jsonMessage("300",message);
+   }   
+   
+   protected static Map jsonMessage(String message){
+   	return jsonMessage("200",message);
+   }
+   
+   protected static Map jsonMessage(String code,String message){
+   	
+       Map map = new HashMap();     
+       map.put( "statusCode", code);
+      
+       String allmessages = allMessage(message);
+                
+       if(!"".equals(allmessages))
+      	 map.put( "message", allmessages);       
+       
+       return map;
+       //Gson gson = new Gson();
+       //String json = gson.toJson(map);
+       //return json;
+   }
 	public static void index() {
         if (getControllerClass() == CRUD.class) {
             forbidden();

@@ -1,5 +1,15 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<script type="text/javascript">
+<!--
+
+//-->
+$(function(){
+	var starValue = $("starValue").val();
+	$('.star').rating('select',parseInt(starValue));
+	$('.star').rating('readOnly',true); 
+});
+</script>
 <input name="star1" type="radio" class="star"/>
 <input name="star1" type="radio" class="star"/>
 <input name="star1" type="radio" class="star"/>

@@ -1,5 +1,15 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<script type="text/javascript">
+<!--
+
+//-->
+$(function(){
+	var starValue = $("starValue").val();
+	$('.star').rating('select',parseInt(starValue));
+	$('.star').rating('readOnly',true); 
+});
+</script>
 <div id="page">
 	<div id="page-bgtop">
 		<div id="content">
@@ -14,11 +24,17 @@
 							</a>
 							<div class="show_food_scoure">
 								<div class="view_times">
-								<span><strong>${food.foodViewlogs.viewTimes} 浏览</strong></span>
-								<span><strong>${food.foodViewlogs.favoriteTimes} 喜欢</strong></span>
-								<span><strong>${food.foodViewlogs.cookTimes} 做过</strong></span>
+								<span><strong>${food.foodViewlogs.viewTimes} <a href="#">浏览</a></strong></span>
+								<span><strong>${food.foodViewlogs.favoriteTimes} <a href="@{Foods.favorAction('fav',food.id)}">喜欢</a></strong></span>
+								<span><strong>${food.foodViewlogs.cookTimes} <a href="@{Foods.favorAction('cook',food.id)}">做过</a> </strong></span>
 								</div>
 								<div class="favorite_area">
+									<input name="starValue" type="hidden" value="${food.rating==null?0:food.rating}"/>
+									<input name="star1" type="radio" class="star"/>
+									<input name="star1" type="radio" class="star"/>
+									<input name="star1" type="radio" class="star"/>
+									<input name="star1" type="radio" class="star"/>
+									<input name="star1" type="radio" class="star"/>
 								</div>
 							</div>
 				</div>

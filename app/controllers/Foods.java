@@ -8,6 +8,9 @@ import models.Materials;
 
 public class Foods extends BasicCrud{
 		
+		private static String FAVORATE= "fav";
+		private static String COOKED= "cook";
+		
 		public static void index(){
 			List<Food> foods = Food.find("order by createdAt desc").fetch(5);
 			render(foods);
@@ -36,6 +39,16 @@ public class Foods extends BasicCrud{
 			renderArgs.put("seaMaterials", seaMaterials);
 			
 			render(food);
+		}
+		public static void favorAction(String ac,Long id){
+			Food food = Food.findById(id);
+			if(FAVORATE.equals(ac)){
+				food.foodViewlogs.favoriteTimes ++;
+			}else if(COOKED.equals(ac)){
+				food.foodViewlogs.cookTimes ++;
+			}
+			food.foodViewlogs.save();
+			renderJSON(jsonMessage("SUCCESS"));
 		}
 	    public static void rating() {
 	        render();
