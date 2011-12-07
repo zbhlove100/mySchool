@@ -497,12 +497,35 @@ hr { display: none; }
 	font-size:15px;
 	border-right-style: dotted;
 	border-right-width: 1px;
+	padding-right: 5px;
 }
 .show_food_scoure .favorite_area{
 	height:35px;
 	width: 265px;
 	margin-top:5px;
 	margin-right: 5px;
+	padding-left: 50px;
+}
+.show_food_scoure .favorite_area .star_area{
+	float:left;
+	height:35px;
+	width: 100px;
+}
+.show_food_scoure .favorite_area .star_button{
+	float:left;
+	height:35px;
+	width: 80px;
+}
+.show_food_scoure .favorite_area .star_button a{
+	height:22px;
+	width: 75px;
+	display:block;
+	padding-left:5px;
+	background-color: #FD5F04;
+	text-decoration: none;
+}
+.show_food_scoure .favorite_area .star_button a:HOVER{
+	background-color: #F9894D;
 }
 .show_mater{
 	float: left;
@@ -512,7 +535,17 @@ hr { display: none; }
 
 .show_mater_tips{
 	height: 100px;
-	background-color: gray;
+	
+}
+.show_mater_tips .food_message{
+	float:left;
+	height: 30px;
+	width:130px;
+	margin:0 5px 5px 15px;
+	border-bottom-style:solid;
+	border-right-style:dotted;
+	border-width:1px;
+	background-color: #D4FBFC;
 }
 .show_mater_main {
 	height: 120px;
@@ -576,7 +609,10 @@ hr { display: none; }
     padding-left: 6px;
 }
 
-
+/* corner mark */
+.make_corner{
+	
+}
 /*start*/
 .jsstar  
 

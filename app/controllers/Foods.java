@@ -40,7 +40,9 @@ public class Foods extends BasicCrud{
 			
 			render(food);
 		}
-		public static void favorAction(String ac,Long id){
+		public static void favor(String ac,Long id){
+			
+			System.err.println("================="+id);
 			Food food = Food.findById(id);
 			if(FAVORATE.equals(ac)){
 				food.foodViewlogs.favoriteTimes ++;
@@ -48,9 +50,9 @@ public class Foods extends BasicCrud{
 				food.foodViewlogs.cookTimes ++;
 			}
 			food.foodViewlogs.save();
-			renderJSON(jsonMessage("SUCCESS"));
+			show(id);
 		}
 	    public static void rating() {
-	        render();
+	        renderJSON(jsonMessage(""));
 	    }
 }

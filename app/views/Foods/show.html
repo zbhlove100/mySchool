@@ -1,15 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-<script type="text/javascript">
-<!--
 
-//-->
-$(function(){
-	var starValue = $("starValue").val();
-	$('.star').rating('select',parseInt(starValue));
-	$('.star').rating('readOnly',true); 
-});
-</script>
 <div id="page">
 	<div id="page-bgtop">
 		<div id="content">
@@ -25,25 +16,36 @@ $(function(){
 							<div class="show_food_scoure">
 								<div class="view_times">
 								<span><strong>${food.foodViewlogs.viewTimes} <a href="#">浏览</a></strong></span>
-								<span><strong>${food.foodViewlogs.favoriteTimes} <a href="@{Foods.favorAction('fav',food.id)}">喜欢</a></strong></span>
-								<span><strong>${food.foodViewlogs.cookTimes} <a href="@{Foods.favorAction('cook',food.id)}">做过</a> </strong></span>
+								<span><strong>${food.foodViewlogs.favoriteTimes} <a href="@{Foods.show(food.id)}">喜欢</a></strong></span>
+								<span><strong>${food.foodViewlogs.cookTimes} <a href="@{Foods.favor('cook',food.id)}">做过</a> </strong></span>
 								</div>
 								<div class="favorite_area">
+									<div class="star_area">
 									<input name="starValue" type="hidden" value="${food.rating==null?0:food.rating}"/>
 									<input name="star1" type="radio" class="star"/>
 									<input name="star1" type="radio" class="star"/>
 									<input name="star1" type="radio" class="star"/>
 									<input name="star1" type="radio" class="star"/>
 									<input name="star1" type="radio" class="star"/>
+									</div>
+									<div class="star_button">
+										<a href="#" class="make_corner"><img alt="" src="@{'/public/styles/images/Pencil.png'}">我来评分</a>
+										
+									</div>
 								</div>
 							</div>
 				</div>
 			
 				<div class="show_mater">
-					<div class="show_mater_tips">
-					
+					<div class="show_mater_tips make_corner">
+						<div class="food_message">${food.foodMessage.taste}</div>
+						<div class="food_message">${food.foodMessage.cookType}</div>
+						<div class="food_message">${food.foodMessage.makeType}</div>
+						<div class="food_message">${food.foodMessage.personSum}</div>
+						<div class="food_message">${food.foodMessage.hardLevel}</div>
+						<div class="food_message">${food.foodMessage.takeTime}</div>
 					</div>
-					<div class="show_mater_main">
+					<div class="show_mater_main make_corner">
 						<div style="height: 20px;"><strong>主料</strong></div>
 						<ul class="clearfix" style="clear: both;">
 							#{list items:mainMaterials,as:'material'}
@@ -58,7 +60,7 @@ $(function(){
 							#{/list}
 						</ul>
 					</div>
-					<div class="show_mater_aux">
+					<div class="show_mater_aux make_corner">
 						<div style="height: 20px;"><strong>辅料</strong></div>
 						<ul class="clearfix" style="clear: both;">
 							#{list items:auxMaterials,as:'material'}
@@ -101,52 +103,28 @@ $(function(){
 				</div>
 				<p class="meta"><strong style="font-size: 20px;">做法：</strong></p>
 				#{list items:food.foodMethods,as:'method'}
-				<div class="comments">
+				<div class="comments make_corner">
 					<p><strong>${method.step} : </strong> ${method.methodDetail}</p>
 				</div>
 				#{/list}
 			</div>
 		</div>
 		<!-- end #content -->
-		<div id="sidebar">
-			<ul>
-				<li>
-					<h2>Aliquam tempus</h2>
-					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in consectetuer hendrerit, volutpat.</p>
-				</li>
-				<li>
-					<h2>Pellenteque ornare </h2>
-					<ul>
-						<li><a href="#">Nec metus sed donec</a></li>
-						<li><a href="#">Magna lacus bibendum mauris</a></li>
-						<li><a href="#">Velit semper nisi molestie</a></li>
-						<li><a href="#">Eget tempor eget nonummy</a></li>
-						<li><a href="#">Nec metus sed donec</a></li>
-						<li><a href="#">Velit semper nisi molestie</a></li>
-						<li><a href="#">Eget tempor eget nonummy</a></li>
-						<li><a href="#">Nec metus sed donec</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Turpis nulla</h2>
-					<ul>
-						<li><a href="#">Nec metus sed donec</a></li>
-						<li><a href="#">Magna lacus bibendum mauris</a></li>
-						<li><a href="#">Velit semper nisi molestie</a></li>
-						<li><a href="#">Eget tempor eget nonummy</a></li>
-						<li><a href="#">Nec metus sed donec</a></li>
-						<li><a href="#">Nec metus sed donec</a></li>
-						<li><a href="#">Magna lacus bibendum mauris</a></li>
-						<li><a href="#">Velit semper nisi molestie</a></li>
-						<li><a href="#">Eget tempor eget nonummy</a></li>
-						<li><a href="#">Nec metus sed donec</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+		#{showRight/}
 		<!-- end #sidebar -->
 		<div style="clear: both;">&nbsp;</div>
 	</div>
 	<!-- end #page -->
 
 </div>
+<script type="text/javascript">
+<!--
+
+//-->
+$(function(){
+	var starValue = ${food.rating};
+	$('.star').rating('select',parseInt(starValue));
+	$('.star').rating('readOnly',true); 
+	$(".make_corner").corner();
+});
+</script>

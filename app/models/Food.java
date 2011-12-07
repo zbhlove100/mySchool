@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -45,16 +46,17 @@ public class Food extends Model implements Serializable{
 	
 	public int rating;
 	
-	@OneToOne(mappedBy="food")
+	@OneToOne(mappedBy="food",fetch=FetchType.LAZY)
 	public FoodViewlog foodViewlogs;
 	
-	@OneToMany(mappedBy="food")
+	@OneToMany(mappedBy="food",fetch=FetchType.LAZY)
 	public  List<FoodMaterials> foodMaterials;
 	
-	@OneToMany(mappedBy="food")
+	@OneToMany(mappedBy="food",fetch=FetchType.LAZY)
 	public List<FoodMethod> foodMethods;
 
-	
+	@OneToOne(mappedBy="food",fetch=FetchType.LAZY)
+	public FoodMessage foodMessage;
 	
 	
 }
