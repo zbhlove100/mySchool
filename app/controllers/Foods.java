@@ -37,4 +37,7 @@ public class Foods extends BasicCrud{
 			
 			render(food);
 		}
+	    public static void rating() {
+	        render();
+	    }
 }
