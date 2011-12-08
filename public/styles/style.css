@@ -450,7 +450,7 @@ hr { display: none; }
 
 
 /* alert */
-.alert { overflow:hidden; z-index:1011; display:none; width:300px;  position:absolute; bottom:0; left:50%;}
+.alert { overflow:hidden; z-index:1011; display:none; width:300px;  position:absolute; left:10%;top: 90%;}
 .alert .alertContent { display:block; overflow:hidden; padding:5px 5px 1px 5px; border-style:solid; border-width:0 1px;}
 .alert .alertInner { display:block; padding:0 9px 9px 9px; text-align:left; border-style:solid; border-width:1px;}
 .alert .alertInner .msg { margin:10px; max-height: 200px; overflow: auto; line-height: 1.3em}
@@ -543,13 +543,12 @@ hr { display: none; }
 	height:35px;
 	width: 80px;
 }
-.show_food_scoure .favorite_area .star_button a{
+.show_food_scoure .favorite_area .star_button div{
 	height:22px;
 	width: 75px;
-	display:block;
 	padding-left:5px;
 	background-color: #FD5F04;
-	text-decoration: none;
+	cursor: pointer;
 }
 .show_food_scoure .favorite_area .star_button a:HOVER{
 	background-color: #F9894D;
@@ -566,9 +565,10 @@ hr { display: none; }
 }
 .show_mater_tips .food_message{
 	float:left;
-	height: 30px;
+	height: 25px;
 	width:130px;
-	margin:0 5px 5px 15px;
+	margin:0 0px 5px 15px;
+	padding:10px 0 0 5px;
 	border-bottom-style:solid;
 	border-right-style:dotted;
 	border-width:1px;

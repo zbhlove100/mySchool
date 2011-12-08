@@ -29,7 +29,7 @@
 									<input name="star1" type="radio" class="star"/>
 									</div>
 									<div class="star_button">
-										<a id="rateOpen" href="#" class="make_corner"><img alt="" src="@{'/public/styles/images/Pencil.png'}">我来评分</a>
+										<div id="rateOpen" class="make_corner"><img alt="" src="@{'/public/styles/images/Pencil.png'}">我来评分</div>
 										
 									</div>
 								</div>
@@ -38,12 +38,12 @@
 			
 				<div class="show_mater">
 					<div class="show_mater_tips make_corner">
-						<div class="food_message">${food.foodMessage.taste}</div>
-						<div class="food_message">${food.foodMessage.cookType}</div>
-						<div class="food_message">${food.foodMessage.makeType}</div>
-						<div class="food_message">${food.foodMessage.personSum}</div>
-						<div class="food_message">${food.foodMessage.hardLevel}</div>
-						<div class="food_message">${food.foodMessage.takeTime}</div>
+						<div class="food_message"><strong>口味 :</strong> ${food.foodMessage?food.foodMessage.taste:""}</div>
+						<div class="food_message"><strong>菜式 :</strong> ${food.foodMessage?food.foodMessage.cookType:""}</div>
+						<div class="food_message"><strong>做法:</strong> ${food.foodMessage?food.foodMessage.makeType:""}</div>
+						<div class="food_message"><strong>人数 :</strong> ${food.foodMessage?food.foodMessage.personSum:""}</div>
+						<div class="food_message"><strong>难度 :</strong> ${food.foodMessage?food.foodMessage.hardLevel:""}</div>
+						<div class="food_message"><strong>烹饪时间 :</strong> ${food.foodMessage?food.foodMessage.takeTime:""}</div>
 					</div>
 					<div class="show_mater_main make_corner">
 						<div style="height: 20px;"><strong>主料</strong></div>
@@ -52,7 +52,7 @@
 							<li class="show_mater_materli">
 								<a href="#">
 									<div class="clearfix"></div>
-									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<img width="40" height="40" src="@{'public/images/'}/${material.materialsPicture}"/> 
 									<strong>${material.materialsName}</strong>
 									<em>${material.foodMaterials.foodMaterialsCount}</em> 
 								</a>
@@ -67,7 +67,7 @@
 							<li class="show_mater_materli">
 								<a href="#">
 									<div class="clearfix"></div>
-									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<img width="40" height="40" src="@{'public/images/'}/${material.materialsPicture}"/> 
 									<strong>${material.materialsName}</strong>
 									<em>${material.foodMaterials.foodMaterialsCount}</em> 
 								</a>
@@ -80,7 +80,7 @@
 							<li class="show_mater_materli">
 								<a href="#">
 									<div class="clearfix"></div>
-									<img width="40" height="40" src="@{'public/images/f2_thumb.jpg'}"/> 
+									<img width="40" height="40" src="@{'public/images/'}/${material.materialsPicture}"/> 
 									<strong>${material.materialsName}</strong>
 									<em>${material.foodMaterials.foodMaterialsCount}</em> 
 								</a>
@@ -123,21 +123,26 @@
 
 //-->
 $(function(){
-	var starValue = ${food.rating};
-	$('.star').rating('select',parseInt(starValue));
+	var starValue = ${food.rating-1};
+	$('input[name=star1][.star]').rating('select',parseInt(starValue));
 	$('.star').rating('readOnly',true); 
 	$(".make_corner").corner();
 	var ratewindow = $("#rateWindow");
-	$("#rateOpen").click( function (e) {
-		ratewindow.center();
-		ratewindow.data("rateWindow").open();
-    });
+	var onClose = function() {
+		$("#rateOpen").show();
+	}
 	ratewindow.kendoWindow({
         width: "500px",
-        title: "Rating Window",
+        title: "请评分！",
         actions: ["Refresh", "Maximize", "Close"],
         contentUrl: '@{Foods.ratePage(food.id)}',
+        close:onClose,
         visible: false
+    });
+	$("#rateOpen").click( function (e) {
+		ratewindow.data("kendoWindow").open();
+		ratewindow.data("kendoWindow").center();
+		$("#rateOpen").hide();
     });
 });
 
