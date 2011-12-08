@@ -13,7 +13,16 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-
+#{crud.types}
+*			/${type.controllerName.toLowerCase()}/list				${type.controllerName}.list
+*			/${type.controllerName.toLowerCase()}/blank			${type.controllerName}.blank
+POST        /${type.controllerName.toLowerCase()}/create        ${type.controllerName}.create
+* 		    /${type.controllerName.toLowerCase()}/show/{id}		${type.controllerName}.show
+POST		/${type.controllerName.toLowerCase()}/{id}/edit		${type.controllerName}.edit
+POST	    /${type.controllerName.toLowerCase()}/save/{id}		${type.controllerName}.save
+POST	    /${type.controllerName.toLowerCase()}/delete/{id}		${type.controllerName}.delete
+GET 	    /${type.controllerName.toLowerCase()}/deletes  		${type.controllerName}.deletes
+#{/crud.types}
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
@@ -22,6 +31,7 @@ GET     /public/                                staticDir:public
 #foods
 
 GET    /                            Foods.index
+GET    /foods/rating                Foods.rating
 
 
 
@@ -30,4 +40,4 @@ GET    /                            Foods.index
 
 
 #crud route
-*     /           					module:crud
+#*     /           					module:crud

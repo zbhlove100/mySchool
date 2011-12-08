@@ -1,0 +1,39 @@
+<script src="@{'/public/javascripts/jquery.rating.js'}" type="text/javascript"></script>
+<script src="@{'/public/javascripts/jquery.rating.pack.js'}" type="text/javascript"></script>
+<input id="rateFoodId" type="hidden" value="${id}"/>
+<div>
+<input name="ratingFood" type="radio" class="star" value="1"/>
+<input name="ratingFood" type="radio" class="star" value="2"/>
+<input name="ratingFood" type="radio" class="star" value="3"/>
+<input name="ratingFood" type="radio" class="star" value="4"/>
+<input name="ratingFood" type="radio" class="star" value="5"/>
+<input type="button" onclick="submitRate()" >
+</div>
+<script type="text/javascript">
+<!--
+
+//-->
+$(function(){
+	//var starValue = $("starValue").val();
+	//$('.star').rating('select',parseInt(starValue));
+	$('input[name=ratingFood]').rating('select',3); 
+});
+var rateFoodAction = #{jsAction @Foods.rate(':id',':score') /}
+function submitRate(){
+	var score = $('input[name=ratingFood][checked]').val();
+	var id = $("#rateFoodId").val()
+	alert(score);
+	$.post(rateFoodAction({'id':id,'score':score}),
+			function(data){
+				//$("#centerAltMsg").animate({"height": "toggle"},1000);
+				//$("#centerAltMsg").fadeIn(1000);
+				 $("#centerAltMsg .msg").html(data.message);
+				 $("#centerAltMsg").animate({"height": "toggle"},1000).animate({"height": "toggle"},1000,function(){
+					$("#centerAltMsg").html("");
+				}); 
+				$("#close").click();
+			},
+			"json");
+	
+}
+</script>

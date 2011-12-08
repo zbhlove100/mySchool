@@ -449,7 +449,34 @@ hr { display: none; }
 }
 
 
+/* alert */
+.alert { overflow:hidden; z-index:1011; display:none; width:300px;  position:absolute; bottom:0; left:50%;}
+.alert .alertContent { display:block; overflow:hidden; padding:5px 5px 1px 5px; border-style:solid; border-width:0 1px;}
+.alert .alertInner { display:block; padding:0 9px 9px 9px; text-align:left; border-style:solid; border-width:1px;}
+.alert .alertInner .msg { margin:10px; max-height: 200px; overflow: auto; line-height: 1.3em}
+.alert h1 { display:block; overflow:hidden; height:30px; margin-bottom:10px; padding:0 0 0 25px; line-height:30px; border-style:solid; border-width:0 0 1px 0; line-height:30px;font-size: 15px;}
+.alert .error h1 { background-position:2px -42px;}
+.alert .info h1,
+.alert .warn h1 { background-position:2px 8px;}
+.alert .correct h1 { background-position:2px -92px;}
+.alert .confirm h1 { background-position:2px 8px;}
+.alert p { margin:10px;}
 
+
+.alert .alertContent { border-color:#b8d0d6; background:#eef4f5;}
+.alert .warn .alertInner { border-color:#e83e09; background:#fefacf;}
+.alert .error .alertInner { border-color:#e50000; background:#fefacf;}
+.alert .correct .alertInner, .alert .info .alertInner { border-color:#b8d0d6; background:#fefacf;}
+.alert .confirm .alertInner { border-color:#b8d0d6; background:#fefacf;}
+
+.centerAltMsg {
+	display: none;
+	position: absolute;
+	bottom: 100px;
+	right: 100px;
+	height: 100px;
+	width: 100px;
+}
 
 /*food content*/
 .clearfix:after {

@@ -29,7 +29,7 @@
 									<input name="star1" type="radio" class="star"/>
 									</div>
 									<div class="star_button">
-										<a href="#" class="make_corner"><img alt="" src="@{'/public/styles/images/Pencil.png'}">我来评分</a>
+										<a id="rateOpen" href="#" class="make_corner"><img alt="" src="@{'/public/styles/images/Pencil.png'}">我来评分</a>
 										
 									</div>
 								</div>
@@ -117,6 +117,7 @@
 	<!-- end #page -->
 
 </div>
+<div id="rateWindow"></div>
 <script type="text/javascript">
 <!--
 
@@ -126,5 +127,18 @@ $(function(){
 	$('.star').rating('select',parseInt(starValue));
 	$('.star').rating('readOnly',true); 
 	$(".make_corner").corner();
+	var ratewindow = $("#rateWindow");
+	$("#rateOpen").click( function (e) {
+		ratewindow.center();
+		ratewindow.data("rateWindow").open();
+    });
+	ratewindow.kendoWindow({
+        width: "500px",
+        title: "Rating Window",
+        actions: ["Refresh", "Maximize", "Close"],
+        contentUrl: '@{Foods.ratePage(food.id)}',
+        visible: false
+    });
 });
+
 </script>

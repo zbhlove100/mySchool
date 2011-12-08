@@ -53,6 +53,20 @@ public class Foods extends BasicCrud{
 			show(id);
 		}
 	    public static void rating() {
-	        renderJSON(jsonMessage(""));
+	        render();
+	    	//renderJSON(jsonMessage(""));
+	    }
+	    public static void ratePage(Long id) {
+	    	renderArgs.put("id", id);
+	        render();
+	    	//renderJSON(jsonMessage(""));
+	    }
+	    public static void rate(Long id,int score){
+	    	//Long id = params.get("id",long.class);
+	    	//int score = params.get("score",int.class);
+	    	/*Food food = Food.findById(id);
+	    	food.rating = score;
+	    	food.save();*/
+	    	renderJSON(jsonMessage(score+"fen"));
 	    }
 }
