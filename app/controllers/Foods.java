@@ -68,4 +68,12 @@ public class Foods extends BasicCrud{
 	    	food.save();
 	    	renderJSON(jsonMessage(score+""));
 	    }
+	    public static List<Food> getPopular(int size){
+	    	List<Food> popularFoods = Food.find("select A from Food A,FoodViewlog B where A.id = B.food.id order by B.viewTimes desc").fetch(size);
+	    	return popularFoods;
+	    }	    
+	    public static List<Food> getNewly(int size){
+	    	List<Food> newlyFoods = Food.find("order by createdAt desc").fetch(size);
+	    	return newlyFoods;
+	    }
 }
