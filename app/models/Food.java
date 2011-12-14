@@ -48,6 +48,7 @@ public class Food extends Model implements Serializable{
 	
 	public String recommend;
 	
+	public String recommendTitle;
 	@OneToOne(mappedBy="food",fetch=FetchType.LAZY)
 	public FoodViewlog foodViewlogs;
 	

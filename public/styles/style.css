@@ -298,20 +298,46 @@ hr { display: none; }
 /* index*/
 .editerRecommed{
 	float:left;
-	background-color: yellow;
 	width: 290px;
 	height:400px;
 	margin:5px 10px 5px 0; 
 }
+.editerRecommed a{
+	text-decoration: none;
+}
 .editerRecommed .first{
-	height: 150px;
+	height: 140px;
 	width: 280px;
-	margin: 5px 5px 15px 5px;
+	margin: 5px 5px 10px 5px;
+}
+.editerRecommed .first img{
+	float:left;
+	height:90px;
+	width: 80px;
+}
+.editerRecommed .first .content{
+	float:left;
+	height:100px;
+	width: 180px;
+}
+.editerRecommed .first .content em {
+    color: #555555;
+    padding-left: 6px;
+}
+.editerRecommed .first  p {
+	display:block;
+    color: #DD045F;
+    font-size:20px;
+    margin-bottom:0px;
+    padding-left: 6px;
 }
 .editerRecommed .item{
 	height: 50px;
 	width: 280px;
-	margin: 5px 5px;
+	margin: 0px 5px;
+    font-size:18px;
+    padding-top:3px;
+    padding-left: 6px;
 }
 .tbdArea{
 	float:left;
@@ -322,7 +348,7 @@ hr { display: none; }
 }
 .newAddFoodArea{
 	float:left;
-	background-color: blue;
+	background-color: #FFFFFF;
 	width: 590px;
 	height:800px;
 	margin: 10px 10px 10px 5px;

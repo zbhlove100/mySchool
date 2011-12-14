@@ -11,27 +11,40 @@
 		</div>
 		
 		<div class="editerRecommed make_corner">
+			<div style="height: 30px;width:100%;font-size: 22px;">
+			推荐菜谱：
+				<div style="height: 3px;width: 100%;background-color: #F0844E;"></div>
+			</div>
 			<div class="first">
+				<a href="@{Foods.show(firstRecommend.id)}"><p>老笨首推-- ${firstRecommend?.recommendTitle}</p></a>
+				<img alt="${firstRecommend?.foodName}" src="@{'/public/images/'}/${firstRecommend?.mainPicture}">
+				<div class="content">
+				<div style="height: 75px">	${firstRecommend?.discription}</div>
+				<em>[<a href="#">${firstRecommend?.foodMessage.taste}</a>]</em> <em>[<a href="#">${firstRecommend?.foodMessage.hardLevel}</a>]</em> 
+				</div>
 			</div>
+			#{list items:recommendFoods,as:'food'}
 			<div class="item">
+				[<a href="#">${firstRecommend?.foodMessage.taste}</a>] <a href="@{Foods.show(food.id)}">${food?.recommendTitle}</a>
 			</div>
-			<div class="item">
-			</div>
-			<div class="item">
-			</div>
-			<div class="item">
-			</div>
+			#{/list}
 		</div>
 		<div class="tbdArea make_corner">
 		
 		</div>
 		<div class="newAddFoodArea make_corner">
+		<div style="height: 30px;width:100%;font-size: 22px;">
+		最近添加的菜谱：
+			<div style="height: 3px;width: 100%;background-color: #F0844E;"></div>
+		</div>
 		<ul>
 		#{list items:newlyFoods,as:'food'}
 		<li>
+		<a href="@{Foods.show(food.id)}">
 		<img alt="" src="@{'/public/images/'}/${food.mainPicture}" height="90" width="90">
 		<div style="width:100%"><strong>${food.foodName}</strong></div>
 		<strong>${food.foodViewlogs?food.foodViewlogs.viewTimes:0}</strong> 浏览 <strong>${food.foodViewlogs?food.foodViewlogs.favoriteTimes:0}</strong>收藏
+		</a>
 		</li>
 		#{/list}
 		</ul>

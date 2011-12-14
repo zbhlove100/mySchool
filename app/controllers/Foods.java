@@ -13,9 +13,10 @@ public class Foods extends BasicCrud{
 		
 		public static void index(){
 			List<Food> foods = Food.find("order by createdAt desc").fetch(5);
-			List<Food> recommendFoods = Food.find(" recommend = ? order by created_at desc", "recommend").fetch();
+			List<Food> recommendFoods = Food.find(" recommend = ? order by created_at desc", "recommend").fetch(4);
 			List<Food> newlyFoods = Food.find("order by created_at desc").fetch(20);
-			
+			Food firstRecommend = Food.find("recommend = ? order by created_at desc","first").first();
+			renderArgs.put("firstRecommend", firstRecommend);
 			renderArgs.put("recommendFoods", recommendFoods);
 			renderArgs.put("newlyFoods", newlyFoods);
 			render(foods);
