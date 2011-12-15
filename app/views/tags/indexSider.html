@@ -1,9 +1,16 @@
 		<div id="sidebar">
+		<div class="h-topic-users">
+			<div class="message">
+				<strong>message</strong>
+			</div>
+			<div class="g-center">
+				<a class="g-text-button make_corner">注册帐号</a>
+			</div>
+			<div class="login">老用户 <a href="#" onclick="javaScript:userLogin()">点击登录</a></div>
+			<div class="relate_login"></div>
+		</div>
+		<div style="float: right;width: 240px;">
 			<ul>
-				<li>
-					<h2>Aliquam tempus</h2>
-					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in consectetuer hendrerit, volutpat.</p>
-				</li>
 				<li>
 					<h2>Pellenteque ornare </h2>
 					<ul>
@@ -33,4 +40,23 @@
 					</ul>
 				</li>
 			</ul>
+			</div>
 		</div>
+		<div id="loginWindow"></div>
+		<script type="text/javascript">
+		$(function(){
+			$(".make_corner").corner();
+		})
+		function userLogin(){
+			var ratewindow = $("#loginWindow");
+			ratewindow.kendoWindow({
+		        width: "500px",
+		        title: "请评分！",
+		        actions: ["Refresh", "Maximize", "Close"],
+		        contentUrl: '@{Users.loginPage}',
+		        visible: false
+		    });
+			ratewindow.data("kendoWindow").open();
+			ratewindow.data("kendoWindow").center();
+		}
+		</script>

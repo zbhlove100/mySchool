@@ -1,0 +1,13 @@
+<script src="@{'/public/javascripts/jquery.rating.js'}" type="text/javascript"></script>
+<script src="@{'/public/javascripts/jquery.rating.pack.js'}" type="text/javascript"></script>
+<input id="rateFoodId" type="hidden" value="${id}"/>
+<div style="margin-left: 50px;">
+<input name="ratingFood" type="radio" class="star" value="1"/>
+<input name="ratingFood" type="radio" class="star" value="2"/>
+<input name="ratingFood" type="radio" class="star" value="3"/>
+<input name="ratingFood" type="radio" class="star" value="4"/>
+<input name="ratingFood" type="radio" class="star" value="5"/>
+<div class="make_corner"  style="height:22px;width: 55px;margin-left:120px;padding-left:5px;background-color: #FD5F04;cursor: pointer;"  onclick="submitRate()">
+	<img alt="" src="@{'/public/styles/images/Pencil.png'}">评分
+	</div>
+</div>

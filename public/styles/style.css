@@ -382,6 +382,67 @@ hr { display: none; }
 	line-height: normal;
 }
 
+.h-topic-users {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #A5ED7B;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    display: block;
+    float: right;
+    height: 196px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    width: 255px;
+}
+.h-topic-users  .message{
+	height: 30px;
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 18px;
+}
+.h-topic-users .g-center {
+    margin-bottom: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 25px;
+    text-align: center;
+}
+.h-topic-users .g-text-button {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #AF2F15;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: #F36018 !important;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.h-topic-users .login{
+	height: 30px;
+	text-align: center;
+}
+.h-topic-users .login a{
+	font-family: fantasy;
+	color: #F36018 !important;
+	font-size: 14px;
+}
+.h-topic-users .relate_login{
+	margin-bottom: 10px;
+	margin-top: 15px;
+	height: 40px;
+}
 #sidebar li {
 	margin-bottom: 30px;
 	padding: 0 0 10px 0px;
