@@ -35,7 +35,7 @@ function submitRate(){
 					$("input[name=star1][.star]").rating('select',parseInt(data.message)-1);
 					$('input[name=star1][.star]').rating('readOnly');
 					
-					$("#rateWindow").data("kendoWindow").close()
+					$("#rateWindow").data("kendoWindow").close();
 			},
 			"json");
 	

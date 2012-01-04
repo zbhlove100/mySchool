@@ -26,7 +26,7 @@
 
                     $("#open").click( function (e) {
                         window.data("kendoWindow").open();
-                        window.center();
+                        window.data("kendoWindow").center();
                     });
 
                     $("#close").click( function (e) {
@@ -38,13 +38,28 @@
                     });
 
                     window.kendoWindow({
-                        width: "500px",
-                        title: "Kendo Window",
-                        actions: ["Refresh", "Maximize", "Close"],
-                        contentUrl: '@{Foods.ratePage}',
-                        visible: false
-                    });
+        		        width: "500px",
+        		        height: "400px",
+        		        title: "登录！",
+        		        actions: ["Refresh", "Maximize", "Close"],
+        		        contentUrl: '@{Users.loginPage}',
+        		        visible: false
+        		    });
                 });
+                
+                function userLogin(){
+        			var ratewindow = $("#loginWindow");
+        			ratewindow.kendoWindow({
+        		        width: "500px",
+        		        height: "400px",
+        		        title: "登录！",
+        		        actions: ["Refresh", "Maximize", "Close"],
+        		        contentUrl: '@{Users.loginPage}',
+        		        visible: false
+        		    });
+        			ratewindow.data("kendoWindow").open();
+        			ratewindow.data("kendoWindow").center();
+        		}
             </script>
         </div>
 
