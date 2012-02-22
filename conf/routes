@@ -5,7 +5,7 @@
 
 
 # Home page
-# GET     /                                       Application.index
+GET     /                                       Application.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -30,7 +30,7 @@ GET 	    /${type.controllerName.toLowerCase()}/deletes  		${type.controllerName}
 
 #foods
 
-GET    /                            Foods.index
+#GET    /                            Foods.index
 GET    /foods/rating                Foods.rating
 
 
