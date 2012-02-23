@@ -16,11 +16,137 @@
 		</div>
 		<div id="head-content" class="boraderTemp">
 			<div class="school-logo"></div>
-			<div class="head-blocks"></div>
+			<div class="head-blocks">
+				<ul class="unstyled">
+					<li class="big boraderTemp">
+							<div class="img">
+							</div>
+					</li>
+					<li class="bigmessage boraderTemp">
+						<div class="message">
+							ibg
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+					<li class="boraderTemp">
+						<div class="img">
+						</div>
+					</li>
+					<li class="message">
+						<div>
+							7
+						</div>
+					</li>
+				</ul>
+			</div>
 			<div class="head-search">
-				<form class="navbar-search pull-right">
-					  <input type="text" class="search-query" placeholder="Search">
-				</form>
 			</div>
 			
 			
@@ -37,24 +163,42 @@
 					<div class="nav-collapse">
 				      <ul class="nav">
 						  <li class="active ">
-						    <a href="#">Home</a>
+						    <a href="#"><b>Home</b></a>
 						  </li>
-						   <li class="divider-vertical"></li>
 						  <li><a href="#">class</a></li>
-						   <li class="divider-vertical"></li>
 						  <li><a href="#">teachers</a></li>
-						   <li class="divider-vertical"></li>
 						  <li><a href="#">books</a></li>
-						   <li class="divider-vertical"></li>
 						  <li><a href="#">location</a></li>
-						   <li class="divider-vertical"></li>
 						  <li><a href="#">about</a></li>
-						   <li class="divider-vertical"></li>
 						</ul>
 					</div>			      
-			 	
+			 					<form class="navbar-search pull-right">
+									  <input type="text" class="search-query" placeholder="Search"/>
+									  <a class="btn btn-primary" type="button" href="#" style="margin-top: 0px;">
+			     						<i class="icon-search icon-white"></i>    SEARCH</a>
+								</form>
+								
 			    </div>
 			   </div>
+			     
 		   </div>
 	   </div>
 </div>
+<script type="text/javascript">
+$(function(){
+	$("div.head-blocks>ul>li .img").mouseenter(function(){
+		var node = $(this).parent().next();
+		var offset = $(this).parent().offset();
+		node.css({top:offset.top,left:offset.left+$(this).parent().width()});
+		node.animate({
+		    opacity: 0.6,
+		    width: 'show'
+		  }, 100, function() {
+		  });
+	}
+	).mouseleave(function(){
+		var node = $(this).parent().next();
+		node.hide();
+	});
+})
+</script>

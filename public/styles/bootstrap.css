@@ -2441,15 +2441,15 @@ button.btn.small, input[type="submit"].btn.small {
 .navbar-inner {
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #2c2c2c;
-  background-image: -moz-linear-gradient(top, #333333, #222222);
-  background-image: -ms-linear-gradient(top, #333333, #222222);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
-  background-image: -webkit-linear-gradient(top, #333333, #222222);
-  background-image: -o-linear-gradient(top, #333333, #222222);
-  background-image: linear-gradient(top, #333333, #222222);
+  background: transparent url(images/greenslate_background.gif) repeat-x top left;
+  background-image: -moz-linear-gradient(top, #589D00, #345400);
+  background-image: -ms-linear-gradient(top, #589D00, #345400);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#589D00), to(#345400));
+  background-image: -webkit-linear-gradient(top, #589D00, #345400);
+  background-image: -o-linear-gradient(top, #589D00, #345400);
+  background-image: linear-gradient(top, #589D00, #345400);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#589D00', endColorstr='#222222', GradientType=0);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -2644,19 +2644,19 @@ button.btn.small, input[type="submit"].btn.small {
   float: none;
   padding: 10px 10px 11px;
   line-height: 19px;
-  color: #999999;
+  color: #EEFFDF;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .navbar .nav > li > a:hover {
-  background-color: transparent;
+  background:transparent url(images/greenslate_backgroundOVER.gif) no-repeat top center;
   color: #ffffff;
   text-decoration: none;
 }
 .navbar .nav .active > a, .navbar .nav .active > a:hover {
   color: #ffffff;
   text-decoration: none;
-  background-color: #222222;
+  background:transparent url(images/greenslate_backgroundOVER.gif) no-repeat top center;
 }
 .navbar .divider-vertical {
   height: 40px;

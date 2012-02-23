@@ -8,8 +8,6 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 /*head*/
 .boraderTemp {
-	border-style: solid;
-	border-width: 1px;
 }
 #head-div {
 	float: left;
@@ -24,15 +22,17 @@ Released for free under a Creative Commons Attribution 2.5 License
 	margin-bottom: 2px;
 }
 
+
 #head-contact{
 	height: 28px;
 	padding: 2px 2px 2px 2px;	
 }
 
 #head-content{
-	float: left;
-	width: 100%;
+	width: 1200px;
+	margin: 0px auto;
 	height: 160px;
+	clear: both;
 	
 }
 #head-content .school-logo{
@@ -40,17 +40,105 @@ Released for free under a Creative Commons Attribution 2.5 License
 	width:350px;
 	height:100%;
 	background-image: url("images/ui-icons_72a7cf_256x240.png");
+	background-repeat: repeat-x;
+	margin: 0 5px 0 10px;
+}
+#head-content .head-blocks{
+	float: left;
+	width:370px;
+	height:160px;
+	margin: 0 5px 0 10px;
+	padding-top: 2px;
+}
+#head-content .head-blocks ul{
+	position: static;
+}
+#head-content .head-blocks li{
+	float: left;
+	cursor: pointer;
+	margin: 1px 1px 0 0;
+	height: 50px;
+	width: 50px;
+}
+#head-content .head-blocks li>.img{
+	float: left;
+	height: 50px;
+	width: 50px;
+	background-color: green;
+}
+#head-content .head-blocks li.message{
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+	display: none;
+	
+}
+#head-content .head-blocks li.big{
+	float: left;
+	height: 101px;
+	width: 101px;
+}
+#head-content .head-blocks li.big>.img{
+	float: left;
+	height: 101px;
+	width: 101px;
+	background-color: green;
+}
+#head-content .head-blocks li.bigmessage{
+	height: 101px;
+	width: 101px;
+	background-color: red;
+	display: none;
+	position: absolute;
 }
 #head-menu-div{
 	float: left;
 	width: 100%;
-	height: 40px;
+	height: 45px;
 	margin-top: 5px;
+	text-transform: uppercase;
 }
 #head-menu-div li a{
 	text-align:center;
-	width: 150px;
+	width: 100px;
 }
+
+
+
+
+
+
+
+/*
+main css
+*/
+
+.main-contianer{
+	width: 1200px;
+	height:auto;
+	margin: 0px auto;
+	clear:both;
+}
+
+
+
+#footer{
+	width: 1200px;
+	height:auto;
+	margin: 0px auto;
+	clear:both;
+}
+
+.footer-message{
+	float:left;
+	width:230px;
+	height:atuo;
+	margin: 5px 5px 5px 5px;
+}
+
+
+
 /* corner mark */
 .make_corner{
 	
