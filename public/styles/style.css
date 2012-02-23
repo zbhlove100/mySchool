@@ -8,6 +8,8 @@ Released for free under a Creative Commons Attribution 2.5 License
 
 /*head*/
 .boraderTemp {
+	border-style: solid;
+	border-width: 1px;
 }
 #head-div {
 	float: left;
@@ -120,8 +122,21 @@ main css
 	margin: 0px auto;
 	clear:both;
 }
-
-
+.main-carousel{
+	float:left;
+	width:750px;
+	height:180px;
+	margin: 5px 5px 10px 5px;
+}
+.login-area{
+	float: left;
+	width: 420px;
+	height:180px;
+	margin: 5px 5px 10px 5px;
+}
+/*
+footer css
+*/
 
 #footer{
 	width: 1200px;
