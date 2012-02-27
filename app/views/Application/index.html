@@ -1,15 +1,54 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<script type="text/javascript">
+<!--
 
+//-->
+$(function(){
+$.getJSON("@{'public/javascripts/agile_carousel_data.php'}", function(data) {
+    $(document).ready(function(){
+        $("#flavor_1").agile_carousel({
+            carousel_data: data,
+            carousel_outer_height: 280,
+            carousel_height: 280,
+            slide_height: 280,
+            carousel_outer_width: 750,
+            slide_width: 750,
+            transition_time: 300,
+            timer: 4000,
+            continuous_scrolling: true,
+            control_set_1: "numbered_buttons",
+            no_control_set: "hover_previous_button,hover_next_button"
+        });
+    });
+});
+})
+</script>
 <div class="main-contianer">
-	<div class="main-carousel">
+	<div id="flavor_1" class="main-carousel boraderTemp">
 	</div>
-	<div class="login-area boraderTemp">
-		<form class="well">
-		  <input type="text" class="input-small" placeholder="Email">
-		  <input type="password" class="input-small" placeholder="Password">
-		  <button type="submit" class="btn">Go</button>
+	<div class="login-area">
+		<form class="">
+		  	<div class="loginInput">
+		  		<p><span class="login-title"><b>USER NAME</b></span>
+		  		<input type="text" class="input-large" id="input01">
+		  		</p>
+		  	</div>
+		  	<div class="loginInput">
+		  		<p><span class="login-title"><b>PASSWORD</b></span>
+		  		<input type="text" class="input-large" id="input01">
+		  		</p>
+		  	</div>
+		  	<div class="loginInput">
+		  		<p><input type="checkbox" id="rememberUsername" name="rememberUsername"><span><b>remember user name</b></span>
+		  			
+		   	 		<button type="submit" class="btn btn-primary "> <i class="icon-user icon-white"></i>  Login  >></button>
+		   	 		<a href="#" class="" style="line-height: 24px;"> <i class="icon-pencil"></i>Register</a>
+		  		</p>
+		  	</div>
 		</form>
+	</div>
+	<div class="hot-message-area boraderTemp">
 	</div>
 	<!-- <div style="background-color: black;height: 800px;"></div> -->
 </div>

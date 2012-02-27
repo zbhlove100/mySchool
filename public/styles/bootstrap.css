@@ -1000,6 +1000,7 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 .form-inline .checkbox {
   margin-bottom: 0;
   vertical-align: middle;
+  
 }
 .control-group {
   margin-bottom: 9px;
