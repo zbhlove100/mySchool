@@ -25,6 +25,4 @@ public class User extends Model {
 	@OneToOne(mappedBy="user")
 	public UserLog userLog;
 	
-	@OneToMany
-	public List<Food> saveFoods;
 }

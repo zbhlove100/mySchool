@@ -68,13 +68,24 @@ Released for free under a Creative Commons Attribution 2.5 License
 	width: 50px;
 	background-color: green;
 }
+#head-content .head-blocks li>.img>img{
+	height: 50px;
+	width: 50px;
+}
 #head-content .head-blocks li.message{
 	position: absolute;
 	height: 50px;
-	width: 50px;
-	background-color: red;
+	width: 150px;
+	background-color: #143434;
 	display: none;
-	
+}
+#head-content .head-blocks li.message>div>p{
+	height: 15px;
+	width: 150px;
+	margin-bottom:2px;
+	line-height:15px;
+	display:block;
+	color: red;
 }
 #head-content .head-blocks li.big{
 	float: left;
@@ -87,12 +98,24 @@ Released for free under a Creative Commons Attribution 2.5 License
 	width: 101px;
 	background-color: green;
 }
-#head-content .head-blocks li.bigmessage{
+#head-content .head-blocks li.big>.img>img{
 	height: 101px;
 	width: 101px;
-	background-color: red;
+}
+#head-content .head-blocks li.bigmessage{
+	height: 101px;
+	width: 150px;
+	background-color: #143434;
 	display: none;
 	position: absolute;
+}
+#head-content .head-blocks li.bigmessage>div>p{
+	height: 25px;
+	width: 150px;
+	margin-bottom:2px;
+	line-height:25px;
+	display:block;
+	color: red;
 }
 #head-menu-div{
 	float: left;

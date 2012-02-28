@@ -13,6 +13,16 @@
 			    <li><a href="#">上海</a></li>
 			  </ul>
 			</div>
+			<div class="btn-group pull-right">
+			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			    Guest
+			    <span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">Login</a></li>
+			    <li><a href="#">Register</a></li>
+			  </ul>
+			</div>
 		</div>
 		<div id="head-content" class="">
 			<div class="school-logo"></div>
@@ -20,130 +30,32 @@
 				<ul class="unstyled">
 					<li class="big ">
 							<div class="img">
+								<img alt="" src="@{'public/images/teacherImgBig/'}/${_mainBigTeacher.img}">
 							</div>
 					</li>
 					<li class="bigmessage ">
 						<div class="message">
-							ibg
+							<p>${_mainBigTeacher.name}</p>
+							<p>${_mainBigTeacher.age}</p>
+							<p>${_mainBigTeacher.graduateSchool}</p>
 						</div>
 					</li>
+					#{list items:_mainTeachers,as:'teacherMain'}
 					<li class="">
 						<div class="img">
+							<img alt="" src="@{'public/images/teacherImg/'}/${teacherMain.img}">
 						</div>
 					</li>
 					<li class="message">
 						<div>
-							7
+							<p>${teacherMain.name}</p>
+							<p>${teacherMain.age}</p>
+							<p>${teacherMain.graduateSchool}</p>
 						</div>
 					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
-					<li class="">
-						<div class="img">
-						</div>
-					</li>
-					<li class="message">
-						<div>
-							7
-						</div>
-					</li>
+					#{/list}
+					
+					
 				</ul>
 			</div>
 			<div class="head-search">
@@ -190,7 +102,7 @@ $(function(){
 	$("div.head-blocks>ul>li .img").mouseenter(function(){
 		var node = $(this).parent().next();
 		var offset = $(this).parent().offset();
-		node.css({top:offset.top,left:offset.left+$(this).parent().width()});
+		node.css({top:offset.top-1,left:offset.left+$(this).parent().width()});
 		node.animate({
 		    opacity: 0.6,
 		    width: 'show'
