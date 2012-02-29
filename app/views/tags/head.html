@@ -15,13 +15,20 @@
 			</div>
 			<div class="btn-group pull-right">
 			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			    Guest
+			    ${_user}
 			    <span class="caret"></span>
 			  </a>
+			  #{if _user== "GUEST"}
 			  <ul class="dropdown-menu">
-			    <li><a href="#">Login</a></li>
+			    <li><a href="@{Secure.login}">Login</a></li>
 			    <li><a href="#">Register</a></li>
 			  </ul>
+			  #{/if}
+			  #{else}
+			  <ul class="dropdown-menu">
+			    <li><a href="@{Secure.logout}">Logout</a></li>
+			  </ul>
+			  #{/else}
 			</div>
 		</div>
 		<div id="head-content" class="">

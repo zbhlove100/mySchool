@@ -7,11 +7,7 @@ import java.util.*;
 
 import models.*;
 
-public class Application extends Controller {
-	@Before
-	public static void checkUser(){
-		
-	}
+public class Application extends BasicCrud {
 
     public static void index() {
     	List<Teacher> teachers = Teacher.find("state", "main").fetch();

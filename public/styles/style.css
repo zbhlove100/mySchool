@@ -175,7 +175,7 @@ main css
 .login-area .loginInput>p>span{
 	margin-right: 40px;
 }
-.login-area .loginInput>p>login-title{
+.login-area .loginInput>p>.login-title{
 	float: left;
 	width:80px; 
 	height:28px;

@@ -27,15 +27,15 @@ $.getJSON("@{'public/javascripts/agile_carousel_data.php'}", function(data) {
 	<div id="flavor_1" class="main-carousel boraderTemp">
 	</div>
 	<div class="login-area">
-		<form class="">
+		<form class="" action="@{Users.login}">
 		  	<div class="loginInput">
-		  		<p><span class="login-title"><b>USER NAME</b></span>
-		  		<input type="text" class="input-large" id="input01">
+		  		<p><span class="login-title"><b>Email</b></span>
+		  		<input type="text" class="input-large" id="email" name="email">
 		  		</p>
 		  	</div>
 		  	<div class="loginInput">
 		  		<p><span class="login-title"><b>PASSWORD</b></span>
-		  		<input type="text" class="input-large" id="input01">
+		  		<input type="password" class="input-large" id="password" name="password">
 		  		</p>
 		  	</div>
 		  	<div class="loginInput">

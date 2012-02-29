@@ -5,12 +5,39 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import models.User;
+
 import play.data.binding.Binder;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
 import play.i18n.Messages;
+import play.mvc.Before;
+import play.mvc.Router;
+import play.mvc.With;
 
 public class BasicCrud extends CRUD {
+	
+	@Before
+	public static void checkUser(){
+		//for flash authorization
+				if(request.cookies == null || request.cookies.get("PLAY_SESSION") == null){
+					if(params.get("sessionId") != null){
+						String ID_KEY = "___ID";
+						session.put(ID_KEY, params.get("sessionId"));
+						session.put("username",Security.connected());
+					}
+					//Logger.setUp("TRACE");
+				}
+				if(Security.isConnected()){
+					if(Security.connected() != null){
+						renderArgs.put("user",Security.connected());
+					}
+				}else{
+					renderArgs.put("user","GUEST");
+				}
+	}
+	
+
 	
     private static String allMessage(String message){
         

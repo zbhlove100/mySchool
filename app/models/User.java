@@ -3,6 +3,7 @@ package models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,7 +23,12 @@ public class User extends Model {
 	
 	public String location;
 	
-	@OneToOne(mappedBy="user")
+	@OneToOne(mappedBy="user",fetch=FetchType.LAZY)
 	public UserLog userLog;
+
+	public static User connect(String email, String password) {
+		// TODO Auto-generated method stub
+		return User.find("email=? and password=?", email,password).first();
+	}
 	
 }

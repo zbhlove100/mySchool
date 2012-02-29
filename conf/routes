@@ -28,12 +28,8 @@ GET 	    /${type.controllerName.toLowerCase()}/deletes  		${type.controllerName}
 *       /{controller}/{action}                  {controller}.{action}
 
 
-#foods
-
-#GET    /                            Foods.index
-GET    /foods/rating                Foods.rating
-
-
+# Import Secure routes
+*       /                                       module:secure
 
 
 
