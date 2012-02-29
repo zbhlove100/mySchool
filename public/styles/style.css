@@ -193,6 +193,48 @@ main css
 	height:80px;
 	margin: 5px 5px 5px 5px;
 }
+
+
+
+/*
+teacher detail page css
+*/
+
+.teacherDetail-img{
+	margin:0 0 0 0;
+	height:800px;
+	width:100%;
+	background-image: url("../images/teacherMesImg/b0029488_892359.jpg");
+	background-repeat: no-repeat;
+	background-position:center 150px;
+	
+}
+.teacherDetail-background{
+	float:left;
+	height:820px;
+	width:100%;
+	filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);
+    -ms-filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);/*IE8*/
+    background:red; /* 一些不支持背景渐变的浏览器 */
+    background:-moz-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(220, 250, 225, 0.4)), to(rgba(133, 232, 150, 0.7)));
+    background:-o-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
+}
+.teacherDetail-img .basic-message{
+	height: 700px;
+	width:200px;
+	margin: 40px 50px 40px 50px;
+}
+.basic-message .name-area{
+	height:150px;
+	width:200px;
+	font-size: 30px;
+}
+.teacherDetail-footarea{
+	height: 500px;
+	width:200px;
+	margin: 30px 0 0 0;
+}
 /*
 footer css
 */

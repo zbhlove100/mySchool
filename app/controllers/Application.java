@@ -10,11 +10,16 @@ import models.*;
 public class Application extends BasicCrud {
 
     public static void index() {
+    	loadHead();
+        render();
+    }
+    
+    public static Map loadHead(){
     	List<Teacher> teachers = Teacher.find("state", "main").fetch();
     	System.err.println(teachers.size());
     	Teacher bigTeacher = Teacher.find("state", "big").first();
     	renderArgs.put("bigTeacher", bigTeacher);
     	renderArgs.put("teachers",teachers);
-        render();
+    	return new HashMap();
     }
 }
