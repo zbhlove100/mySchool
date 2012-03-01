@@ -4,14 +4,176 @@
 <div class="main-contianer">
 	<div class="teacherDetail-background ">
 		<div class="teacherDetail-img">
-			<div class="basic-message boraderTemp">
+			<div class="basic-message">
 				<div class="name-area">
-					<b>AJSHDHGG</b>
+					<b>${showTeacher?.name}</b>
 				</div>
 				<div class="message-area">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>
+									姓名
+								</td>
+								<td>
+									${showTeacher.name?:''}
+								</td>
+								<td>
+									性别
+								</td>
+								<td>
+									${showTeacher.teacherDetail?.sex?:''}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									age
+								</td>
+								<td>
+									${showTeacher.age?:''}
+								</td>
+								<td>
+									english name
+								</td>
+								<td>
+									${showTeacher.teacherDetail?.enName?:''}
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									class
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.classType?:''}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									education
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.education?:''}
+								</td>
+							</tr>	
+							<tr>
+								<td>
+									height
+								</td>
+								<td>
+									${showTeacher.teacherDetail?.height?:''}
+								</td>
+								<td>
+									生日
+								</td>
+								<td>
+									${showTeacher.teacherDetail?.birthday?:''}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									horror man
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.adoreMan?:''}
+								</td>
+								
+							</tr>	
+							<tr>
+								<td>
+									interest
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.interest?:''}
+								</td>
+								
+							</tr>
+							<tr>
+								<td>
+									favorite place
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.favoritePlace?:''}
+								</td>
+								
+							</tr>	
+							<tr>
+								<td>
+									favorite color
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.favoriteColor?:''}
+								</td>
+								
+							</tr>	
+							<tr>
+								<td>
+									favorite sport
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.favoriteSport?:''}
+								</td>
+								
+							</tr>	
+							<tr>
+								<td>
+									teacher word
+								</td>
+								<td colspan="3">
+									${showTeacher.teacherDetail?.teacherWord?:''}
+								</td>
+								
+							</tr>							
+						</tbody>
+					</table>
 				</div>
 			</div>
+			<div class="sammmary-message ">
+				<div class="sammmary-message-head ">
+					<b>Sammary</b>
+				</div>
+				<div class="sammmary-message-body">
+					<p>
+						${showTeacher.teacherDetail?.sammary?:''}
+					</p>
+				</div>
+			</div>
+			<div class="teacher-class-message">
+				<table class="table table-condensed table-bordered">
+					<thead>
+						<tr>
+					      <th>状态</th>
+					      <th>课程名称</th>
+					      <th>开课时间</th>
+					      <th>地点</th>
+					      <th>详细</th>
+					    </tr>
+				    </thead>
+				    <tbody>
+				    	<tr>
+				    		<td>222222</td>
+				    		<td>222222222222222</td>
+				    		<td>222222222222</td>
+				    		<td>222222222</td>
+				    		<td>22222</td>
+				    	</tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+		<div class="teacherDetail-footarea">
+			<div class="icon-left"></div>
+			#{list items:listTeacher,as:'teacher'}
+			<div class="float-teacherImg boraderTemp">
+				<img alt="${teacher.name}" src="@{'public/images/teacherImg150x150/'}/${teacher.x150_img}">
+			</div>
+			#{/list}
+			<div class="icon-right"></div>
 		</div>
 	</div>
-	<div class="teacherDetail-footarea"></div>
 </div>
+<script>
+  $(function () {
+    $("div.teacherDetail-img").css("background-image","url(@{'public/images/teacherMesImg/'}/${showTeacher.bigImg?:''})");
+  })
+</script>

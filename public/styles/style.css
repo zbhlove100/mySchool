@@ -201,17 +201,19 @@ teacher detail page css
 */
 
 .teacherDetail-img{
+	float:left;
 	margin:0 0 0 0;
-	height:800px;
+	height:750px;
 	width:100%;
 	background-image: url("../images/teacherMesImg/b0029488_892359.jpg");
 	background-repeat: no-repeat;
-	background-position:center 150px;
-	
+	background-position:center 100px;
+	word-break:break-all;
+	word-wrap:break-word;
 }
 .teacherDetail-background{
 	float:left;
-	height:820px;
+	height:970px;
 	width:100%;
 	filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);
     -ms-filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);/*IE8*/
@@ -221,19 +223,104 @@ teacher detail page css
     background:-o-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
 }
 .teacherDetail-img .basic-message{
-	height: 700px;
-	width:200px;
-	margin: 40px 50px 40px 50px;
+	float:left;
+	height: 600px;
+	width:400px;
+	margin: 100px 50px 0 50px;
 }
 .basic-message .name-area{
-	height:150px;
+	height:50px;
 	width:200px;
 	font-size: 30px;
+	color: #0097E0;
+	text-shadow:black 2px 2px 2px;
+	filter: dropshadow(OffX=2, OffY=2, Color='black', Positive='true')
+}
+.basic-message .message-area{
+	height: 500px;
+	width:400px;
+	margin-top: 50px;
+}
+.message-area .table>tbody>tr>td{
+	width:100px;
+}
+
+.teacherDetail-img .sammmary-message{
+	float:left;
+	height: 300px;
+	width:300px;
+	margin: 100px 50px 0 300px;
+}
+.sammmary-message .sammmary-message-head{
+	height:34px;
+	width:300px;
+	font-size: 25px;
+	color: #FF7632;
+	text-shadow:black 2px 2px 2px;
+	filter: dropshadow(OffX=2, OffY=2, Color='black', Positive='true');
+	border-bottom:solid 3px;
+}
+.sammmary-message-body{
+	height:200px;
+	width:300px;
+	font-size: 18px;
+	color: #B23B00;
+	overflow-y:auto;
+}
+.teacher-class-message{
+	float:left;
+	height: 300px;
+	width:440px;
+	margin: 0 5px 0 250px;
+	overflow-y:auto;
 }
 .teacherDetail-footarea{
-	height: 500px;
-	width:200px;
+	float:left;
+	height: 200px;
+	width:1200px;
 	margin: 30px 0 0 0;
+	overflow: hidden;
+}
+.teacherDetail-footarea .icon-left{
+	float:left;
+	height:150px;
+	width: 150px; 
+	background-image: url("images/Cristal_Intense_070.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+.teacherDetail-footarea .icon-right{
+	float:right;
+	height:150px;
+	width: 150px; 
+	background-image: url("images/Cristal_Intense_067.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+.float-teacherImg{
+	float:left;
+	height:150px;
+	width: 150px; 
+	border:1px solid #000;
+	-moz-box-shadow:3px 3px 4px #000;
+	-webkit-box-shadow:3px 3px 4px #000;
+	box-shadow:3px 3px 4px #red;
+	background:#fff;
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#000000');
+    margin: 0 10px 0 40px;
+    cursor: pointer;
+}
+.float-teacherImg img{
+	height:150px;
+	width: 150px;
+}
+.float-teacherImg:hover{
+ 	border-color:#B23B00 #cde #def #B23B00;
+ 	box-shadow:3px 3px 4px #441100;
+ 	-webkit-box-shadow:3px 3px 4px #B23B00;
+ 	-moz-box-shadow:3px 3px 4px #B23B00;
+ 	background:#fff;
+ 	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B23B00');
 }
 /*
 footer css
