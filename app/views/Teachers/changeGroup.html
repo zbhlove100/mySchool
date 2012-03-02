@@ -1,0 +1,11 @@
+<div class="icon-left" onclick="javaScript:changeGroupTeacher('pre')"></div>
+#{list items:listTeacher,as:'teacher'}
+<div class="float-teacherImg boraderTemp">
+	<a href="javaScript:showTeacher(${teacher.id})">
+		<img alt="${teacher.name}" src="@{'public/images/teacherImg150x150/'}/${teacher.x150_img}">
+	</a>
+</div>
+#{/list}
+<div class="icon-right" onclick="javaScript:changeGroupTeacher('next')"></div>
+<input type="hidden" id="teacherGroup" value="${teacherGroup?:1}"/>
+			<input type="hidden" id="teacherId" value="${teacherId}"/>

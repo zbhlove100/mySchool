@@ -4,7 +4,9 @@
 
 Released for free under a Creative Commons Attribution 2.5 License
 */
-
+b{
+	z-index: 100;
+}
 
 /*head*/
 .boraderTemp {
@@ -193,15 +195,37 @@ main css
 	height:80px;
 	margin: 5px 5px 5px 5px;
 }
-
-
-
+.main-tab{
+	float: left;
+	width:1180px;
+	height:280px;
+	margin: 5px 5px 10px 5px;
+}
+.tab-head{
+	height:30px;
+	width:100%;
+	font-size: 28px;
+	color: #FF7632;
+	text-shadow:black 2px 2px 2px;
+	filter: dropshadow(OffX=1, OffY=1, Color='black', Positive='false');
+	border-bottom:solid 3px #FF7632;
+	-moz-box-shadow:2px 3px 4px #000;
+	-webkit-box-shadow:2px 3px 4px #000;
+	box-shadow:2px 3px 4px #000;
+	background:#fff;
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#000000');
+	overflow: visible;
+}
+.tab-head b{
+	height:30px;
+	line-height:30px;
+	z-index: 100;
+}
 /*
 teacher detail page css
 */
 
 .teacherDetail-img{
-	float:left;
 	margin:0 0 0 0;
 	height:750px;
 	width:100%;
@@ -210,9 +234,9 @@ teacher detail page css
 	background-position:center 100px;
 	word-break:break-all;
 	word-wrap:break-word;
+	position: relative;
 }
 .teacherDetail-background{
-	float:left;
 	height:970px;
 	width:100%;
 	filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);
@@ -222,11 +246,16 @@ teacher detail page css
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(220, 250, 225, 0.4)), to(rgba(133, 232, 150, 0.7)));
     background:-o-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
 }
+.teacherDetail-img b{
+	height: 40px;
+	line-height: 40px;
+}
 .teacherDetail-img .basic-message{
 	float:left;
 	height: 600px;
 	width:400px;
 	margin: 100px 50px 0 50px;
+	position: relative;
 }
 .basic-message .name-area{
 	height:50px;
@@ -234,12 +263,14 @@ teacher detail page css
 	font-size: 30px;
 	color: #0097E0;
 	text-shadow:black 2px 2px 2px;
-	filter: dropshadow(OffX=2, OffY=2, Color='black', Positive='true')
+	filter: dropshadow(OffX=1, OffY=1, Color='black', Positive='true')
+	position: relative;
 }
 .basic-message .message-area{
 	height: 500px;
 	width:400px;
 	margin-top: 50px;
+	position: relative;
 }
 .message-area .table>tbody>tr>td{
 	width:100px;
@@ -250,6 +281,7 @@ teacher detail page css
 	height: 300px;
 	width:300px;
 	margin: 100px 50px 0 300px;
+	position: relative;
 }
 .sammmary-message .sammmary-message-head{
 	height:34px;
@@ -257,7 +289,7 @@ teacher detail page css
 	font-size: 25px;
 	color: #FF7632;
 	text-shadow:black 2px 2px 2px;
-	filter: dropshadow(OffX=2, OffY=2, Color='black', Positive='true');
+	filter: dropshadow(OffX=1, OffY=1, Color='black', Positive='true');
 	border-bottom:solid 3px;
 }
 .sammmary-message-body{
@@ -273,6 +305,7 @@ teacher detail page css
 	width:440px;
 	margin: 0 5px 0 250px;
 	overflow-y:auto;
+	position: relative;
 }
 .teacherDetail-footarea{
 	float:left;
@@ -288,6 +321,7 @@ teacher detail page css
 	background-image: url("images/Cristal_Intense_070.png");
 	background-repeat: no-repeat;
 	background-position:center;
+	cursor: pointer;
 }
 .teacherDetail-footarea .icon-right{
 	float:right;
@@ -296,6 +330,7 @@ teacher detail page css
 	background-image: url("images/Cristal_Intense_067.png");
 	background-repeat: no-repeat;
 	background-position:center;
+	cursor: pointer;
 }
 .float-teacherImg{
 	float:left;
@@ -325,7 +360,12 @@ teacher detail page css
 /*
 footer css
 */
-
+#footer-area{
+	width:100%;
+	height:4px;
+	background: #B23B00;
+	clear:both;
+}
 #footer{
 	width: 1200px;
 	height:auto;

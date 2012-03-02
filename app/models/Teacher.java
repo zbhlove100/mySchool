@@ -29,6 +29,6 @@ public class Teacher extends Model{
 	
 	public Date removedAt;
 	
-	@OneToOne(mappedBy="teacher",fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="teacher")
 	TeacherDetail teacherDetail;
 }

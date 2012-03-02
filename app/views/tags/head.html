@@ -82,10 +82,10 @@
 					<div class="nav-collapse">
 				      <ul class="nav">
 						  <li class="active ">
-						    <a href="#"><b>Home</b></a>
+						    <a href="@{Application.index}"><b>Home</b></a>
 						  </li>
 						  <li><a href="@{Application.index}">class</a></li>
-						  <li><a href="@{Teachers.teacherDetail}">teachers</a></li>
+						  <li><a href="javaScript:pageTeacher();">teachers</a></li>
 						  <li><a href="#">books</a></li>
 						  <li><a href="#">location</a></li>
 						  <li><a href="#">about</a></li>
@@ -120,5 +120,9 @@ $(function(){
 		var node = $(this).parent().next();
 		node.hide();
 	});
-})
+});
+function pageTeacher(){
+	$(".main-contianer").load("@{Teachers.teacherDetail}");
+}
+
 </script>

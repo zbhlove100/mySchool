@@ -31,7 +31,7 @@ GET 	    /${type.controllerName.toLowerCase()}/deletes  		${type.controllerName}
 # Import Secure routes
 *       /                                       module:secure
 
-
+*     /teacher/showTeacher/{id}    teachers.showTeacher
 
 
 

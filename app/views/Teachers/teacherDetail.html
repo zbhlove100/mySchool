@@ -1,7 +1,3 @@
-#{extends 'main.html' /}
-#{set title:'teacher message' /}
-
-<div class="main-contianer">
 	<div class="teacherDetail-background ">
 		<div class="teacherDetail-img">
 			<div class="basic-message">
@@ -162,18 +158,24 @@
 			</div>
 		</div>
 		<div class="teacherDetail-footarea">
-			<div class="icon-left"></div>
+			<div class="icon-left" onclick="javaScript:changeGroupTeacher('pre')"></div>
 			#{list items:listTeacher,as:'teacher'}
 			<div class="float-teacherImg boraderTemp">
-				<img alt="${teacher.name}" src="@{'public/images/teacherImg150x150/'}/${teacher.x150_img}">
+				<a href="javaScript:showTeacher(${teacher.id})">
+					<img alt="${teacher.name}" src="@{'public/images/teacherImg150x150/'}/${teacher.x150_img}">
+				</a>
 			</div>
 			#{/list}
-			<div class="icon-right"></div>
+			<div class="icon-right" onclick="javaScript:changeGroupTeacher('next')"></div>
+			<input type="hidden" id="teacherGroup" value="${teacherGroup?:1}"/>
+			<input type="hidden" id="teacherId" value="${teacher?.id}"/>
 		</div>
 	</div>
-</div>
 <script>
   $(function () {
     $("div.teacherDetail-img").css("background-image","url(@{'public/images/teacherMesImg/'}/${showTeacher.bigImg?:''})");
+    $(".teacherDetail-img").css({opacity:0.2}).animate({opacity:1},1000);
   })
+  var showTeacherAction = #{jsAction @Teachers.teacherDetail(':id',':group') /}
+  var changeGroupAction = #{jsAction @Teachers.changeGroup(':id',':group') /}
 </script>
