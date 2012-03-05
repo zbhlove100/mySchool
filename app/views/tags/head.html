@@ -84,7 +84,7 @@
 						  <li class="active ">
 						    <a href="@{Application.index}"><b>Home</b></a>
 						  </li>
-						  <li><a href="@{Application.index}">class</a></li>
+						  <li><a href="javaScript:pageClass();">class</a></li>
 						  <li><a href="javaScript:pageTeacher();">teachers</a></li>
 						  <li><a href="#">books</a></li>
 						  <li><a href="#">location</a></li>
@@ -123,6 +123,9 @@ $(function(){
 });
 function pageTeacher(){
 	$(".main-contianer").load("@{Teachers.teacherDetail}");
+}
+function pageClass(){
+	$(".main-contianer").load("@{Lessons.list}");
 }
 
 </script>

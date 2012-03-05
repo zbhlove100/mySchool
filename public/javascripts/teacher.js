@@ -1,13 +1,32 @@
+$(function(){
+$.getJSON("/public/javascripts/agile_carousel_data.php", function(data) {
+    $(document).ready(function(){
+        $("#flavor_1").agile_carousel({
+            carousel_data: data,
+            carousel_outer_height: 280,
+            carousel_height: 280,
+            slide_height: 280,
+            carousel_outer_width: 750,
+            slide_width: 750,
+            transition_time: 300,
+            timer: 4000,
+            continuous_scrolling: true,
+            control_set_1: "numbered_buttons",
+            no_control_set: "hover_previous_button,hover_next_button"
+        });
+    });
+});
+})
 function showTeacher(id){
 	  var group = parseInt($("#teacherGroup").val());
 	  $.ajax({
 		  url:showTeacherAction({'id':id,'group':group}),
 		  success:function(data){
 			  $(".teacherDetail-img").animate({opacity:'-=0.4'},1000);
-			  $(".name-area").animate({left:'+=150'},1000).animate({left:'-=800'},1500);
-			  setTimeout(function(){$(".message-area").animate({left:'+=150'},600).animate({left:'-=800'},1200)},500);
-			  setTimeout(function(){$(".teacher-class-message").animate({left:'+=150'},800).animate({left:'-=1000'},1000)},500);
-			  setTimeout(function(){$(".sammmary-message").animate({left:'+=150'},500).animate({left:'-=800'},1000,function(){
+			  $(".name-area").animate({left:'+=150'},800).animate({left:'-=800'},1200);
+			  setTimeout(function(){$(".message-area").animate({left:'+=150'},600).animate({left:'-=800'},1000)},500);
+			  setTimeout(function(){$(".teacher-class-message").animate({left:'+=150'},800).animate({left:'-=1000'},700)},500);
+			  setTimeout(function(){$(".sammmary-message").animate({left:'+=150'},500).animate({left:'-=800'},900,function(){
 				  $(".main-contianer").html(data);
 			  })},700);
 		  },

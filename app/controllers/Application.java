@@ -11,6 +11,8 @@ public class Application extends BasicCrud {
 
     public static void index() {
     	loadHead();
+    	List<ClassLevel> classLevels = ClassLevel.findAll();
+    	renderArgs.put("classLevels", classLevels);
         render();
     }
     
