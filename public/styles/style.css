@@ -7,6 +7,10 @@ Released for free under a Creative Commons Attribution 2.5 License
 b{
 	z-index: 100;
 }
+body{
+	word-break:break-all;
+	word-wrap:break-word;
+}
 /*head*/
 .boraderTemp {
 	border-style: solid;
@@ -334,12 +338,12 @@ teacher detail page css
 .teacherDetail-background{
 	height:970px;
 	width:100%;
-	filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);
-    -ms-filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#DCF8E1,endcolorstr=#85E895,gradientType=0);/*IE8*/
+	filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFBEA0,endcolorstr=#85E895,gradientType=0);
+    -ms-filter:alpha(opacity=40 finishopacity=70 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFBEA0,endcolorstr=#85E895,gradientType=0);/*IE8*/
     background:red; /* 一些不支持背景渐变的浏览器 */
-    background:-moz-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
-    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(220, 250, 225, 0.4)), to(rgba(133, 232, 150, 0.7)));
-    background:-o-linear-gradient(top, rgba(220, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
+    background:-moz-linear-gradient(top, rgba(230, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(230, 250, 225, 0.4)), to(rgba(255, 120, 50, 0.7)));
+    background:-o-linear-gradient(top, rgba(230, 250, 225, 0.4), rgba(133, 232, 150, 0.7));
 }
 .teacherDetail-img b{
 	height: 40px;
@@ -451,6 +455,91 @@ teacher detail page css
  	-moz-box-shadow:3px 3px 4px #B23B00;
  	background:#fff;
  	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B23B00');
+}
+
+
+/*
+lesson css
+*/
+.lesson-search-area{
+	float:left;
+	height: 235px;
+	width: 1150px;
+	margin: 10px 20px 10px 20px;
+}
+.lesson-search-area .search-line{
+	height:45px;
+	width: 100%;
+	border-bottom: #B23B00 dotted 1px
+}
+.search-line .search-title{
+	float:left;
+	height: 35px;
+	line-height:35px;
+	text-align:left;
+	width: 110px;
+	background-image: url("images/btn-big-orange-140.png");
+	background-repeat: no-repeat;
+	background-position:center;
+	margin: 5px 5px 5px 5px;
+	padding: 0 0 0 40px;
+}
+.search-line p{
+	float:left;
+	height: 35px;
+	line-height:35px;
+	width:auto;
+	margin: 5px 5px 5px 5px;
+	padding:0 2px 0 2px;
+	text-align: center;
+	cursor: pointer;
+}
+.search-line p:hover{
+	background-color: #FF7632;
+}
+.search-line p>.active{
+	background-color: #FF7632;
+}
+.lessons-table-area{
+	float:left;
+	height: 700px;
+	width: 1150px;
+	margin: 5px 20px 10px 20px;
+	border-top: #FF7632 solid 2px;
+}
+.lessons-table-area th,.lessons-table-area td{
+	text-align: center;
+}
+
+
+/*
+page css
+*/
+.page-divided{
+	height: 50px;
+	width: 100%;
+	text-align: center;
+}
+.page-divided .page-divided-main{
+	clear:both;
+	height:30px;
+	
+	width:600px;
+	margin: 10px auto;
+}
+.page-divided p{
+	float:left;
+	height: 28px;
+	line-height:28px;
+	width: 50px;
+	border: #FF7632 solid 1px;
+	margin: 0 5px 0 5px;
+}
+.page-divided .page-divided-message{
+	float:left;
+	height: 30px;
+	line-height:30px;
+	width: 220px;
 }
 /*
 footer css

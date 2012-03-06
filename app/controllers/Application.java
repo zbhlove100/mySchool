@@ -13,6 +13,7 @@ public class Application extends BasicCrud {
     	loadHead();
     	List<ClassLevel> classLevels = ClassLevel.findAll();
     	renderArgs.put("classLevels", classLevels);
+    	renderArgs.put("page", "index");
         render();
     }
     

@@ -176,6 +176,6 @@
     $("div.teacherDetail-img").css("background-image","url(@{'public/images/teacherMesImg/'}/${showTeacher.bigImg?:''})");
     $(".teacherDetail-img").css({opacity:0.2}).animate({opacity:1},1000);
   })
-  var showTeacherAction = #{jsAction @Teachers.teacherDetail(':id',':group') /}
+  var showTeacherAction = #{jsAction @Teachers.teacherDetail() /}
   var changeGroupAction = #{jsAction @Teachers.changeGroup(':id',':group') /}
 </script>

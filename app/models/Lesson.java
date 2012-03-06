@@ -34,4 +34,7 @@ public class Lesson extends Model{
 	public int studentNum;
 	@ManyToOne
 	public Teacher teacher;
+	
+	@ManyToOne
+	public School school;
 }

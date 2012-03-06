@@ -1,0 +1,12 @@
+<div class="page-divided boraderTemp">
+	<div class="page-divided-main">
+		<p><a href="#{if _pageNum==1}javascript:void(0);#{/if}#{else}javascript:changePageDivided('${_formId}','first')#{/else}">首页</a></p>
+		<p><a href="#{if _pageNum==1}javascript:void(0);#{/if}#{else}javascript:changePageDivided('${_formId}','pre')#{/else}">上一页</a></p>
+		<div class="page-divided-message">共<b>${_totalCount}</b>条记录 当前第<b>${_pageNum}</b>页 共<b>${_totalCount.page(_pageSize)}</b>页</div>
+		<p><a href="#{if _totalCount.page(_pageSize)==_pageNum}javascript:void(0);#{/if}#{else}javascript:changePageDivided('${_formId}','next')#{/else}">下一页</a></p>
+		<p><a href="#{if _totalCount.page(_pageSize)==_pageNum}javascript:void(0);#{/if}#{else}javascript:changePageDivided('${_formId}','last')#{/else}">末页</a></p>
+		<input type="hidden" name="pageAction" id="pageAction" value="">
+		<input type="hidden" name="pageNum" id="pageNum" value="${_pageNum}">
+	</div>
+	
+</div>

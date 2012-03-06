@@ -81,14 +81,14 @@
 					</a>
 					<div class="nav-collapse">
 				      <ul class="nav">
-						  <li class="active ">
+						  <li #{if _page=='index'}class="active"#{/if}>
 						    <a href="@{Application.index}"><b>Home</b></a>
 						  </li>
-						  <li><a href="javaScript:pageClass();">class</a></li>
-						  <li><a href="javaScript:pageTeacher();">teachers</a></li>
-						  <li><a href="#">books</a></li>
-						  <li><a href="#">location</a></li>
-						  <li><a href="#">about</a></li>
+						  <li #{if _page=='lesson'}class="active"#{/if}><a href="@{Lessons.list}">class</a></li>
+						  <li #{if _page=='teacher'}class="active"#{/if}><a href="@{Teachers.show}">teachers</a></li>
+						  <li #{if _page=='books'}class="active"#{/if}><a href="#">books</a></li>
+						  <li #{if _page=='location'}class="active"#{/if}><a href="#">location</a></li>
+						  <li #{if _page=='about'}class="active"#{/if}><a href="#">about</a></li>
 						</ul>
 						<form class="navbar-search pull-right">
 									  <input type="text" class="search-query" placeholder="Search"/>
@@ -120,6 +120,10 @@ $(function(){
 		var node = $(this).parent().next();
 		node.hide();
 	});
+	$(".navbar>.navbar-inner .nav>li").click(function(){
+		$(this).parent().children().removeClass("active");
+		$(this).addClass("active");
+	})
 });
 function pageTeacher(){
 	$(".main-contianer").load("@{Teachers.teacherDetail}");

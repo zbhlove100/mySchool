@@ -20,7 +20,7 @@ $.getJSON("/public/javascripts/agile_carousel_data.php", function(data) {
 function showTeacher(id){
 	  var group = parseInt($("#teacherGroup").val());
 	  $.ajax({
-		  url:showTeacherAction({'id':id,'group':group}),
+		  url:showTeacherAction(),
 		  success:function(data){
 			  $(".teacherDetail-img").animate({opacity:'-=0.4'},1000);
 			  $(".name-area").animate({left:'+=150'},800).animate({left:'-=800'},1200);
@@ -30,8 +30,9 @@ function showTeacher(id){
 				  $(".main-contianer").html(data);
 			  })},700);
 		  },
+		  data:{'id':id,'group':group},
 		  dataType:'html',
-		  type:'GET'
+		  type:'POST'
 	  })
   }
 function changeGroupTeacher(action){
@@ -51,6 +52,15 @@ function changeGroupTeacher(action){
 			  $(".teacherDetail-footarea").html(data);
 		  },
 		  dataType:'html',
-		  type:'GET'
+		  type:'POST'
 	  })
   }
+function changePageDivided(form,action){
+	$("#pageAction").val(action);
+	$("#"+form).submit();
+
+}
+function setValue(form,target,value){
+	$("input[name="+target+"][type=hidden]").val(value);
+	$("#"+form).submit();
+}

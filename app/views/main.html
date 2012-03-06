@@ -23,11 +23,13 @@
  		 <script src="@{'/public/javascripts/teacher.js'}" type="text/javascript"></script>
     </head>
     <body>
-	#{head mainTeachers:teachers,mainBigTeacher:bigTeacher,user:user/}
-			
+	#{head mainTeachers:teachers,mainBigTeacher:bigTeacher,user:user,page:page/}
+		<div class="all-container">
+			<div class="main-contianer">	
         #{doLayout /}
     
-    
+		    </div>
+		</div>
      #{footer /}   
 
 		</body>

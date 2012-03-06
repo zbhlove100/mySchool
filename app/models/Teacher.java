@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,8 +33,11 @@ public class Teacher extends Model{
 	public Date removedAt;
 	
 	@OneToOne(mappedBy="teacher")
-	TeacherDetail teacherDetail;
+	public TeacherDetail teacherDetail;
 	
 	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY)
-	List<Lesson> lessons;
+ 	public List<Lesson> lessons;
+	
+	@ManyToOne
+	public School school;
 }
