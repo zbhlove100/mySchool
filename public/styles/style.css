@@ -153,7 +153,7 @@ main css
 }
 .main-contianer{
 	width: 1200px;
-	height:1300px;
+	height:900px;
 	margin: 0px auto;
 	border-left: #E3E3E3 solid 1px;
 	border-right: #E3E3E3 solid 1px;
@@ -470,7 +470,7 @@ lesson css
 .lesson-search-area .search-line{
 	height:45px;
 	width: 100%;
-	border-bottom: #B23B00 dotted 1px
+	border-bottom: #B23B00 dotted 1px;
 }
 .search-line .search-title{
 	float:left;
@@ -497,7 +497,7 @@ lesson css
 .search-line p:hover{
 	background-color: #FF7632;
 }
-.search-line p>.active{
+.search-line p.active{
 	background-color: #FF7632;
 }
 .lessons-table-area{
@@ -510,8 +510,71 @@ lesson css
 .lessons-table-area th,.lessons-table-area td{
 	text-align: center;
 }
-
-
+.lesson-basic-area{
+	float:left;
+	height: 300px;
+	width: 1150px;
+	margin: 10px 25px 10px 25px;
+}
+.lesson-basic-area .lesson-message{
+	float:left;
+	height: 300px;
+	width: 750px;
+}
+.lesson-message .head{
+	float:left;
+	height: 50px;
+	line-height:50px;
+	font-size: 30px;
+	color: #0097E0;
+	text-shadow:black 1px 1px 1px;
+	filter: dropshadow(OffX=1, OffY=1, Color='black', Positive='true');
+	width: 730px;
+	padding-left:20px;
+	border-bottom: #B23B00 dotted 1px;
+}
+.lesson-message img{
+	float:left;
+	height: 200px;
+	width: 250px;
+	margin: 20px 10px 20px 20px;
+}
+.lesson-message .lesson-message-area{
+	float:left;
+	height:200px;
+	width: 460px;
+	margin: 20px 10px 20px 0px;
+}
+.lesson-message-area .message{
+	float:left;
+	height:160px;
+	width: 380px;
+	margin: 0 10px 10px 0px;
+}
+.lesson-message-area .left-number{
+	float:left;
+	height:160px;
+	width: 60px;
+	margin: 0 10px 10px 0px;
+}
+.lesson-message-area .save-btn-area{
+	float:left;
+	height:35px;
+	width: 460px;
+	margin: 5px 0 0 0;
+}
+.lesson-basic-area .teacher-disc{
+	float:left;
+	height: 300px;
+	width: 376px;
+	margin-left: 20px;
+}
+.lessonTable-area{
+	float:left;
+	height: 535px;
+	width: 1150px;
+	margin: 10px 25px 10px 25px;
+}
 /*
 page css
 */

@@ -7,6 +7,11 @@
 # Home page
 GET     /                                       Application.index
 
+#customer router
+
+*     /lessons/classdetail/{id}    Lessons.classDetail
+*     /teacher/showTeacher/{id}    teachers.showTeacher
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
@@ -31,7 +36,6 @@ GET 	    /${type.controllerName.toLowerCase()}/deletes  		${type.controllerName}
 # Import Secure routes
 *       /                                       module:secure
 
-*     /teacher/showTeacher/{id}    teachers.showTeacher
 
 
 

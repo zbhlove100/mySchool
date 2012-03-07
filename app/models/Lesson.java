@@ -1,7 +1,11 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
@@ -23,6 +27,8 @@ public class Lesson extends Model{
 	
 	public String state;
 	
+	public String status;
+	
 	public int times;
 	
 	public String startTime;
@@ -37,4 +43,7 @@ public class Lesson extends Model{
 	
 	@ManyToOne
 	public School school;
+	
+	@OneToMany(mappedBy="lesson",fetch=FetchType.LAZY)
+	public List<LessonTable> lessonTables;
 }

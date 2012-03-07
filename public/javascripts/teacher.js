@@ -64,3 +64,17 @@ function setValue(form,target,value){
 	$("input[name="+target+"][type=hidden]").val(value);
 	$("#"+form).submit();
 }
+function ajaxSubForm(form,container){
+	$form = $("#"+form);
+	 $.ajax({
+		  url:$form.attr("action"),
+		  success:function(data){
+			$("."+container).html(data);
+		  },
+		  data:$form.serializeArray(),
+		  cache: false,
+		  dataType:'html',
+		  type:'POST'
+	  });
+	  return false;
+}

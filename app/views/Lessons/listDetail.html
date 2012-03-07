@@ -1,0 +1,75 @@
+<form action="@{Lessons.listDetail}" method="post" id="lessonListForm" onSubmit="return ajaxSubForm('lessonListForm', 'main-contianer');">
+<div class="lesson-search-area boraderTemp">
+	<div class="search-line">
+		<div class="search-title">选择课表</div>
+		<p #{if timeType==""||timeType==null}class="active"#{/if} onclick="setValue('lessonListForm','timeType','')">不限</p>
+		#{list items:timeTypes,as:'item'}
+		<P #{if timeType==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','timeType','${item?.codeValue}')">${item?.codeValue}</P>
+		#{/list}
+		<input type="hidden" name="timeType" value="${timeType}">
+	</div>
+	<div class="search-line">
+		<div class="search-title">选择校区</div>
+		<p #{if school==0}class="active"#{/if} onclick="setValue('lessonListForm','school','')">不限</p>
+		#{list items:schools,as:'item'}
+		<P #{if school==item?.id}class="active"#{/if} onclick="setValue('lessonListForm','school','${item?.id}')">${item?.name}</P>
+		#{/list}
+		<input type="hidden" name="school" value="${school}">
+	</div>
+	<div class="search-line">
+		<div class="search-title">选择学科</div>
+		<p #{if lessonType==""||lessonType==null}class="active"#{/if} onclick="setValue('lessonListForm','lessonType','')">不限</p>
+		#{list items:lessonTypes,as:'item'}
+		<P #{if lessonType==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','lessonType','${item?.codeValue}')">${item?.codeValue}</P>
+		#{/list}
+		<input type="hidden" name="lessonType" value="${lessonType}">
+	</div>
+	<div class="search-line">
+		<div class="search-title">选择系列</div>
+		<p #{if collection==""||collection==null}class="active"#{/if} onclick="setValue('lessonListForm','collection','')">不限</p>
+		#{list items:collections,as:'item'}
+		<P #{if collection==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','collection','${item?.codeValue}')">${item?.codeValue}</P>
+		#{/list}
+		<input type="hidden" name="collection" value="${collection}">
+	</div>
+	<div class="search-line">
+		<div class="search-title">选择课程</div>
+		<p #{if subCollection==""||subCollection==null}class="active"#{/if} onclick="setValue('lessonListForm','subCollection','')">不限</p>
+		#{list items:subCollections,as:'item'}
+		<P #{if subCollection==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','subCollection','${item?.codeValue}')">${item?.codeValue}</P>
+		#{/list}
+		<input type="hidden" name="subCollection" value="${subCollection}">
+	</div>
+</div>
+<div class="lessons-table-area">
+	<table class="table table-bordered">
+					<thead>
+						<tr style="background-color:#EAEAEA">
+					      <th style="width:80px;">状态</th>
+					      <th style="width:200px;">课程名称</th>
+					      <th style="width:100px;">教师</th>
+					      <th style="width:80px;">课次</th>
+					      <th style="width:200px;">开课时间</th>
+					      <th style="width:200px;">上课时间</th>
+					      <th style="width:200px;">地点</th>
+					      <th style="width:50px;">详细</th>
+					    </tr>
+				    </thead>
+				    <tbody>
+				    	#{list items:lessons,as:'lesson'}
+				    	<tr>
+				    		<td>${lesson.status}</td>
+				    		<td>${lesson.name}</td>
+				    		<td>${lesson.teacher.name}</td>
+				    		<td>${lesson.times}</td>
+				    		<td>${lesson.startTime}</td>
+				    		<td>${lesson.endTime}</td>
+				    		<td>${lesson.school.name}</td>
+				    		<td><a href="@{Lessons.classDetail(lesson.id)}">详细</a></td>
+				    	</tr>
+				    	#{/list}
+				    </tbody>
+				</table>
+		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"lessonListForm"/}
+</div>
+</form>
