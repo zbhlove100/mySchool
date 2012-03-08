@@ -14,7 +14,13 @@ public class Teachers extends BasicCrud{
 	public static void show(){
 		Application.loadHead();
 		int group = 1;
-		Teacher showTeacher = Teacher.find("state !=?",BaseModel.DELETE).first(); 
+		long id = Long.parseLong(params.get("id",int.class).toString());
+		Teacher showTeacher = new Teacher();
+		if(id==0){
+			showTeacher = Teacher.find("state !=?",BaseModel.DELETE).first();
+		}else{
+			showTeacher = Teacher.findById(id);
+		}
 		List<Teacher> listTeacher = Teacher.find("id !=? and state !=?", showTeacher.id,BaseModel.DELETE).fetch(group, GLENGTH);
 		renderArgs.put("teacherGroup", group);
 		renderArgs.put("teacherId", showTeacher.id);

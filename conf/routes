@@ -12,6 +12,8 @@ GET     /                                       Application.index
 *     /lessons/classdetail/{id}    Lessons.classDetail
 *     /teacher/showTeacher/{id}    teachers.showTeacher
 
+
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

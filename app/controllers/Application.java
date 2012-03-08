@@ -12,7 +12,9 @@ public class Application extends BasicCrud {
     public static void index() {
     	loadHead();
     	List<ClassLevel> classLevels = ClassLevel.findAll();
+    	List<news> mainNews = news.find("type =? and state !=? order by createdAt DESC", BaseModel.MAIN,BaseModel.DELETE).fetch(5);
     	renderArgs.put("classLevels", classLevels);
+    	renderArgs.put("mainNews", "mainNews");
     	renderArgs.put("page", "index");
         render();
     }

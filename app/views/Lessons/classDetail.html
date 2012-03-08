@@ -3,14 +3,74 @@
 <div class="lesson-basic-area ">
 	<div class="lesson-message boraderTemp">
 		<div class="head">${lesson.name}</div>
-		<img alt="" src="/public/images/teacherImg150x150/t1.png">
+		<img alt="" src="/public/images/teacherImg150x150/t2.jpg">
 			<div class="lesson-message-area">
-				<div class="message"></div>
-				<div class="left-number"></div>
-				<div class="save-btn-area"></div>
+				<div class="message">
+					<table class="table">
+						<tr>
+							<td>教师 :</td>
+							<td>${lesson?.teacher?.name}</td>
+							<td>课次 :</td>
+							<td>${lesson?.times}</td>
+						</tr>
+						<tr>
+							<td>开课时间 :</td>
+							<td>${lesson?.startTime}</td>
+							<td>上课时间 :</td>
+							<td>${lesson?.endTime}</td>
+						</tr>
+						<tr>
+							<td>地点 ：</td>
+							<td colspan="3">${lesson?.school.name}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="left-number shadow-class">
+					剩余名额
+					<p> <b>${15-lesson?.studentNum}</b></p>
+				</div>
+				<div class="save-btn-area">
+					<button class="btn btn-primary btn btn-large">咨  询>></button>
+					<button class="btn btn-primary btn btn-large">收  藏>></button>
+				</div>
 			</div>
 	</div>
-	<div class="teacher-disc boraderTemp"></div>
+	<div class="teacher-disc boraderTemp">
+		<div class="head"><i class="icon-user"></i>授课教师</div>
+		<div class="teacher-disc-img shadow-class">
+			<a href="/teachers/show/${lesson?.teacher.id}">
+				<img alt="" src="/public/images/teacherImg150x150/${lesson.teacher.x150_img}">
+			</a>
+		</div>
+		<div class="pagination-centered">
+			<b>${lesson?.teacher?.name}</b>
+			<br>
+			<a href="/teachers/show/${lesson?.teacher.id}" class="btn btn-success btn-large">查看详细信息>></a>
+		</div>
+		
+	</div>
 </div>
 <div class="lessonTable-area boraderTemp">
+	<div class="tab-head">
+		<b>课表</b>
+	</div>
+	<table class="lessonTable-table  ">
+		#{list items:lessonTables,as:'itemlist'}
+			<tr>
+			#{list items:itemlist,as:'item'}
+				<td #{if item.state == "Finish"}class="finish"#{/if}>
+					${item.lessonDate}
+					<br>
+					${item.name}
+				</td>
+			#{/list}
+			</tr>
+		#{/list}
+	</table>
+	<div class="tab-head">
+		<b>班级介绍</b>
+	</div>
+	<div class="lessonTable-lessonSammry boraderTemp">
+	${lesson?.discription}
+	</div>
 </div>

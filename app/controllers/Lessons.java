@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.BaseModel;
@@ -149,10 +150,13 @@ public class Lessons extends BasicCrud{
 	public static void classDetail(long id){
 		Application.loadHead();
 		Lesson lesson = Lesson.findById(id);
-		List<LessonTable> lessonTables = lesson.lessonTables;
-		renderArgs.put("lesson", lesson);
+		List<List> lessonTables = new ArrayList<List>();
+		for(int i=1;i<5;i++){
+			List<LessonTable> tlessonTables = LessonTable.find("lesson.id", id).fetch(i, 4);
+			lessonTables.add(tlessonTables);
+		}
 		renderArgs.put("lessonTables",lessonTables);
-		
+		renderArgs.put("lesson", lesson);
 		render();
 	}
 }

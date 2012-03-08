@@ -10,7 +10,7 @@ public class BaseModel extends Model {
 	 public static String ACTIVE = "Active";
 	 public static String PROCESSING = "Processing";	 
 	 public static String PENDING = "Pending";
-	 public static String FREEZE = "Freeze";
+	 public static String MAIN = "main";
 	 public static String DELETE = "Delete";
 	 public static int PAGESIZE = 10;
 	 
@@ -19,7 +19,6 @@ public class BaseModel extends Model {
 		 ss.add(ACTIVE);
 		 ss.add(PROCESSING);
 		 ss.add(PENDING);
-		 ss.add(FREEZE);
 		 return ss;
 	 }
 
