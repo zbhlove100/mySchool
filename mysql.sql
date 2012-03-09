@@ -97,6 +97,36 @@ INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Activ
 UNLOCK TABLES;
 
 --
+-- Table structure for table `information`
+--
+
+DROP TABLE IF EXISTS `information`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `information` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `content` varchar(10000) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `removed_at` timestamp NULL DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  `main_tag` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `information`
+--
+
+LOCK TABLES `information` WRITE;
+/*!40000 ALTER TABLE `information` DISABLE KEYS */;
+INSERT INTO `information` VALUES (1,'sale1','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(2,'sale2','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(3,'sale3','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(4,'sale4','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(5,'sale5','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(6,'sale6','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(7,'sale7','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(8,'sale8','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(9,'the first news in the main page','sale1ccccccc','first','2012-03-09 03:12:53',NULL,'Active',NULL),(10,'main page news 1',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(11,'main page news 2',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(12,'main page news 3',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(13,'main page news 4',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(14,'main page news 5',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(15,'main page news 6',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(16,'main page news 7',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(17,'main page news 8',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL);
+/*!40000 ALTER TABLE `information` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `lesson`
 --
 
@@ -168,34 +198,6 @@ INSERT INTO `lesson_table` VALUES (1,'第1课','2012-03-05','Finish',1),(2,'第2
 UNLOCK TABLES;
 
 --
--- Table structure for table `news`
---
-
-DROP TABLE IF EXISTS `news`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `news` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` varchar(10000) DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `removed_at` timestamp NULL DEFAULT NULL,
-  `state` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `news`
---
-
-LOCK TABLES `news` WRITE;
-/*!40000 ALTER TABLE `news` DISABLE KEYS */;
-/*!40000 ALTER TABLE `news` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `school`
 --
 
@@ -222,6 +224,38 @@ LOCK TABLES `school` WRITE;
 /*!40000 ALTER TABLE `school` DISABLE KEYS */;
 INSERT INTO `school` VALUES (1,'沈阳校区','沈阳的一个店铺','123456789',NULL,'沈阳的一个店铺沈阳的一个店铺沈阳的一个店铺233333','Active');
 /*!40000 ALTER TABLE `school` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tags`
+--
+
+DROP TABLE IF EXISTS `tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tags` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `lesson_id` bigint(20) NOT NULL,
+  `teacher_id` bigint(20) NOT NULL,
+  `information_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tags_lesson1` (`lesson_id`),
+  KEY `fk_tags_teacher1` (`teacher_id`),
+  KEY `fk_tags_information1` (`information_id`),
+  CONSTRAINT `fk_tags_information1` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tags_lesson1` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tags_teacher1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tags`
+--
+
+LOCK TABLES `tags` WRITE;
+/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -373,4 +407,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-08 17:42:46
+-- Dump completed on 2012-03-09 18:04:00

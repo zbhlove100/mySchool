@@ -9,20 +9,32 @@
 
 //-->
 $(function(){
-	 $("a[rel=popover]").popover();
-	 $(".make_corner").corner();
 	 $(".class-level-area>ul>li").mouseenter(function(){
 		 $(this).css({opacity:'0.4'});
 		 $(".tooltip-area").html($(".class-level-message",this).html());
 	 }).mouseleave(function(){
 		 $(this).css({opacity:'1'});
 	 });
+	 var i = 4;
+	var intId = setInterval(function() {
+		 
+		 i -= 1;
+		 if(i==0){
+			 $("#float-sale-message").animate({left:'+=480'},1500)
+			 i=4;
+		 }else{
+			 $("#float-sale-message").animate({left:'-=160'},1000)
+		 }
+			 
+		},3000);
 })
 </script>
+	<div class="spec-contianer" style="height:1200px">
 		<div id="flavor_1" class="main-carousel boraderTemp">
 		</div>
 		<div class="login-area">
 			<form class="" action="@{Users.login}">
+			#{if user=="GUEST"}
 			  	<div class="loginInput">
 			  		<p><span class="login-title"><b>Email</b></span>
 			  		<input type="text" class="input-large" id="email" name="email">
@@ -40,6 +52,10 @@ $(function(){
 			   	 		<a href="#" class="" style="line-height: 24px;"> <i class="icon-pencil"></i>Register</a>
 			  		</p>
 			  	</div>
+			  #{/if}
+			  #{else}
+			  	welcom Mr/Ms ${user}
+			  #{/else}
 			</form>
 		</div>
 		<div class="hot-message-area boraderTemp .make_corner">
@@ -50,9 +66,35 @@ $(function(){
 				<b>tab1</b>
 			</div>
 			<div class="tab-body"> 
-				<div class="sale-message"></div>
-				<div class="sale-message"></div>
-				<div class="sale-message"></div> 
+				<div class="sale-message boraderTemp pull-left tab-margin">
+					<div class="head29h" style="width:310px"><span>优惠推荐</span><a href="#" class="pull-left">更多>></a></div>
+					
+					<div class="sale-message-body">
+						<div id="float-sale-message">
+							#{list items:saleMessages,as:'subList'}
+							<div class="sale-message-block  pull-left margin2">
+								#{list items:subList,as:'item'}
+								<div class="sale-message-block1 boraderTemp pull-left pagination-centered shadow-class">${item.title}</div>
+								#{/list}
+							</div>
+							#{/list}
+						</div>
+					</div>
+				</div>
+				<div class="news-message boraderTemp pull-left tab-margin">
+					<div class="head29h" style="width:540px"><span>育苗大事</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+					<ul class="margin3 pull-left">
+						<li class="margin3"><a href="#">${firstNews?.title}</a></li>
+						#{list items:mainNews,as:'item'}
+						<li class="margin3"><a href="#">${item.title}</a></li>
+						#{/list}
+					</ul>
+				</div>
+				<div class="add-message boraderTemp pull-left tab-margin">
+					<div class="head29h" style="width:255px">
+					add....
+					</div>
+				</div> 
 			</div>
 		</div>
 		
@@ -74,9 +116,10 @@ $(function(){
 					</ul>
 				</div>
 				<div class="class-img-area boraderTemp">
+					<img alt="" src="/public/images/levelicon.jpg">
 				</div>
 				<div class="class-sammary-area boraderTemp">
 				</div>
 			</div>
 		</div>
-
+</div>

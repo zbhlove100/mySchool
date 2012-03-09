@@ -161,7 +161,12 @@ main css
 }
 .main-contianer{
 	width: 1200px;
-	height:900px;
+	height:auto;
+	margin: 0px auto;
+}
+.spec-contianer{
+	float:left;
+	width: 1200px;
 	margin: 0px auto;
 	border-left: #E3E3E3 solid 1px;
 	border-right: #E3E3E3 solid 1px;
@@ -217,7 +222,7 @@ main css
 .main-tab{
 	float: left;
 	width:1180px;
-	height:280px;
+	height:300px;
 	margin: 5px 5px 10px 5px;
 }
 .tab-head{
@@ -244,6 +249,82 @@ main css
 	height:100%;
 	width:1178px;
 	margin: 0 0 0 1px;
+	overflow: hidden;
+}
+.tab-margin{
+	margin: 10px 5px 10px 5px;
+}
+.tab-body .sale-message{
+	width: 320px;
+	height: 260px;
+	overflow: hidden;
+}
+.sale-message .head29h>span{
+	float:left;
+	width: 80%;
+}
+.sale-message .head29h>a{
+	float:left;
+}
+.sale-message .sale-message-body{
+	width: 320px;
+	height: 228px;
+	position: relative;
+	overflow: hidden;
+}
+.sale-message-block{
+	height: 210px;
+	width: 145px;
+}
+.sale-message-block1{
+	height: 100px;
+	line-height:100px;
+	width: 145px;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+.margin2{
+	margin: 10px 6px 10px 8px;
+}
+.margin3{
+	margin: 10px 15px 10px 15px;
+}
+#float-sale-message{
+	width: 800px;
+	height: 228px;
+	position: relative;
+}
+.tab-body .news-message{
+	width: 550px;
+	height: 260px;
+}
+.news-message ul{
+	height:100%;
+	width:550px;
+}
+.news-message li:first-child{
+	width:500px;
+	list-style: none;
+	margin-left: 120px;
+}
+.news-message li:first-child>a{
+	font-size: 25px;
+	color: #FE874C;
+}
+.news-message li{
+	float:left;
+	width:230px;
+	font-size: 14px;
+	list-style-image: url("images/li.jpg");
+	margin-left: 20px;
+}
+.news-message li>a{
+	color: #8E8E8E;
+}
+
+.tab-body .add-message{
+	width: 265px;
+	height: 260px;
 }
 .tooltip-area{
 	float:left;
@@ -584,7 +665,7 @@ lesson css
 	width: 376px;
 	margin-left: 20px;
 }
-.teacher-disc .head{
+.head29h{
 	height:29px;
 	line-height:29px;
 	width:366px;

@@ -46,4 +46,7 @@ public class Lesson extends Model{
 	
 	@OneToMany(mappedBy="lesson",fetch=FetchType.LAZY)
 	public List<LessonTable> lessonTables;
+	
+	@OneToMany(mappedBy="lesson",fetch=FetchType.LAZY)
+	public List<Tags> tags;
 }

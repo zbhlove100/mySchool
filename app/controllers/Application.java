@@ -12,9 +12,18 @@ public class Application extends BasicCrud {
     public static void index() {
     	loadHead();
     	List<ClassLevel> classLevels = ClassLevel.findAll();
-    	List<news> mainNews = news.find("type =? and state !=? order by createdAt DESC", BaseModel.MAIN,BaseModel.DELETE).fetch(5);
+    	List<Information> mainNews = Information.find("type =? and state !=? order by createdAt DESC", BaseModel.MAIN,BaseModel.DELETE).fetch(8);
+    	Information firstNews = Information.find("type =? and state !=? order by createdAt DESC", "first",BaseModel.DELETE).first();
+    	List<List> saleMessages = new ArrayList<List>();
+    	for(int i=1;i<5;i++){
+    		List<Information> tsaleMessages = Information.find("type =? and state !=? order by createdAt DESC", "sale",BaseModel.DELETE).fetch(i,2);
+    		saleMessages.add(tsaleMessages);
+    	}
+    	
     	renderArgs.put("classLevels", classLevels);
-    	renderArgs.put("mainNews", "mainNews");
+    	renderArgs.put("mainNews",mainNews);
+    	renderArgs.put("firstNews",firstNews);
+    	renderArgs.put("saleMessages", saleMessages);
     	renderArgs.put("page", "index");
         render();
     }
