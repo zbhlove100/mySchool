@@ -19,6 +19,9 @@ body{
 	background:#fff;
 	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B7B7B7');
 }
+.breadcrumb{
+	
+}
 /*head*/
 .boraderTemp {
 	border-style: solid;
@@ -261,7 +264,7 @@ main css
 }
 .sale-message .head29h>span{
 	float:left;
-	width: 80%;
+	width: 250px;
 }
 .sale-message .head29h>a{
 	float:left;
@@ -298,6 +301,10 @@ main css
 	width: 550px;
 	height: 260px;
 }
+.news-message .head29h>span{
+	float:left;
+	width: 480px;
+}
 .news-message ul{
 	height:100%;
 	width:550px;
@@ -313,10 +320,10 @@ main css
 }
 .news-message li{
 	float:left;
-	width:230px;
+	width:200px;
 	font-size: 14px;
 	list-style-image: url("images/li.jpg");
-	margin-left: 20px;
+	margin:10px 0 10px 65px;
 }
 .news-message li>a{
 	color: #8E8E8E;
