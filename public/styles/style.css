@@ -19,8 +19,13 @@ body{
 	background:#fff;
 	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B7B7B7');
 }
-.breadcrumb{
-	
+.nonstyleul{
+	list-style: none;
+}
+.iconli{
+	float:left;
+	font-size: 16px;
+	list-style-image: url("images/li.jpg");
 }
 /*head*/
 .boraderTemp {
@@ -319,10 +324,7 @@ main css
 	color: #FE874C;
 }
 .news-message li{
-	float:left;
 	width:200px;
-	font-size: 14px;
-	list-style-image: url("images/li.jpg");
 	margin:10px 0 10px 65px;
 }
 .news-message li>a{
@@ -731,6 +733,19 @@ lesson css
 	height: 590px;
 	width: 100%;
 	margin: 10px 0 0 10px;
+}
+.information-list-body li{
+	width:100%;
+	margin: 10px 10px 10px 10px;
+	padding-left: 20px;
+}
+.information-list-body li>a{
+	color:#222222;
+}
+.information-list-body li>span{
+	font-size:12px;
+	color:#888888;
+	margin-left:80px; 
 }
 .information-list-add{
 	height: 640px;

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.58, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.61, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: myschool
 -- ------------------------------------------------------
--- Server version	5.1.58-1ubuntu1
+-- Server version	5.1.61-0ubuntu0.11.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -97,6 +97,32 @@ INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Activ
 UNLOCK TABLES;
 
 --
+-- Table structure for table `count_log`
+--
+
+DROP TABLE IF EXISTS `count_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `count_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `ipaddress` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `count_log`
+--
+
+LOCK TABLES `count_log` WRITE;
+/*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
+INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11');
+/*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `information`
 --
 
@@ -108,7 +134,7 @@ CREATE TABLE `information` (
   `title` varchar(255) DEFAULT NULL,
   `content` varchar(10000) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `removed_at` timestamp NULL DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
   `main_tag` varchar(45) DEFAULT NULL,
@@ -270,7 +296,7 @@ CREATE TABLE `teacher` (
   `name` varchar(45) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `graduate_school` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `removed_at` timestamp NULL DEFAULT NULL,
   `img` varchar(512) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
@@ -355,7 +381,7 @@ CREATE TABLE `user` (
   `age` int(11) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `removed_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -407,4 +433,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-09 18:04:00
+-- Dump completed on 2012-03-13 18:07:04

@@ -7,23 +7,27 @@
   </li>
 </ul>
 <div>
-<form action="@{Lessons.listDetail}" method="post" id="lessonListForm" onSubmit="return ajaxSubForm('lessonListForm', 'main-contianer');">
+<form action="@{Informations.listDetail}" method="post" id="informationListForm" onSubmit="return ajaxSubForm('informationListForm', 'main-contianer');">
 <div class="lesson-search-area boraderTemp">
 	<div class="search-line">
-		<div class="search-title">选择课表</div>
-		<p #{if timeType==""||timeType==null}class="active"#{/if} onclick="setValue('lessonListForm','timeType','')">不限</p>
-		#{list items:timeTypes,as:'item'}
-		<P #{if timeType==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','timeType','${item?.codeValue}')">${item?.codeValue}</P>
+		<div class="search-title">新闻类型</div>
+		<p #{if informationType==""||informationTypes==null}class="active"#{/if} onclick="setValue('informationListForm','informationType','')">不限</p>
+		#{list items:informationTypes,as:'item'}
+		<P #{if informationType==item?.codeValue}class="active"#{/if} onclick="setValue('informationListForm','informationType','${item?.codeValue}')">${item?.codeValue}</P>
 		#{/list}
-		<input type="hidden" name="timeType" value="${timeType}">
+		<input type="hidden" name="informationType" value="${informationType}">
 	</div>
 </div>
 <div class="lessons-table-area">
 	<div class="information-list pull-left">
 		<div class="information-list-body">
-		
+		<ul>
+		#{list items:informations,as:'item'}
+		<li class="iconli" ><a href="#">${item?.title}</a><span style="">${item?.createdAt.format('yyyy-MM-dd hh:mm')}</span></li>
+		#{/list}
+		</ul>
 		</div>
-		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"lessonListForm"/}
+		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"informationListForm"/}
 	</div>
 	<div class="information-list-add boraderTemp pull-left">
 	
