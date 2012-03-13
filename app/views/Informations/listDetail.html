@@ -1,8 +1,35 @@
 <ul class="breadcrumb">
   <li>
-    <a href="@{Application.index}">博苗网</a> <span class="divider">/</span>
+   <i class="icon-home"></i> <a href="@{Application.index}">博苗网</a> <span class="divider">/</span>
   </li>
   <li class="active">
     新闻及优惠
   </li>
 </ul>
+<div>
+<form action="@{Lessons.listDetail}" method="post" id="lessonListForm" onSubmit="return ajaxSubForm('lessonListForm', 'main-contianer');">
+<div class="lesson-search-area boraderTemp">
+	<div class="search-line">
+		<div class="search-title">选择课表</div>
+		<p #{if timeType==""||timeType==null}class="active"#{/if} onclick="setValue('lessonListForm','timeType','')">不限</p>
+		#{list items:timeTypes,as:'item'}
+		<P #{if timeType==item?.codeValue}class="active"#{/if} onclick="setValue('lessonListForm','timeType','${item?.codeValue}')">${item?.codeValue}</P>
+		#{/list}
+		<input type="hidden" name="timeType" value="${timeType}">
+	</div>
+</div>
+<div class="lessons-table-area">
+	<div class="information-list pull-left">
+		<div class="information-list-body">
+		
+		</div>
+		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"lessonListForm"/}
+	</div>
+	<div class="information-list-add boraderTemp pull-left">
+	
+	</div>
+	
+</div>
+
+</form>
+</div>

@@ -78,3 +78,84 @@ function ajaxSubForm(form,container){
 	  });
 	  return false;
 }
+function scollDiv(listObj,moveObj,speed,isSeries,direct,steplength){
+	
+	var pos,left,aniLeft,width;
+	pos = listObj.position();
+	left = pos.left;
+	aniLeft = left;			
+	width = listObj.width();
+	var id = '';  //记录setInterval的标记id
+	var scrollUp = function() {
+		aniLeft -= steplength;
+		if(direct == 'left'){
+			if(!isSeries) {	//isSeries变量控制是否连续滚动，false不连续，true连续
+				listObj.animate({left:'-='+left},speed,function(){
+					if(aniLeft < -width) {	//不连续，滚动玩重新滚动
+						listObj.css({'left': left});
+						aniLeft = left;
+					};
+				})
+				
+			} else {
+				var marginLeft = listObj.children().eq(0).css("marginLeft");
+				marginLeft = parseInt(marginLeft.substring(0,marginLeft.length-2)); 
+				var marginRight = listObj.children().eq(0).css("marginRight");
+				marginRight = parseInt(marginRight.substring(0,marginRight.length-2)); 
+				var margin = marginLeft+marginRight;
+				listObj.animate({left:'-='+steplength},500,function(){
+					if(aniLeft < (-listObj.children().eq(0).width()-margin)) {	//连续滚动
+						var firstItem = listObj.children().eq(0);
+						listObj.append(firstItem);
+						//listObj.children().eq(0).remove();
+						aniLeft = 0;
+					};
+					listObj.css({'left': aniLeft + 'px'});
+				});
+
+			};
+		}else if(direct == 'top'){
+			left = pos.top;
+			aniLeft = left;			
+			width = listObj.height();
+			if(!isSeries) {	//isSeries变量控制是否连续滚动，false不连续，true连续
+				listObj.animate({top:'-='+left},speed,function(){
+					if(aniLeft < -width) {	//不连续，滚动玩重新滚动
+						listObj.css({'top': left});
+						aniLeft = left;
+					};
+				})
+				
+			} else {
+				var marginLeft = listObj.children().eq(0).css("marginTop");
+				marginLeft = parseInt(marginLeft.substring(0,marginLeft.length-2)); 
+				var marginRight = listObj.children().eq(0).css("marginBottom");
+				marginRight = parseInt(marginRight.substring(0,marginRight.length-2)); 
+				var margin = marginLeft+marginRight;
+				listObj.animate({top:'-='+steplength},500,function(){
+					if(aniLeft < (-listObj.children().eq(0).height()-margin)) {	//连续滚动
+						var firstItem = listObj.children().eq(0);
+						listObj.append(firstItem);
+						//listObj.children().eq(0).remove();
+						aniLeft = 0;
+					};
+					listObj.css({'top': aniLeft + 'px'});
+				});
+
+			};
+		}
+		
+	};
+	var hover = function(id) {
+		listObj.hover(function() {
+			clearInterval(id);
+		}, function() {
+			id = setInterval(scrollUp, speed);
+		});
+	};
+
+	this.start = function() {
+		id = setInterval(scrollUp, speed);
+		hover(id);
+	};
+}

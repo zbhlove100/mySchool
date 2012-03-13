@@ -559,7 +559,7 @@ lesson css
 */
 .lesson-search-area{
 	float:left;
-	height: 235px;
+	height: auto;
 	width: 1150px;
 	margin: 10px 20px 10px 20px;
 }
@@ -582,11 +582,11 @@ lesson css
 }
 .search-line p{
 	float:left;
-	height: 35px;
-	line-height:35px;
+	height: 30px;
+	line-height:30px;
 	width:auto;
 	margin: 5px 5px 5px 5px;
-	padding:0 2px 0 2px;
+	padding:0 5px 0 5px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -721,6 +721,21 @@ lesson css
 	height: 130px;
 	width: 1140px;
 	margin: 10px 5px 0 5px;
+}
+
+.information-list{
+	height: 650px;
+	width: 800px;
+}
+.information-list-body{
+	height: 590px;
+	width: 100%;
+	margin: 10px 0 0 10px;
+}
+.information-list-add{
+	height: 640px;
+	width: 338px;
+	margin: 10px 0 0 10px;
 }
 /*
 page css

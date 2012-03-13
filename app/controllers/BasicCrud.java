@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import models.CountLog;
 import models.User;
 
 import play.data.binding.Binder;
@@ -20,23 +21,40 @@ public class BasicCrud extends CRUD {
 	@Before
 	public static void checkUser(){
 		//for flash authorization
-				if(request.cookies == null || request.cookies.get("PLAY_SESSION") == null){
-					if(params.get("sessionId") != null){
-						String ID_KEY = "___ID";
-						session.put(ID_KEY, params.get("sessionId"));
-						session.put("username",Security.connected());
-					}
-					//Logger.setUp("TRACE");
+			if(request.cookies == null || request.cookies.get("PLAY_SESSION") == null){
+				if(params.get("sessionId") != null){
+					String ID_KEY = "___ID";
+					session.put(ID_KEY, params.get("sessionId"));
+					session.put("username",Security.connected());
 				}
-				if(Security.isConnected()){
-					if(Security.connected() != null){
-						renderArgs.put("user",Security.connected());
-					}
-				}else{
-					renderArgs.put("user","GUEST");
+				//Logger.setUp("TRACE");
+			}
+			if(Security.isConnected()){
+				if(Security.connected() != null){
+					renderArgs.put("user",Security.connected());
 				}
+			}else{
+				renderArgs.put("user","GUEST");
+			}
+			if(countUser()){
+				CountLog countLog = new CountLog();
+				countLog.userName = renderArgs.get("user").toString();
+				countLog.ipaddress = request.remoteAddress;
+				countLog.save();
+			}
+			
 	}
-	
+	private static boolean countUser(){
+		if(session.get("PLAY_SESSION") == null){
+			session.put("PLAY_SESSION", session.getId());
+			return true;
+		}else{
+			if(!session.getId().equals(session.get("PLAY_SESSION"))){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	
     private static String allMessage(String message){

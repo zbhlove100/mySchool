@@ -32,8 +32,10 @@ public class Application extends BasicCrud {
     	List<Teacher> teachers = Teacher.find("state", "main").fetch();
     	System.err.println(teachers.size());
     	Teacher bigTeacher = Teacher.find("state", "big").first();
+    	long visitTimes = CountLog.count();
     	renderArgs.put("bigTeacher", bigTeacher);
     	renderArgs.put("teachers",teachers);
+    	renderArgs.put("visitTimes",visitTimes);
     	return new HashMap();
     }
 }

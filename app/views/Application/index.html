@@ -16,7 +16,7 @@ $(function(){
 		 $(this).css({opacity:'1'});
 	 });
 	 var i = 4;
-	var intId = setInterval(function() {
+	/* var intId = setInterval(function() {
 		 
 		 i -= 1;
 		 if(i==0){
@@ -26,8 +26,12 @@ $(function(){
 			 $("#float-sale-message").animate({left:'-=160'},1000)
 		 }
 			 
-		},3000);
+		},3000); */
+		
+	 var sa = new scollDiv($("#float-sale-message"), 'li', 3000, true,'left',160);
+		sa.start();
 })
+
 </script>
 	<div class="spec-contianer" style="height:1200px">
 		<div id="flavor_1" class="main-carousel boraderTemp">
@@ -68,7 +72,6 @@ $(function(){
 			<div class="tab-body"> 
 				<div class="sale-message boraderTemp pull-left tab-margin">
 					<div class="head29h" style="width:310px"><span>优惠推荐</span><a href="#" class="pull-left">更多>></a></div>
-					
 					<div class="sale-message-body">
 						<div id="float-sale-message">
 							#{list items:saleMessages,as:'subList'}

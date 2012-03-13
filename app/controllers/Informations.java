@@ -40,6 +40,10 @@ public class Informations extends BasicCrud{
 		renderArgs.put("informationType", informationType);
 		renderArgs.put("informations", informations);
 		renderArgs.put("page", "index");
+		
+		renderArgs.put("pageNum", pageNum);
+		renderArgs.put("totalCount", totalCount);
+		renderArgs.put("pageSize", BaseModel.PAGESIZE);
 		render();
 	}
 }
