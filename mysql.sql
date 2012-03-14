@@ -52,7 +52,7 @@ CREATE TABLE `code_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code_group_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `code_group` (
 
 LOCK TABLES `code_group` WRITE;
 /*!40000 ALTER TABLE `code_group` DISABLE KEYS */;
-INSERT INTO `code_group` VALUES (1,'search_condition'),(2,'children');
+INSERT INTO `code_group` VALUES (1,'search_condition'),(2,'children'),(3,'information_type');
 /*!40000 ALTER TABLE `code_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,11 +79,11 @@ CREATE TABLE `code_table` (
   `discription` varchar(5000) DEFAULT NULL,
   `parent_code` int(11) DEFAULT '0',
   `state` varchar(45) DEFAULT NULL,
-  `code_group_id` int(11) NOT NULL,
+  `code_group_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_code_table_code_group1` (`code_group_id`),
   CONSTRAINT `fk_code_table_code_group1` FOREIGN KEY (`code_group_id`) REFERENCES `code_group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,7 @@ CREATE TABLE `code_table` (
 
 LOCK TABLES `code_table` WRITE;
 /*!40000 ALTER TABLE `code_table` DISABLE KEYS */;
-INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Active',1),(11,'lesson_time_type','春季班',NULL,0,'Active',1),(12,'lesson_time_type','暑期班',NULL,0,'Active',1),(13,'lesson_time_type','秋季班',NULL,0,'Active',1),(14,'lesson_type','英语',NULL,0,'Active',1),(15,'lesson_type','数学',NULL,0,'Active',1),(16,'collection','少儿系列',NULL,0,'Active',1),(17,'collection','小升初系列',NULL,0,'Active',1),(23,'sub_collection','自然拼音',NULL,16,'Active',2),(24,'sub_collection','快乐思维',NULL,16,'Active',2),(25,'sub_collection','小升初基础',NULL,17,'Active',2),(26,'sub_collection','小升初提高',NULL,17,'Active',2),(27,'sub_collection','小升初强化',NULL,17,'Active',2),(28,'sub_collection','小升初冲刺',NULL,17,NULL,2);
+INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Active',1),(11,'lesson_time_type','春季班',NULL,0,'Active',1),(12,'lesson_time_type','暑期班',NULL,0,'Active',1),(13,'lesson_time_type','秋季班',NULL,0,'Active',1),(14,'lesson_type','英语',NULL,0,'Active',1),(15,'lesson_type','数学',NULL,0,'Active',1),(16,'collection','少儿系列',NULL,0,'Active',1),(17,'collection','小升初系列',NULL,0,'Active',1),(23,'sub_collection','自然拼音',NULL,16,'Active',2),(24,'sub_collection','快乐思维',NULL,16,'Active',2),(25,'sub_collection','小升初基础',NULL,17,'Active',2),(26,'sub_collection','小升初提高',NULL,17,'Active',2),(27,'sub_collection','小升初强化',NULL,17,'Active',2),(28,'sub_collection','小升初冲刺',NULL,17,'Active',2),(36,'information_type','sale','优惠信息',0,'Active',NULL),(37,'information_type','main','新闻',0,'Active',NULL),(38,'information_type','notice','通知',0,'Active',NULL);
 /*!40000 ALTER TABLE `code_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +109,7 @@ CREATE TABLE `count_log` (
   `ipaddress` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
-INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11');
+INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,4 +433,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-13 18:07:04
+-- Dump completed on 2012-03-14 18:08:48
