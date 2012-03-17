@@ -726,11 +726,11 @@ lesson css
 }
 
 .information-list{
-	height: 650px;
+	height: 1250px;
 	width: 800px;
 }
 .information-list-body{
-	height: 590px;
+	height: 1090px;
 	width: 100%;
 	margin: 10px 0 0 10px;
 }
@@ -748,7 +748,7 @@ lesson css
 	margin-left:80px; 
 }
 .information-list-add{
-	height: 640px;
+	height: 1140px;
 	width: 338px;
 	margin: 10px 0 0 10px;
 }
