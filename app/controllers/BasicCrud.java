@@ -38,8 +38,8 @@ public class BasicCrud extends CRUD {
 			}
 			if(countUser()){
 				CountLog countLog = new CountLog();
-				//countLog.userName = renderArgs.get("user").toString();
-				//countLog.ipaddress = request.remoteAddress;
+				countLog.userName = renderArgs.get("user").toString();
+				countLog.ipaddress = request.remoteAddress;
 				countLog.save();
 			}
 			
