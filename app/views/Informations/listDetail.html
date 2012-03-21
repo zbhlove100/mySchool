@@ -23,24 +23,25 @@
 		<div class="information-list-body">
 		<ul>
 		#{list items:informations,as:'item'}
-		<li class="iconli" ><a href="#">${item?.title}</a><span style="">${item?.createdAt.format('yyyy-MM-dd hh:mm')}</span></li>
+		<li class="iconli" ><a href="@{Informations.detail(item.id)}">${item?.title}</a><span class="tag">#{if item?.mainTag!=null&&item?.mainTag!=""}  [ ${item?.mainTag} ]#{/if}</span><span class="date">${item?.createdAt.format('yyyy-MM-dd hh:mm')}</span></li>
 		#{/list}
 		</ul>
 		</div>
 		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"informationListForm"/}
 	</div>
-	<div class="information-list-add boraderTemp pull-left">
-		<ul class="nav nav-tabs">
-		  <li class="active">
-		  <a href="#">tab one</a>
-		  </li>
-		  <li class="">
-		  <a href="#">tab two</a>
-		  </li>
-		  <li class="">
-		  <a href="#">tab three</a>
-		  </li>
-		</ul>
+	<div class="information-list-add pull-left">
+		<div class="information-list-add-block pull-left boraderTemp">
+			<img alt="add" src="@{'/public/images/addImage325x200/300778b.jpg'}">
+		</div>
+		<div class="information-list-add-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>热点推荐</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+		</div>
+		<div class="information-list-add-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>热门教师</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+		</div>
+		<div class="information-list-add-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>推荐图片</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+		</div>
 	</div>
 	
 </div>

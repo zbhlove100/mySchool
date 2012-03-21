@@ -24,6 +24,9 @@ public class Information extends Model{
 	
 	public Date removedAt;
 	
+	public String mainTag;
+	
+	public int viewTime;
 	@OneToMany(mappedBy="information",fetch=FetchType.LAZY)
 	public List<Tags> tags;
 }

@@ -86,4 +86,8 @@ public class Informations extends BasicCrud{
 		renderArgs.put("pageSize", BaseModel.PAGESIZE);
 		render();
 	}
+	public static void detail(long id){
+		Application.loadHead();
+		render();
+	}
 }
