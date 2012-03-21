@@ -109,7 +109,7 @@ CREATE TABLE `count_log` (
   `ipaddress` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
-INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07');
+INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'GUEST','127.0.0.1','2012-03-20 01:31:34'),(8,'GUEST','127.0.0.1','2012-03-21 07:11:46');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,6 +138,7 @@ CREATE TABLE `information` (
   `removed_at` timestamp NULL DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
   `main_tag` varchar(45) DEFAULT NULL,
+  `view_time` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -148,8 +149,35 @@ CREATE TABLE `information` (
 
 LOCK TABLES `information` WRITE;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
-INSERT INTO `information` VALUES (1,'sale1','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(2,'sale2','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(3,'sale3','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(4,'sale4','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(5,'sale5','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(6,'sale6','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(7,'sale7','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(8,'sale8','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL),(9,'the first news in the main page','sale1ccccccc','first','2012-03-09 03:12:53',NULL,'Active',NULL),(10,'main page news 1',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(11,'main page news 2',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(12,'main page news 3',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(13,'main page news 4',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(14,'main page news 5',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(15,'main page news 6',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(16,'main page news 7',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL),(17,'main page news 8',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL);
+INSERT INTO `information` VALUES (1,'sale1','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(2,'sale2','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(3,'sale3','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(4,'sale4','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(5,'sale5','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(6,'sale6','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(7,'sale7','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(8,'sale8','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(9,'the first news in the main page','sale1ccccccc','first','2012-03-09 03:12:53',NULL,'Active',NULL,0),(10,'main page news 1',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(11,'main page news 2',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(12,'main page news 3',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(13,'main page news 4',NULL,'main','2012-03-21 07:20:08',NULL,'Active','myschool',0),(14,'main page news 5',NULL,'main','2012-03-21 07:20:08',NULL,'Active','myschool',0),(15,'main page news 6',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL,0),(16,'main page news 7',NULL,'main','2012-03-21 07:20:16',NULL,'Active','myschool',0),(17,'main page news 8',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL,0);
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `information_log`
+--
+
+DROP TABLE IF EXISTS `information_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `information_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` varchar(45) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `information_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_information_log_information1` (`information_id`),
+  CONSTRAINT `fk_information_log_information1` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `information_log`
+--
+
+LOCK TABLES `information_log` WRITE;
+/*!40000 ALTER TABLE `information_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `information_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -433,4 +461,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-14 18:08:48
+-- Dump completed on 2012-03-21 16:25:14
