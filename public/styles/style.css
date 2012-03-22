@@ -756,10 +756,19 @@ lesson css
 	margin: 10px 0 0 10px;
 	background-color: #F1FCF5;
 }
-.information-list-add-block{
-	height: 200px;
+.information-list-block{
+	height: 220px;
 	width:325px;
 	margin: 10px 6px 0 6px;
+}
+.information-list-heng-block{
+	height: 50px;
+	width:325px;
+	margin: 10px 6px 0 6px;
+}
+.information-list-add-block{
+	height: 250px;
+	width:336px;
 }
 /*
 page css
