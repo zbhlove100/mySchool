@@ -109,7 +109,7 @@ CREATE TABLE `count_log` (
   `ipaddress` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
-INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'GUEST','127.0.0.1','2012-03-20 01:31:34'),(8,'GUEST','127.0.0.1','2012-03-21 07:11:46'),(9,'GUEST','127.0.0.1','2012-03-22 00:36:57');
+INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'GUEST','127.0.0.1','2012-03-20 01:31:34'),(8,'GUEST','127.0.0.1','2012-03-21 07:11:46'),(9,'GUEST','127.0.0.1','2012-03-22 00:36:57'),(10,'GUEST','127.0.0.1','2012-03-26 10:10:58'),(11,'GUEST','127.0.0.1','2012-03-27 01:57:27');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +139,12 @@ CREATE TABLE `information` (
   `state` varchar(45) DEFAULT NULL,
   `main_tag` varchar(45) DEFAULT NULL,
   `view_time` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `resource` varchar(255) DEFAULT NULL,
+  `summary` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_information_user1` (`user_id`),
+  CONSTRAINT `fk_information_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -149,7 +154,7 @@ CREATE TABLE `information` (
 
 LOCK TABLES `information` WRITE;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
-INSERT INTO `information` VALUES (1,'sale1','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(2,'sale2','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(3,'sale3','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(4,'sale4','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(5,'sale5','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(6,'sale6','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(7,'sale7','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(8,'sale8','sale1ccccccc','sale','2012-03-09 03:12:53',NULL,'Active',NULL,0),(9,'the first news in the main page','sale1ccccccc','first','2012-03-09 03:12:53',NULL,'Active',NULL,0),(10,'main page news 1',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(11,'main page news 2',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(12,'main page news 3',NULL,'main','2012-03-21 07:20:08',NULL,'Active','资讯',0),(13,'main page news 4',NULL,'main','2012-03-21 07:20:08',NULL,'Active','myschool',0),(14,'main page news 5',NULL,'main','2012-03-21 07:20:08',NULL,'Active','myschool',0),(15,'main page news 6',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL,0),(16,'main page news 7',NULL,'main','2012-03-21 07:20:16',NULL,'Active','myschool',0),(17,'main page news 8',NULL,'main','2012-03-09 06:18:25',NULL,'Active',NULL,0);
+INSERT INTO `information` VALUES (1,'sale1','<p>  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！</p><input type=\"image\" height=\"360\" width=\"480\" src=\"http://imgcache.3tedu.com.cn/image/2012/03/201203081258003.jpg\">','sale','2012-03-27 03:02:00',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(2,'sale2','  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(3,'sale3','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(4,'sale4','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(5,'sale5','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(6,'sale6','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(7,'sale7','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(8,'sale8','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(9,'the first news in the main page','sale1ccccccc','first','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(10,'main page news 1',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(11,'main page news 2',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(12,'main page news 3',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(13,'main page news 4',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(14,'main page news 5',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(15,'main page news 6',NULL,'main','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(16,'main page news 7',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(17,'main page news 8',NULL,'main','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1);
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,14 +166,14 @@ DROP TABLE IF EXISTS `information_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `information_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `date` varchar(45) DEFAULT NULL,
-  `count` int(11) DEFAULT NULL,
+  `count` int(11) NOT NULL DEFAULT '0',
   `information_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_information_log_information1` (`information_id`),
   CONSTRAINT `fk_information_log_information1` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,6 +182,7 @@ CREATE TABLE `information_log` (
 
 LOCK TABLES `information_log` WRITE;
 /*!40000 ALTER TABLE `information_log` DISABLE KEYS */;
+INSERT INTO `information_log` VALUES (1,'20120327',5,16),(2,'20120327',1,8),(3,'20120327',13,1),(7,'20120327',2,10),(8,'20120327',1,11);
 /*!40000 ALTER TABLE `information_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -461,4 +467,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-22 16:04:48
+-- Dump completed on 2012-03-27 18:00:38

@@ -48,5 +48,5 @@ public class Lesson extends Model{
 	public List<LessonTable> lessonTables;
 	
 	@OneToMany(mappedBy="lesson",fetch=FetchType.LAZY)
-	public List<Tags> tags;
+	public List<Tag> tags;
 }

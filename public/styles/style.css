@@ -63,7 +63,7 @@ body{
 	float: left;
 	width:350px;
 	height:100%;
-	background-image: url("images/ui-icons_72a7cf_256x240.png");
+	background-image: url("/public/images/logo.png");
 	background-repeat: repeat-x;
 	margin: 0 5px 0 10px;
 }
@@ -95,7 +95,7 @@ body{
 	width: 50px;
 }
 #head-content .head-blocks li.message{
-	position: absolute;
+	position: relative;
 	height: 50px;
 	width: 150px;
 	background-color: #143434;
@@ -129,7 +129,7 @@ body{
 	width: 150px;
 	background-color: #143434;
 	display: none;
-	position: absolute;
+	position: relative;
 }
 #head-content .head-blocks li.bigmessage>div>p{
 	height: 25px;
@@ -418,6 +418,22 @@ main css
 	width: 205px;
 	margin: 10px 5px 10px 5px;
 }
+.book-area{
+	float:left;
+	height: 260px;
+	width: 870px;
+	margin: 10px 5px 10px 5px;
+}
+.contact-area{
+	float:left;
+	height: 260px;
+	width: 280px;
+	margin: 10px 5px 10px 5px;
+	background-image: url("../images/contact.jpg");
+	background-repeat: no-repeat;
+	background-position:center 110px;
+}
+
 /*
 teacher detail page css
 */
@@ -726,11 +742,11 @@ lesson css
 }
 
 .information-list{
-	height: 1250px;
+	height: 1050px;
 	width: 800px;
 }
 .information-list-body{
-	height: 1090px;
+	height: 990px;
 	width: 100%;
 	margin: 10px 0 0 10px;
 }
@@ -750,8 +766,56 @@ lesson css
 .information-list-body li>.tag{
 	color:#888888;
 }
+.in-title{
+	float: left;
+	width: 785px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 20px;
+	text-align: center;
+	color: #444;
+}
+.in-message{
+	float: left;
+	width: 785px;
+	height: 20px;
+	margin: 0;
+	padding: 15px 0px;
+	font-size: 12px;
+	color: #06F;
+	text-align: center;
+	color: #595959;
+	line-height: 20px;
+	border-bottom: #999 1px dashed;
+}
+.in-summary{
+	float: left;
+	width: 763px;
+	height: 60px;
+	margin: 15px 0px;
+	padding: 10px;
+	font-size: 12px;
+	line-height: 20px;
+	background: white;
+	border: 1px #E3E3E3 solid;
+	color: #595959;
+}
+.in-content{
+	float: left;
+	width: 780px;
+	height: auto;
+	margin: 0;
+	padding: 10px 0px 80px 5px;
+	font-size: 14px;
+	line-height: 25px;
+	color: black;
+	border-bottom: #999 1px dashed;
+}
 .information-list-add{
-	height: 1140px;
+	height: 1040px;
 	width: 338px;
 	margin: 10px 0 0 10px;
 	background-color: #F1FCF5;
@@ -760,6 +824,11 @@ lesson css
 	height: 220px;
 	width:325px;
 	margin: 10px 6px 0 6px;
+}
+.information-list-block p{
+	font-size:14px;
+	padding: 2px 5px 2px 10px;
+	overflow: hidden;
 }
 .information-list-heng-block{
 	height: 50px;
@@ -858,4 +927,15 @@ height:20px;
 background:url(star_rating.gif) 0 0 no-repeat;  }  
 
 
+
+/*slider*/
+.slider{
+	margin: 2px 2px 2px 2px;
+}
+.slider .slider-head{
+	
+}
+.slider .slider-body{
+	
+}
 

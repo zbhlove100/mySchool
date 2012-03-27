@@ -3,7 +3,7 @@
    <i class="icon-home"></i> <a href="@{Application.index}">博苗网</a> <span class="divider">/</span>
   </li>
   <li class="active">
-    新闻及优惠
+    <a href="@{Informations.list}">新闻及优惠</a>
   </li>
 </ul>
 <div>
@@ -30,7 +30,7 @@
 		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"informationListForm"/}
 	</div>
 	<div class="information-list-add pull-left">
-		<div class="information-list-add-block pull-left boraderTemp">
+		<div class="information-list-add-block pull-left">
 			<script type="text/javascript"><!--
 				google_ad_client = "ca-pub-1954182191530851";
 				/* big add block */
@@ -45,6 +45,9 @@
 		</div>
 		<div class="information-list-block pull-left boraderTemp">
 			<div class="head29h" style="width:315px"><span>热点推荐</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+			#{list items:hotInformations,as:'item'}
+				<p><a href="@{Information.details(item.id)}">${item.title}</a></p>
+			#{/list}
 		</div>
 		<div class="information-list-block pull-left boraderTemp">
 			<div class="head29h" style="width:315px"><span>热门教师</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>

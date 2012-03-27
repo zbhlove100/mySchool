@@ -1,4 +1,79 @@
 #{extends 'main.html' /}
 #{set title:'新闻内容' /}
-<div class="spec-contianer" style="height:1300px">
+<div class="spec-contianer" style="height:auto;">
+	<ul class="breadcrumb">
+	  <li>
+	   <i class="icon-home"></i> <a href="@{Application.index}">博苗网</a> <span class="divider">/</span>
+	  </li>
+	  <li>
+	  	<a href="@{Informations.list}">新闻及优惠</a> <span class="divider">/</span>
+	  </li>
+	  <li class="active">
+	    ${information.title}
+	  </li>
+	</ul>
+	<div>
+	<form action="@{Informations.listDetail}" method="post" id="informationListForm" onSubmit="return ajaxSubForm('informationListForm', 'main-contianer');">
+	<div style="height:auto;" class="lessons-table-area" >
+		<div class="information-list pull-left" style="height:auto;">
+			<div class="information-list-body" style="height:auto;">
+				<div class="in-title">
+					${information.title}
+				</div>
+				<div class="in-message">
+					作者：${information.user.userName}  日期：${information.createdAt} 来源：${information.resource}
+				</div>
+				<div class="in-summary">
+				
+				</div>
+				<div class="in-content" >
+					${information.content?.nl2br()}
+				</div>
+			</div>
+		</div>
+		<div class="information-list-add pull-left">
+			<div class="information-list-add-block pull-left">
+				<script type="text/javascript"><!--
+					google_ad_client = "ca-pub-1954182191530851";
+					/* big add block */
+					google_ad_slot = "2745301487";
+					google_ad_width = 336;
+					google_ad_height = 280;
+					//-->
+					</script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+			<div class="information-list-block pull-left boraderTemp">
+				<div class="head29h" style="width:315px"><span>热点推荐</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+				#{list items:hotInformations,as:'item'}
+				<p><a href="@{Informations.detail(item.id)}">${item.title}</a></p>
+				#{/list}
+			</div>
+			<div class="information-list-block pull-left boraderTemp">
+				<div class="head29h" style="width:315px"><span>热门教师</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+			</div>
+			<div class="information-list-block pull-left boraderTemp">
+				<div class="head29h" style="width:315px"><span>推荐图片</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+			</div>
+			<div class="information-list-heng-block pull-left boraderTemp">
+				<script type="text/javascript">
+				<!--
+				google_ad_client = "ca-pub-1954182191530851";
+				/* hengfu320x50 */
+				google_ad_slot = "1308075852";
+				google_ad_width = 320;
+				google_ad_height = 50;
+				//-->
+				</script>
+				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+		</div>
+		
+	</div>
+	
+	</form>
+	</div>
 </div>

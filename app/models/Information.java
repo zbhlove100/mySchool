@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,7 +27,12 @@ public class Information extends Model{
 	
 	public String mainTag;
 	
+	public String resource;
+	
 	public int viewTime;
 	@OneToMany(mappedBy="information",fetch=FetchType.LAZY)
-	public List<Tags> tags;
+	public List<Tag> tags;
+	
+	@ManyToOne
+	public User user;
 }

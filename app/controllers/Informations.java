@@ -1,11 +1,19 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.persistence.Query;
+
+import play.db.jpa.JPA;
 
 import models.BaseModel;
 import models.Code;
 import models.Information;
-import models.Lesson;
+import models.InformationLog;
 
 public class Informations extends BasicCrud{
 	public static String INFORMATION_TYPE = "information_type";
@@ -88,6 +96,33 @@ public class Informations extends BasicCrud{
 	}
 	public static void detail(long id){
 		Application.loadHead();
+		Information information = Information.findById(id);
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+		String currentDate = df.format(new Date());
+		InformationLog log = InformationLog.find("date = ? and information =?", currentDate,information).first();
+		if(log == null){
+			log = new InformationLog();
+			log.date = currentDate;
+			log.information = information;
+		}
+		log.count ++;
+		log.save();
+		getHotInformation();
+		renderArgs.put("information", information);
+		
 		render();
+	}
+	private static void getHotInformation(){
+		Query query = JPA.em().createNativeQuery("select A.id,A.title,B.num from information A, \n" +
+				"(select X.information_id as id,sum(X.count) num from information_log X group by X.information_id desc limit 6) B \n" +
+				"where A.id = B.id");
+		List results = query.getResultList();
+		List<Information> hotInformations = new ArrayList<Information>();
+		for(Iterator iterator = results.iterator(); iterator.hasNext(); ){
+			Object[] rows = (Object[]) iterator.next();
+			Information informationT = Information.findById(Long.parseLong(rows[0].toString()));
+			hotInformations.add(informationT);
+		}
+		renderArgs.put("hotInformations", hotInformations);
 	}
 }

@@ -26,6 +26,8 @@ public class User extends Model {
 	@OneToOne(mappedBy="user",fetch=FetchType.LAZY)
 	public UserLog userLog;
 
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
+	public List<Information> informations;
 	public static User connect(String email, String password) {
 		// TODO Auto-generated method stub
 		return User.find("email=? and password=?", email,password).first();
