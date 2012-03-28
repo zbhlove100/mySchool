@@ -95,7 +95,7 @@ body{
 	width: 50px;
 }
 #head-content .head-blocks li.message{
-	position: relative;
+	position: absolute;
 	height: 50px;
 	width: 150px;
 	background-color: #143434;
@@ -129,7 +129,7 @@ body{
 	width: 150px;
 	background-color: #143434;
 	display: none;
-	position: relative;
+	position: absolute;
 }
 #head-content .head-blocks li.bigmessage>div>p{
 	height: 25px;

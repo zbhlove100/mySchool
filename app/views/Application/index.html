@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'首页 - 博苗教育' /}
 
 
 
@@ -19,6 +19,8 @@ $(function(){
 		
 	 var sa = new scollDiv($("#float-sale-message"), 'li', 3000, true,'left',160);
 		sa.start();
+		
+	$(".test").hrzAccordion({eventTrigger:"mouseover",openOnLoad:"",cycle: true});
 })
 
 </script>
@@ -29,20 +31,20 @@ $(function(){
 			<form class="" action="@{Users.login}">
 			#{if user=="GUEST"}
 			  	<div class="loginInput">
-			  		<p><span class="login-title"><b>Email</b></span>
+			  		<p><span class="login-title"><b>邮箱</b></span>
 			  		<input type="text" class="input-large" id="email" name="email">
 			  		</p>
 			  	</div>
 			  	<div class="loginInput">
-			  		<p><span class="login-title"><b>PASSWORD</b></span>
+			  		<p><span class="login-title"><b>密码</b></span>
 			  		<input type="password" class="input-large" id="password" name="password">
 			  		</p>
 			  	</div>
 			  	<div class="loginInput">
-			  		<p><input type="checkbox" id="rememberUsername" name="rememberUsername"><span><b>remember user name</b></span>
+			  		<p><input type="checkbox" id="rememberUsername" name="rememberUsername"><span><b>记住用户名</b></span>
 			  			
-			   	 		<button type="submit" class="btn btn-primary "> <i class="icon-user icon-white"></i>  Login  >></button>
-			   	 		<a href="#" class="" style="line-height: 24px;"> <i class="icon-pencil"></i>Register</a>
+			   	 		<button type="submit" class="btn btn-primary "> <i class="icon-user icon-white"></i>  登录  >></button>
+			   	 		<a href="#" class="" style="line-height: 24px;"> <i class="icon-pencil"></i>注册</a>
 			  		</p>
 			  	</div>
 			  #{/if}
@@ -74,7 +76,7 @@ $(function(){
 					</div>
 				</div>
 				<div class="news-message boraderTemp pull-left tab-margin">
-					<div class="head29h" style="width:540px"><span>育苗大事</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+					<div class="head29h" style="width:540px"><span>博苗大事</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
 					<ul class="margin3 pull-left">
 						<li class="margin3"><a href="@{Informations.detail(firstNews.id)}">${firstNews?.title}</a></li>
 						#{list items:mainNews,as:'item'}
@@ -131,12 +133,46 @@ $(function(){
 			</div>
 			<div class="tab-body">
 				<div class="book-area">
-					<div class="slider">
+					<ul class="test">
+					  <li>
+					    <div class="handle"><img src='/public/styles/horizontal/images/title1.png'></div>
+					    <img src='/public/styles/horizontal/images/image_test.gif' align='left'>
+					    <h3>Content 1</h3>
+					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus vestibulum metus sed massa. Pellentesque pharetra felis a enim. Aliquam sapien nisl, iaculis ac, hendrerit placerat, iaculis congue, augue. Quisque eget mi quis purus vestibulum eleifend. Maecenas condimentum eros vel eros. Ut facilisis leo id mi. Suspendisse nisl magna, consequat quis, pretium eget, laoreet vel, orci.<br>
+					      <br>
+					      Mauris sed mauris. Praesent imperdiet, nunc ut sollicitudin hendrerit, nisi tellus mollis leo, blandit pharetra nulla orci id eros. Nullam ut nunc. Praesent lacus lacus, tempor a, dignissim eu, tristique ac, tortor. Sed faucibus. Integer eleifend lacus ac neque. Fusce tempus. In hac habitasse platea dictumst. Nulla arcu neque, gravida at, rhoncus id, pharetra vitae, tortor. Aenean vestibulum consequat augue.</p>
+					  </li>
+					  <li>
+					    <div class="handle"><img src='/public/styles/horizontal/images/title2.png'></div>
+					    <img src='/public/styles/horizontal/images/image_test.gif' align='left'>
+					    <h3>Content 2</h3>
+					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus vestibulum metus sed massa. Pellentesque pharetra felis a enim. Aliquam sapien nisl, iaculis ac, hendrerit placerat, iaculis congue, augue. Quisque eget mi quis purus vestibulum eleifend. Maecenas condimentum eros vel eros. Ut facilisis leo id mi. Suspendisse nisl magna, consequat quis, pretium eget, laoreet vel, orci.<br>
+					      <br>
+					      Mauris sed mauris. Praesent imperdiet, nunc ut sollicitudin hendrerit, nisi tellus mollis leo, blandit pharetra nulla orci id eros. Nullam ut nunc. Praesent lacus lacus, tempor a, dignissim eu, tristique ac, tortor. Sed faucibus. Integer eleifend lacus ac neque. Fusce tempus. In hac habitasse platea dictumst. Nulla arcu neque, gravida at, rhoncus id, pharetra vitae, tortor. Aenean vestibulum consequat augue.</p>
+					  </li>
+					  <li>
+					    <div class="handle"><img src='/public/styles/horizontal/images/title3.png'></div>
+					    <img src='/public/styles/horizontal/images/image_test.gif' align='left'>
+					    <h3>Content 3</h3>
+					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus vestibulum metus sed massa. Pellentesque pharetra felis a enim. Aliquam sapien nisl, iaculis ac, hendrerit placerat, iaculis congue, augue. Quisque eget mi quis purus vestibulum eleifend. Maecenas condimentum eros vel eros. Ut facilisis leo id mi. Suspendisse nisl magna, consequat quis, pretium eget, laoreet vel, orci.<br>
+					      <br>
+					      Mauris sed mauris. Praesent imperdiet, nunc ut sollicitudin hendrerit, nisi tellus mollis leo, blandit pharetra nulla orci id eros. Nullam ut nunc. Praesent lacus lacus, tempor a, dignissim eu, tristique ac, tortor. Sed faucibus. Integer eleifend lacus ac neque. Fusce tempus. In hac habitasse platea dictumst. Nulla arcu neque, gravida at, rhoncus id, pharetra vitae, tortor. Aenean vestibulum consequat augue.</p>
+					  </li>
+					  <li>
+					    <div class="handle"><img src='/public/styles/horizontal/images/title4.png'></div>
+					    <img src='/public/styles/horizontal/images/image_test.gif' align='left'>
+					    <h3>Content 4</h3>
+					    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus vestibulum metus sed massa. Pellentesque pharetra felis a enim. Aliquam sapien nisl, iaculis ac, hendrerit placerat, iaculis congue, augue. Quisque eget mi quis purus vestibulum eleifend. Maecenas condimentum eros vel eros. Ut facilisis leo id mi. Suspendisse nisl magna, consequat quis, pretium eget, laoreet vel, orci.<br>
+					      <br>
+					      Mauris sed mauris. Praesent imperdiet, nunc ut sollicitudin hendrerit, nisi tellus mollis leo, blandit pharetra nulla orci id eros. Nullam ut nunc. Praesent lacus lacus, tempor a, dignissim eu, tristique ac, tortor. Sed faucibus. Integer eleifend lacus ac neque. Fusce tempus. In hac habitasse platea dictumst. Nulla arcu neque, gravida at, rhoncus id, pharetra vitae, tortor. Aenean vestibulum consequat augue.</p>
+					  </li>
+					</ul>
+					<!-- <div class="slider">
 						<div class="slider-head">
 						</div>
 						<div class="slider-body">
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="contact-area boraderTemp">
 					<div class="head29h" style="width:270px"><span>联系我们</span></div>
