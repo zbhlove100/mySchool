@@ -2,8 +2,12 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,6 +32,13 @@ public class User extends Model {
 
 	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
 	public List<Information> informations;
+	
+	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@JoinTable(name="book_user"
+				,joinColumns={@JoinColumn(name="user_id")}
+				,inverseJoinColumns={@JoinColumn(name="book_id")})
+	public List<Book> book;
+	
 	public static User connect(String email, String password) {
 		// TODO Auto-generated method stub
 		return User.find("email=? and password=?", email,password).first();
