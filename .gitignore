@@ -1,0 +1,6 @@
+
+#ignore files
+*.class
+/tmp
+/eclipse
+/.setting
