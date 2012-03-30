@@ -32,7 +32,7 @@ public class Informations extends BasicCrud{
 		
 		//get the page number
 		int totalCount = (int) Information.count(where.toString());
-		int maxPage = totalCount%BaseModel.PAGESIZE==0?totalCount/BaseModel.PAGESIZE:totalCount/BaseModel.PAGESIZE+1;
+		int maxPage = totalCount%BaseModel.INFORMATIONPAGESIZE==0?totalCount/BaseModel.INFORMATIONPAGESIZE:totalCount/BaseModel.INFORMATIONPAGESIZE+1;
 		pageNum = pageNum==0?1:pageNum;
 		String pageAction = params.get("pageAction");
 		if("first".equals(pageAction)){
@@ -45,7 +45,7 @@ public class Informations extends BasicCrud{
 			pageNum = maxPage;
 		}
 		
-		List<Information> informations = Information.find(where.toString()).fetch(pageNum,BaseModel.PAGESIZE);
+		List<Information> informations = Information.find(where.toString()).fetch(pageNum,BaseModel.INFORMATIONPAGESIZE);
 		
 		renderArgs.put("informationType", informationType);
 		renderArgs.put("informations", informations);
@@ -53,7 +53,8 @@ public class Informations extends BasicCrud{
 		
 		renderArgs.put("pageNum", pageNum);
 		renderArgs.put("totalCount", totalCount);
-		renderArgs.put("pageSize", BaseModel.PAGESIZE);
+		renderArgs.put("pageSize", BaseModel.INFORMATIONPAGESIZE);
+		getHotInformation();
 		render();
 	}
 	public static void listDetail(){
@@ -69,7 +70,7 @@ public class Informations extends BasicCrud{
 		
 		//get the page number
 		int totalCount = (int) Information.count(where.toString());
-		int maxPage = totalCount%BaseModel.PAGESIZE==0?totalCount/BaseModel.PAGESIZE:totalCount/BaseModel.PAGESIZE+1;
+		int maxPage = totalCount%BaseModel.INFORMATIONPAGESIZE==0?totalCount/BaseModel.INFORMATIONPAGESIZE:totalCount/BaseModel.INFORMATIONPAGESIZE+1;
 		pageNum = pageNum==0?1:pageNum;
 		String pageAction = params.get("pageAction");
 		if("first".equals(pageAction)){
@@ -82,7 +83,7 @@ public class Informations extends BasicCrud{
 			pageNum = maxPage;
 		}
 		
-		List<Information> informations = Information.find(where.toString()).fetch(pageNum,BaseModel.PAGESIZE);
+		List<Information> informations = Information.find(where.toString()).fetch(pageNum,BaseModel.INFORMATIONPAGESIZE);
 
 		List<Code> informationTypes = Code.find("codeName = ? and state != ?",INFORMATION_TYPE,BaseModel.DELETE).fetch();
 		
@@ -91,7 +92,8 @@ public class Informations extends BasicCrud{
 		renderArgs.put("informationTypes", informationTypes);
 		renderArgs.put("pageNum", pageNum);
 		renderArgs.put("totalCount", totalCount);
-		renderArgs.put("pageSize", BaseModel.PAGESIZE);
+		renderArgs.put("pageSize", BaseModel.INFORMATIONPAGESIZE);
+		getHotInformation();
 		render();
 	}
 	public static void detail(long id){
@@ -112,7 +114,7 @@ public class Informations extends BasicCrud{
 		
 		render();
 	}
-	private static void getHotInformation(){
+	public static String getHotInformation(){
 		Query query = JPA.em().createNativeQuery("select A.id,A.title,B.num from information A, \n" +
 				"(select X.information_id as id,sum(X.count) num from information_log X group by X.information_id desc limit 6) B \n" +
 				"where A.id = B.id");
@@ -124,5 +126,6 @@ public class Informations extends BasicCrud{
 			hotInformations.add(informationT);
 		}
 		renderArgs.put("hotInformations", hotInformations);
+		return null;
 	}
 }

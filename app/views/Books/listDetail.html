@@ -1,7 +1,7 @@
 <form action="@{Books.listDetail}" method="post" id="bookListForm" onSubmit="return ajaxSubForm('bookListForm', 'main-contianer');">
 <div class="lesson-search-area boraderTemp">
 	<div class="search-line">
-		<div class="search-title">选择课表</div>
+		<div class="search-title">教材种类</div>
 		<p #{if collection==0||tcollection==null}class="active"#{/if} onclick="setValue('bookListForm','collection','')">不限</p>
 		#{list items:collections,as:'item'}
 		<P #{if collection==item?.id}class="active"#{/if} onclick="setValue('bookListForm','collection','${item?.id}')">${item?.name}</P>
@@ -9,35 +9,81 @@
 		<input type="hidden" name="collection" value="${collection}">
 	</div>
 </div>
-<div class="lessons-table-area">
-	<table class="table table-bordered">
-					<thead>
-						<tr style="background-color:#EAEAEA">
-					      <th style="width:80px;">状态</th>
-					      <th style="width:200px;">课程名称</th>
-					      <th style="width:100px;">教师</th>
-					      <th style="width:80px;">课次</th>
-					      <th style="width:200px;">开课时间</th>
-					      <th style="width:200px;">上课时间</th>
-					      <th style="width:200px;">地点</th>
-					      <th style="width:50px;">详细</th>
-					    </tr>
-				    </thead>
-				    <tbody>
-				    	#{list items:lessons,as:'lesson'}
-				    	<tr>
-				    		<td>${lesson.status}</td>
-				    		<td>${lesson.name}</td>
-				    		<td>${lesson.teacher.name}</td>
-				    		<td>${lesson.times}</td>
-				    		<td>${lesson.startTime}</td>
-				    		<td>${lesson.endTime}</td>
-				    		<td>${lesson.school.name}</td>
-				    		<td><a href="@{Lessons.classDetail(lesson.id)}">详细</a></td>
-				    	</tr>
-				    	#{/list}
-				    </tbody>
-				</table>
-		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"lessonListForm"/}
+<div style="height:1300px;" class="lessons-table-area" >
+	<div class="information-list pull-left">
+		<div class="book-list-body">
+		#{list items:books,as:'item'}
+			<div  class="boraderTemp m-list-node outimg">
+				<div class="m-list-node-lc">
+					<a href="@{Books.detail(item.id)}">
+					<img alt="" rel="${item?.image}">
+					</a>
+				</div>
+				<div class="m-list-node-rc">
+					<div class="title">
+						<a href="@{Books.detail(item.id)}">${item.name}</a>
+					</div>
+					<div class="inf">
+						${item.description}
+					</div>
+						<div class="buy">
+							<p>
+								<font class="f2">原价: ￥ ${item.oldprice}</font> <font class="f9">折扣：-</font> <font class="f8">现价: ￥ ${item.price} </font>
+							</p>
+							<p class="p1">
+								<a href="javascript:;" title="购 买"></a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" title="收 藏"></a>
+							</p>
+						</div>
+				</div>
+			</div>
+		#{/list}
+		</div>
+		#{page pageNum:pageNum,totalCount:totalCount,pageSize:pageSize,formId:"bookListForm"/}
+	</div>
+	<div class="information-list-add pull-left">
+		<div class="information-list-add-block pull-left">
+			<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-1954182191530851";
+				/* big add block */
+				google_ad_slot = "2745301487";
+				google_ad_width = 336;
+				google_ad_height = 280;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+		<div class="information-list-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>热点推荐</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+			#{list items:hotInformations,as:'item'}
+				<p><a href="@{Informations.detail(item.id)}">${item.title}</a></p>
+			#{/list}
+		</div>
+		<div class="information-list-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>热门教师</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+		</div>
+		<div class="information-list-block pull-left boraderTemp">
+			<div class="head29h" style="width:315px"><span>推荐图片</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
+		</div>
+		<div class="information-list-heng-block pull-left boraderTemp">
+			<script type="text/javascript">
+			<!--
+			google_ad_client = "ca-pub-1954182191530851";
+			/* hengfu320x50 */
+			google_ad_slot = "1308075852";
+			google_ad_width = 320;
+			google_ad_height = 50;
+			//-->
+			</script>
+			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+	</div>
+	
 </div>
+		
 </form>

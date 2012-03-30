@@ -37,7 +37,7 @@ CREATE TABLE `book` (
   KEY `FK2E3AE9B4A7B18F` (`lesson_system_id`),
   CONSTRAINT `FK2E3AE9B4A7B18F` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`),
   CONSTRAINT `fk_book_lesson_system1` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +46,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
+INSERT INTO `book` VALUES (1,'快乐思维初级A教程+盘','ENG',38,38,'/public/images/book/chua.jpg','杰睿学校丛书编委会 著 / 杰睿学校中小学内部教程 / 2009年1月','Active',5),(2,'快乐思维初级B教程+盘',NULL,38,38,'/public/images/book/chub.jpg','杰睿学校丛书编委会 著 / 杰睿学校中小学内部教程 / 2009年1月','Active',5),(3,'快乐思维初级C教程+盘',NULL,38,38,'/public/images/book/zhonga.jpg','杰睿学校丛书编委会 著 / 杰睿学校中小学内部教程 / 2009年1月','Active',5),(4,'快乐思维中级A教程+盘',NULL,38,38,'/public/images/book/zhongb.jpg','杰睿学校丛书编委会 著 / 杰睿学校中小学内部教程 / 2009年1月','Active',5),(5,'剑桥国际儿童英语','ENG',50,30,'/public/images/index/jianqiao.jpg','《剑桥国际儿童英语》（Playway to English）是针对母语非英语国家的初学英语的儿童出版的一套综合教材。以3 ～ 7岁儿童英语启蒙学习为主，分为四个级别。其最基本的特点在于寓教于乐，让孩子在愉快的游戏和优美的歌谣中掌握英语。\n					    《剑桥国际儿童英语》独创的SMILE教学法让孩子在轻松的学习环境中掌握基本的听、说、读、写能力。内容采用孩子乐于接受的短剧、动画片、歌曲、歌谣、韵律诗和行动故事来呈现。有趣的画面、活泼的节奏以及手脑并用的动作调动了孩子的多个感官，让孩子以母语的方式习得英语！','Active',7),(6,'新概念英语1','ENG',38,38,'/public/images/index/xingainian1.jpg','作为一套世界闻名的英语教程，《新概念英语》以其全新的教学理念，有趣的课文内容和全面的技能训练，深受广大英语学习者的欢迎和喜爱。进入中国以后，《新概念英语》历经了数次重印，而为了最大限度地满足不同层次、不同类型英语学习者的需求，与本教程相配套的系列辅导用书和音像产品也是林林总总，不一而足。','Active',6);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +170,7 @@ CREATE TABLE `count_log` (
   `ipaddress` varchar(255) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +179,7 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
-INSERT INTO `count_log` VALUES (1,'0000-00-00 00:00:00','127.0.0.1','2012-03-13 09:01:12'),(2,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 09:01:12'),(3,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'0000-00-00 00:00:00','127.0.0.1','2012-03-20 01:31:34'),(8,'0000-00-00 00:00:00','127.0.0.1','2012-03-21 07:11:46'),(9,'0000-00-00 00:00:00','127.0.0.1','2012-03-22 00:36:57'),(10,'0000-00-00 00:00:00','127.0.0.1','2012-03-26 10:10:58'),(11,'0000-00-00 00:00:00','127.0.0.1','2012-03-27 01:57:27');
+INSERT INTO `count_log` VALUES (1,'0000-00-00 00:00:00','127.0.0.1','2012-03-13 09:01:12'),(2,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 09:01:12'),(3,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'0000-00-00 00:00:00','127.0.0.1','2012-03-20 01:31:34'),(8,'0000-00-00 00:00:00','127.0.0.1','2012-03-21 07:11:46'),(9,'0000-00-00 00:00:00','127.0.0.1','2012-03-22 00:36:57'),(10,'0000-00-00 00:00:00','127.0.0.1','2012-03-26 10:10:58'),(11,'0000-00-00 00:00:00','127.0.0.1','2012-03-27 01:57:27'),(14,NULL,'127.0.0.1','GUEST'),(15,NULL,'127.0.0.1','GUEST');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -595,4 +596,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-30 14:39:42
+-- Dump completed on 2012-03-30 18:06:52

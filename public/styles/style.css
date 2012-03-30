@@ -27,6 +27,22 @@ body{
 	font-size: 16px;
 	list-style-image: url("images/li.jpg");
 }
+.outimg{
+	border:1px solid #000;
+	-moz-box-shadow:3px 3px 4px #000;
+	-webkit-box-shadow:3px 3px 4px #000;
+	box-shadow:3px 3px 4px #red;
+	background:#fff;
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#000000');
+}
+.outimg:hover{
+ 	border-color:#B23B00 #cde #def #B23B00;
+ 	box-shadow:3px 3px 4px #441100;
+ 	-webkit-box-shadow:3px 3px 4px #B23B00;
+ 	-moz-box-shadow:3px 3px 4px #B23B00;
+ 	background:#fff;
+ 	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B23B00');
+}
 /*head*/
 .boraderTemp {
 	border-style: solid;
@@ -570,7 +586,6 @@ teacher detail page css
  	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#B23B00');
 }
 
-
 /*
 lesson css
 */
@@ -739,7 +754,91 @@ lesson css
 	width: 1140px;
 	margin: 10px 5px 0 5px;
 }
-
+/*book css*/
+.book-list-body{
+	height: 990px;
+	width: 780px;
+	margin: 10px 0 0 10px;
+}
+.m-list-node{
+	float:left;
+	height: 170px;
+	width:770px;
+	margin: 10px 5px 10px 5px;
+}
+.m-list-node .m-list-node-lc{
+	float:left;
+	height: 170px;
+	width: 170px;
+	margin: 2px 5px 2px 0;
+}
+.m-list-node-lc img{
+	height: 160px;
+	width: 160px;
+}
+.m-list-node .m-list-node-rc{
+	float:left;
+	height: 170px;
+	width: 580px;
+	margin: 2px 0px 2px 5px;
+}
+.m-list-node-rc .title{
+	float: left;
+	width: 560px;
+	height: 27px;
+	margin: 0;
+	padding: 2px 0px 0px 30px;
+	background: url(images/ico_img_05.jpg) 0px 2px no-repeat;
+	font-size: 14px;
+	line-height: 20px;
+	border-bottom: 1px #92C4A9 dashed;
+}
+.m-list-node-rc .inf {
+float: left;
+width: 580px;
+height: 100px;
+margin: 0;
+padding: 1px 0px 0px 0px;
+font-size: 12px;
+line-height: 22px;
+text-align: justify;
+}
+.m-list-node-rc .buy {
+float: left;
+width: 580px;
+height: 23px;
+margin: 0;
+padding: 0px 8px 0px 0px;
+font-size: 12px;
+line-height: 23px;
+text-align: right;
+}
+.buy p {
+float: left;
+width: 400px;
+height: 18px;
+margin: 0;
+padding: 5px 0px 0px 10px;
+line-height: 18px;
+}
+.buy p.p1 {
+float: left;
+width: 71px;
+height: 23px;
+margin: 0;
+padding: 0px 0px 0px 10px;
+background: url(images/btn_img_04.gif) right 0 no-repeat;
+}
+.buy p.p2 {
+float: left;
+width: 71px;
+height: 23px;
+margin: 0;
+padding: 0px 0px 0px 10px;
+background: url(images/btn_img_05.gif) right 0 no-repeat;
+}
+/*information css
+*/
 .information-list{
 	height: 1050px;
 	width: 800px;

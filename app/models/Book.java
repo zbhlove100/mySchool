@@ -20,6 +20,8 @@ public class Book extends Model{
 	
 	public String type;
 	
+	public String image;
+	
 	public int price;
 	
 	public int oldprice;

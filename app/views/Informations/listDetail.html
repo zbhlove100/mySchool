@@ -46,7 +46,7 @@
 		<div class="information-list-block pull-left boraderTemp">
 			<div class="head29h" style="width:315px"><span>热点推荐</span><a href="@{Informations.list}" class="pull-left">更多>></a></div>
 			#{list items:hotInformations,as:'item'}
-				<p><a href="@{Information.details(item.id)}">${item.title}</a></p>
+				<p><a href="@{Informations.detail(item.id)}">${item.title}</a></p>
 			#{/list}
 		</div>
 		<div class="information-list-block pull-left boraderTemp">

@@ -13,6 +13,8 @@ public class BaseModel extends Model {
 	 public static String MAIN = "main";
 	 public static String DELETE = "Delete";
 	 public static int PAGESIZE = 10;
+	 public static int BOOKPAGESIZE = 5;
+	 public static int INFORMATIONPAGESIZE = 25;
 	 
 	 public static List<String> getBaseStates(){
 		 List<String> ss = new ArrayList<String>();

@@ -26,7 +26,7 @@ public class Books extends BasicCrud{
 		
 		//get the page number
 		int totalCount = (int) Book.count(where.toString());
-		int maxPage = totalCount%BaseModel.PAGESIZE==0?totalCount/BaseModel.PAGESIZE:totalCount/BaseModel.PAGESIZE+1;
+		int maxPage = totalCount%BaseModel.BOOKPAGESIZE==0?totalCount/BaseModel.BOOKPAGESIZE:totalCount/BaseModel.BOOKPAGESIZE+1;
 		pageNum = pageNum==0?1:pageNum;
 		String pageAction = params.get("pageAction");
 		if("first".equals(pageAction)){
@@ -39,7 +39,7 @@ public class Books extends BasicCrud{
 			pageNum = maxPage;
 		}
 		
-		List<Book> books = Book.find(where.toString()).fetch(pageNum,BaseModel.PAGESIZE);
+		List<Book> books = Book.find(where.toString()).fetch(pageNum,BaseModel.BOOKPAGESIZE);
 		
 		List<LessonSystem> collections = LessonSystem.find("state != ?",BaseModel.DELETE).fetch();
 		
@@ -47,11 +47,12 @@ public class Books extends BasicCrud{
 		renderArgs.put("collection", collection);
 		renderArgs.put("pageNum", pageNum);
 		renderArgs.put("totalCount", totalCount);
-		renderArgs.put("pageSize", BaseModel.PAGESIZE);
+		renderArgs.put("pageSize", BaseModel.BOOKPAGESIZE);
 		
 		renderArgs.put("collections", collections);
-		renderArgs.put("lessons", books);
-		renderArgs.put("page", "lesson");
+		renderArgs.put("books", books);
+		renderArgs.put("page", "book");
+		Informations.getHotInformation();
 		render();
 	
 	}
@@ -67,7 +68,7 @@ public class Books extends BasicCrud{
 		
 		//get the page number
 		int totalCount = (int) Book.count(where.toString());
-		int maxPage = totalCount%BaseModel.PAGESIZE==0?totalCount/BaseModel.PAGESIZE:totalCount/BaseModel.PAGESIZE+1;
+		int maxPage = totalCount%BaseModel.BOOKPAGESIZE==0?totalCount/BaseModel.BOOKPAGESIZE:totalCount/BaseModel.BOOKPAGESIZE+1;
 		pageNum = pageNum==0?1:pageNum;
 		String pageAction = params.get("pageAction");
 		if("first".equals(pageAction)){
@@ -80,7 +81,7 @@ public class Books extends BasicCrud{
 			pageNum = maxPage;
 		}
 		
-		List<Book> books = Book.find(where.toString()).fetch(pageNum,BaseModel.PAGESIZE);
+		List<Book> books = Book.find(where.toString()).fetch(pageNum,BaseModel.BOOKPAGESIZE);
 		
 		List<LessonSystem> collections = LessonSystem.find("state != ?",BaseModel.DELETE).fetch();
 		
@@ -88,17 +89,18 @@ public class Books extends BasicCrud{
 		renderArgs.put("collection", collection);
 		renderArgs.put("pageNum", pageNum);
 		renderArgs.put("totalCount", totalCount);
-		renderArgs.put("pageSize", BaseModel.PAGESIZE);
+		renderArgs.put("pageSize", BaseModel.BOOKPAGESIZE);
 		
 		renderArgs.put("collections", collections);
-		renderArgs.put("lessons", books);
-		renderArgs.put("page", "lesson");
+		renderArgs.put("books", books);
+		renderArgs.put("page", "book");
+		Informations.getHotInformation();
 		render();
 	}
-	public static void bookDetail(long id){
+	public static void detail(long id){
 		Application.loadHead();
 		Book book = Book.findById(id);
-		renderArgs.put("lesson", book);
+		renderArgs.put("book", book);
 		render();
 	}
 }
