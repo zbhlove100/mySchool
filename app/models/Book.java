@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import play.db.jpa.Model;
@@ -21,9 +22,9 @@ public class Book extends Model{
 	
 	public int price;
 	
-	public int oldpirce;
+	public int oldprice;
 	
-	public String discripion;
+	public String description;
 	
 	public String state;
 	
@@ -32,4 +33,7 @@ public class Book extends Model{
 				,joinColumns={@JoinColumn(name="book_id")}
 				,inverseJoinColumns={@JoinColumn(name="user_id")})
 	public List<User> users;
+	
+	@ManyToOne
+	public LessonSystem lesson_system;
 }

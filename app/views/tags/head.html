@@ -37,7 +37,7 @@
 				<ul class="unstyled">
 					<li class="big ">
 							<div class="img">
-								<img alt="" src="@{'public/images/teacherImgBig/'}/${_mainBigTeacher.img}">
+								<img alt="" rel="@{'public/images/teacherImgBig/'}/${_mainBigTeacher.img}">
 							</div>
 					</li>
 					<li class="bigmessage ">
@@ -50,7 +50,7 @@
 					#{list items:_mainTeachers,as:'teacherMain'}
 					<li class="">
 						<div class="img">
-							<img alt="" src="@{'public/images/teacherImg/'}/${teacherMain.img}">
+							<img alt="" rel="@{'public/images/teacherImg/'}/${teacherMain.img}">
 						</div>
 					</li>
 					<li class="message">
@@ -86,7 +86,7 @@
 						  </li>
 						  <li #{if _page=='lesson'}class="active"#{/if}><a href="@{Lessons.list}">课程</a></li>
 						  <li #{if _page=='teacher'}class="active"#{/if}><a href="@{Teachers.show}">师资</a></li>
-						  <li #{if _page=='books'}class="active"#{/if}><a href="#">教材</a></li>
+						  <li #{if _page=='books'}class="active"#{/if}><a href="@{Books.list}">教材</a></li>
 						  <li #{if _page=='location'}class="active"#{/if}><a href="#">校区</a></li>
 						  <li #{if _page=='about'}class="active"#{/if}><a href="#">关于我们</a></li>
 						</ul>
@@ -123,6 +123,11 @@ $(function(){
 	$(".navbar>.navbar-inner .nav>li").click(function(){
 		$(this).parent().children().removeClass("active");
 		$(this).addClass("active");
+	})
+	$("img[rel]").each(function(e){
+		var img = this;
+		var url = $(img).attr("rel");
+		$(img).attr("src",url);
 	})
 });
 function pageTeacher(){

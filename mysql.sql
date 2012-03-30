@@ -31,9 +31,11 @@ CREATE TABLE `book` (
   `image` varchar(45) DEFAULT NULL,
   `description` varchar(5000) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
-  `lesson_system_id` bigint(20) NOT NULL,
+  `lesson_system_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_book_lesson_system1` (`lesson_system_id`),
+  KEY `FK2E3AE9B4A7B18F` (`lesson_system_id`),
+  CONSTRAINT `FK2E3AE9B4A7B18F` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`),
   CONSTRAINT `fk_book_lesson_system1` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -57,11 +59,10 @@ DROP TABLE IF EXISTS `book_user`;
 CREATE TABLE `book_user` (
   `book_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`book_id`,`user_id`),
-  KEY `fk_book_has_user_user1` (`user_id`),
-  KEY `fk_book_has_user_book1` (`book_id`),
-  CONSTRAINT `fk_book_has_user_book1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_book_has_user_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK78B0D36153AB523E` (`book_id`),
+  KEY `FK78B0D36147140EFE` (`user_id`),
+  CONSTRAINT `FK78B0D36147140EFE` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `FK78B0D36153AB523E` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,11 +84,11 @@ DROP TABLE IF EXISTS `class_level`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `class_level` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `discription` varchar(45) DEFAULT NULL,
-  `level` int(11) DEFAULT NULL,
+  `discription` varchar(255) DEFAULT NULL,
+  `level` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +97,6 @@ CREATE TABLE `class_level` (
 
 LOCK TABLES `class_level` WRITE;
 /*!40000 ALTER TABLE `class_level` DISABLE KEYS */;
-INSERT INTO `class_level` VALUES (1,'快乐思维','Please note that the whole 2.7.x series of ve',1),(2,'自然拼音','One of the most common questions we keep hear',2),(3,'一阶','After a year of work new versions of GEGL, ne',3),(4,'二阶','北京教育考试院 | 北京市民讲外语办公室 | 中国青少年宫协会 | 全国青少年全能王系列展',4),(5,'三阶','海淀区联 想 桥82121556/82121559都市网景82121556/8212155',5),(6,'四阶','3T二三综合班	16次	杨旭	广渠门	1680元	查看详细\n中考冲刺提高班	15次	王巍	',6),(7,'五阶','杰睿黄寺教学区开课有礼喽 杰睿白云桥教学点重磅优惠 杰睿两校区春季开班优惠啦公主坟勇闯冒险',7);
 /*!40000 ALTER TABLE `class_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,17 +132,13 @@ DROP TABLE IF EXISTS `code_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `code_table` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_name` varchar(255) DEFAULT NULL,
-  `code_value` varchar(5000) DEFAULT NULL,
-  `discription` varchar(5000) DEFAULT NULL,
-  `parent_code` int(11) DEFAULT '0',
-  `state` varchar(45) DEFAULT NULL,
-  `code_group_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_code_table_code_group1` (`code_group_id`),
-  CONSTRAINT `fk_code_table_code_group1` FOREIGN KEY (`code_group_id`) REFERENCES `code_group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+  `code_value` varchar(255) DEFAULT NULL,
+  `discription` varchar(255) DEFAULT NULL,
+  `parent_code` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +147,6 @@ CREATE TABLE `code_table` (
 
 LOCK TABLES `code_table` WRITE;
 /*!40000 ALTER TABLE `code_table` DISABLE KEYS */;
-INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Active',1),(11,'lesson_time_type','春季班',NULL,0,'Active',1),(12,'lesson_time_type','暑期班',NULL,0,'Active',1),(13,'lesson_time_type','秋季班',NULL,0,'Active',1),(14,'lesson_type','英语',NULL,0,'Active',1),(15,'lesson_type','数学',NULL,0,'Active',1),(16,'collection','少儿系列',NULL,0,'Active',1),(17,'collection','小升初系列',NULL,0,'Active',1),(23,'sub_collection','自然拼音',NULL,16,'Active',2),(24,'sub_collection','快乐思维',NULL,16,'Active',2),(25,'sub_collection','小升初基础',NULL,17,'Active',2),(26,'sub_collection','小升初提高',NULL,17,'Active',2),(27,'sub_collection','小升初强化',NULL,17,'Active',2),(28,'sub_collection','小升初冲刺',NULL,17,'Active',2),(36,'information_type','sale','优惠信息',0,'Active',NULL),(37,'information_type','main','新闻',0,'Active',NULL),(38,'information_type','notice','通知',0,'Active',NULL);
 /*!40000 ALTER TABLE `code_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,11 +159,11 @@ DROP TABLE IF EXISTS `count_log`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `count_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   `ipaddress` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +172,6 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
-INSERT INTO `count_log` VALUES (1,'GUEST','127.0.0.1','2012-03-13 09:01:12'),(2,'GUEST','109.105.4.146','2012-03-13 09:01:12'),(3,'GUEST','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'GUEST','127.0.0.1','2012-03-20 01:31:34'),(8,'GUEST','127.0.0.1','2012-03-21 07:11:46'),(9,'GUEST','127.0.0.1','2012-03-22 00:36:57'),(10,'GUEST','127.0.0.1','2012-03-26 10:10:58'),(11,'GUEST','127.0.0.1','2012-03-27 01:57:27'),(12,'GUEST','127.0.0.1','2012-03-28 06:21:41'),(13,'GUEST','127.0.0.1','2012-03-29 06:12:37');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,6 +197,8 @@ CREATE TABLE `information` (
   `user_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_information_user1` (`user_id`),
+  KEY `FK7556752C47140EFE` (`user_id`),
+  CONSTRAINT `FK7556752C47140EFE` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `fk_information_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -213,7 +209,7 @@ CREATE TABLE `information` (
 
 LOCK TABLES `information` WRITE;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
-INSERT INTO `information` VALUES (1,'sale1','<p>  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！</p><input type=\"image\" height=\"360\" width=\"480\" src=\"http://imgcache.3tedu.com.cn/image/2012/03/201203081258003.jpg\">','sale','2012-03-27 03:02:00',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(2,'sale2','  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(3,'sale3','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(4,'sale4','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(5,'sale5','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(6,'sale6','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(7,'sale7','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(8,'sale8','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(9,'the first news in the main page','sale1ccccccc','first','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(10,'main page news 1',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(11,'main page news 2',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(12,'main page news 3',NULL,'main','2012-03-27 02:59:57',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(13,'main page news 4',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(14,'main page news 5',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(15,'main page news 6',NULL,'main','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(16,'main page news 7',NULL,'main','2012-03-27 02:59:57',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(17,'main page news 8',NULL,'main','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1);
+INSERT INTO `information` VALUES (1,'博苗教育三八节致信','<p>  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！</p><input type=\"image\" height=\"360\" width=\"480\" src=\"http://imgcache.3tedu.com.cn/image/2012/03/201203081258003.jpg\">','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(2,'博苗教育','  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。  你们的辛苦和努力的工作我看在眼里、感在心上。\n \n    在这个属于你们的日子里，我代表所有的杰睿人把最美丽的祝福送给你们，祝你们和你们的家人们快乐、健康、幸福每一天！\n \n    为了让所有的杰睿人在杰睿这个大家庭里感到温 馨、温暖、幸福，为了我们的家，我，还有杰睿 总监团校长团的成员们一直在努力！<br/>致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!\n    在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\n \n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。\n \n    无论是老师，前台，助教，市场，亦或是其他行政部门人员，你们为杰睿这个大家都付出了很多，你们把最美好的青春时光都倾注在了教书育人的杰睿事业当中。无数个寒假暑假，你们割舍了难能可贵的休息时间；无数个节庆假日，你们割舍了和亲人朋友团聚的机会。其实在孩子心里，你们既是老师，更像妈妈，因为你们永远都在做的一件事，那就是：用心地呵护着我们的每一个宝贝。\n \n \n    那些纷涌而来的感谢信啊，只是你们全情投入的见证！\n    杰睿一天天地发展壮大，就是你们和其他所有杰睿人心血浇灌的结晶。\n    杰睿最可爱的女人们：节日快乐！\n    杰睿同样可爱的男人们，请把我们最美好的祝福带给你们身边最可爱的女人！致杰睿最可爱的人：\n    忙碌的春季开班后，迎来了属于我们的节日---妇女节!<br/>   在这样的日子里，我们中间的很多人仍然投入在繁忙的工作中,没时间为自己庆祝节日。\\n其实你们一直都是这样：\n    为了工作，年轻的你们牺牲了浪漫的约会时光；\n    为了工作，新婚的你们舍弃了美丽的蜜月旅行；\n    为了工作，准妈妈的你们在宝贝出生的前一天还奋战在自己的工作岗位上；\n    为了工作，作为母亲的你们心痛却还是坚定地把未满半岁的小宝宝交给了上一辈照看。','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(3,'博苗教育优惠汇总','即将到来','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(4,'博苗教育官方微薄','博苗教育微波即将到来。','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(5,'博苗教育校区介绍','校区建设中，稍后跟新相关信息。','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(6,'博苗教育网站使用帮助','专门的帮助单元正在建设中，工程师会尽快为大家带来帮助中心。','main','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(7,'sale7','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(8,'sale8','sale1ccccccc','sale','2012-03-27 02:59:57',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(9,'博苗教育网站初步上线','博苗教育，由北京名师领衔，专注于沈阳青少年英语教育，博苗教育为您提供专业的沈阳英语教育服务。','first','2012-03-30 02:36:42',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(10,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(11,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(12,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','资讯',0,'http://www.miaoedu.net',NULL,1),(13,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(14,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(15,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1),(16,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active','myschool',0,'http://www.miaoedu.net',NULL,1),(17,'博苗教育优惠汇总(沈阳)',NULL,'sale','2012-03-30 02:38:33',NULL,'Active',NULL,0,'http://www.miaoedu.net',NULL,1);
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,13 +222,13 @@ DROP TABLE IF EXISTS `information_log`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `information_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `date` varchar(45) DEFAULT NULL,
-  `count` int(11) NOT NULL DEFAULT '0',
-  `information_id` bigint(20) NOT NULL,
+  `count` int(11) NOT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `information_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_information_log_information1` (`information_id`),
-  CONSTRAINT `fk_information_log_information1` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  KEY `FK4DACD1B19D97CC96` (`information_id`),
+  CONSTRAINT `FK4DACD1B19D97CC96` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +237,6 @@ CREATE TABLE `information_log` (
 
 LOCK TABLES `information_log` WRITE;
 /*!40000 ALTER TABLE `information_log` DISABLE KEYS */;
-INSERT INTO `information_log` VALUES (1,'20120327',5,16),(2,'20120327',1,8),(3,'20120327',13,1),(7,'20120327',2,10),(8,'20120327',1,11),(9,'20120328',1,15),(10,'20120328',1,1);
 /*!40000 ALTER TABLE `information_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,8 +271,12 @@ CREATE TABLE `lesson` (
   KEY `fk_lesson_teacher1` (`teacher_id`),
   KEY `fk_lesson_lesson_system1` (`lesson_system_id`),
   KEY `fk_lesson_book1` (`book_id`),
-  CONSTRAINT `fk_lesson_lesson_system1` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `FKBE10AD38705656D6` (`teacher_id`),
+  KEY `FKBE10AD38C1DDC95E` (`school_id`),
+  CONSTRAINT `FKBE10AD38C1DDC95E` FOREIGN KEY (`school_id`) REFERENCES `school` (`id`),
+  CONSTRAINT `FKBE10AD38705656D6` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`),
   CONSTRAINT `fk_lesson_book1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_lesson_lesson_system1` FOREIGN KEY (`lesson_system_id`) REFERENCES `lesson_system` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_lesson_school1` FOREIGN KEY (`school_id`) REFERENCES `school` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_lesson_teacher1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
@@ -305,8 +304,9 @@ CREATE TABLE `lesson_system` (
   `name` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
+  `description` varchar(5000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,6 +315,7 @@ CREATE TABLE `lesson_system` (
 
 LOCK TABLES `lesson_system` WRITE;
 /*!40000 ALTER TABLE `lesson_system` DISABLE KEYS */;
+INSERT INTO `lesson_system` VALUES (5,'少儿系列','eng','Active','《剑桥国际儿童英语》（Playway to English）是针对母语非英语国家的初学英语的儿童出版的一套综合教材。以3 ～ 7岁儿童英语启蒙学习为主，分为四个级别。其最基本的特点在于寓教于乐，让孩子在愉快的游戏和优美的歌谣中掌握英语。《剑桥国际儿童英语》独创的SMILE教学法让孩子在轻松的学习环境中掌握基本的听、说、读、写能力。内容采用孩子乐于接受的短剧、动画片、歌曲、歌谣、韵律诗和行动故事来呈现。有趣的画面、活泼的节奏以及手脑并用的动作调动了孩子的多个感官，让孩子以母语的方式习得英语！'),(6,'新概念系列','eng','Active','作为一套世界闻名的英语教程，《新概念英语》以其全新的教学理念，有趣的课文内容和全面的技能训练，深受广大英语学习者的欢迎和喜爱。进入中国以后，《新概念英语》历经了数次重印，而为了最大限度地满足不同层次、不同类型英语学习者的需求，与本教程相配套的系列辅导用书和音像产品也是林林总总，不一而足。'),(7,'剑桥系列','eng','Active','《剑桥国际儿童英语》（Playway to English）是针对母语非英语国家的初学英语的儿童出版的一套综合教材。以3 ～ 7岁儿童英语启蒙学习为主，分为四个级别。其最基本的特点在于寓教于乐，让孩子在愉快的游戏和优美的歌谣中掌握英语。《剑桥国际儿童英语》独创的SMILE教学法让孩子在轻松的学习环境中掌握基本的听、说、读、写能力。内容采用孩子乐于接受的短剧、动画片、歌曲、歌谣、韵律诗和行动故事来呈现。有趣的画面、活泼的节奏以及手脑并用的动作调动了孩子的多个感官，让孩子以母语的方式习得英语！'),(8,'口语系列','eng','Active','《剑桥国际儿童英语》（Playway to English）是针对母语非英语国家的初学英语的儿童出版的一套综合教材。以3 ～ 7岁儿童英语启蒙学习为主，分为四个级别。其最基本的特点在于寓教于乐，让孩子在愉快的游戏和优美的歌谣中掌握英语。《剑桥国际儿童英语》独创的SMILE教学法让孩子在轻松的学习环境中掌握基本的听、说、读、写能力。内容采用孩子乐于接受的短剧、动画片、歌曲、歌谣、韵律诗和行动故事来呈现。有趣的画面、活泼的节奏以及手脑并用的动作调动了孩子的多个感官，让孩子以母语的方式习得英语！');
 /*!40000 ALTER TABLE `lesson_system` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,14 +328,14 @@ DROP TABLE IF EXISTS `lesson_table`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `lesson_table` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `lesson_date` varchar(45) DEFAULT NULL,
-  `state` varchar(45) DEFAULT NULL,
-  `lesson_id` bigint(20) NOT NULL,
+  `lesson_date` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `lesson_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_lesson_table_lesson1` (`lesson_id`),
-  CONSTRAINT `fk_lesson_table_lesson1` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+  KEY `FKC3248207C4A942DE` (`lesson_id`),
+  CONSTRAINT `FKC3248207C4A942DE` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +344,6 @@ CREATE TABLE `lesson_table` (
 
 LOCK TABLES `lesson_table` WRITE;
 /*!40000 ALTER TABLE `lesson_table` DISABLE KEYS */;
-INSERT INTO `lesson_table` VALUES (1,'第1课','2012-03-05','Finish',1),(2,'第2课','2012-03-05','Finish',1),(3,'第3课','2012-03-05','Finish',1),(4,'第3课','2012-03-05','Active',1),(5,'第3课','2012-03-05','Active',1),(6,'第3课','2012-03-05','Active',1),(7,'第3课','2012-03-05','Finish',1),(8,'第3课','2012-03-05','Active',1),(9,'第3课','2012-03-05','Active',1),(10,'第3课','2012-03-05','Active',1),(11,'第3课','2012-03-05','Active',1),(12,'第3课','2012-03-05','Active',1),(13,'第3课','2012-03-05','Active',1),(14,'第3课','2012-03-05','Active',1),(15,'第3课','2012-03-05','Active',1),(16,'第3课','2012-03-05','Active',1),(17,'第3课','2012-03-05','Active',1);
 /*!40000 ALTER TABLE `lesson_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,17 +412,17 @@ DROP TABLE IF EXISTS `tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tags` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `lesson_id` bigint(20) NOT NULL,
-  `teacher_id` bigint(20) NOT NULL,
-  `information_id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `information_id` bigint(20) DEFAULT NULL,
+  `lesson_id` bigint(20) DEFAULT NULL,
+  `teacher_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_tags_lesson1` (`lesson_id`),
-  KEY `fk_tags_teacher1` (`teacher_id`),
-  KEY `fk_tags_information1` (`information_id`),
-  CONSTRAINT `fk_tags_information1` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tags_lesson1` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tags_teacher1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK363419705656D6` (`teacher_id`),
+  KEY `FK3634199D97CC96` (`information_id`),
+  KEY `FK363419C4A942DE` (`lesson_id`),
+  CONSTRAINT `FK363419C4A942DE` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`),
+  CONSTRAINT `FK363419705656D6` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`),
+  CONSTRAINT `FK3634199D97CC96` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -456,6 +456,8 @@ CREATE TABLE `teacher` (
   `school_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_teacher_school1` (`school_id`),
+  KEY `FKAA31CBE2C1DDC95E` (`school_id`),
+  CONSTRAINT `FKAA31CBE2C1DDC95E` FOREIGN KEY (`school_id`) REFERENCES `school` (`id`),
   CONSTRAINT `fk_teacher_school1` FOREIGN KEY (`school_id`) REFERENCES `school` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='base teacher table';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -479,32 +481,32 @@ DROP TABLE IF EXISTS `teacher_detail`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teacher_detail` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `class_type` varchar(255) DEFAULT NULL,
-  `en_name` varchar(255) DEFAULT NULL,
-  `sex` varchar(45) DEFAULT NULL,
-  `education` varchar(45) DEFAULT NULL,
-  `bloodtype` varchar(2) DEFAULT NULL,
-  `birthday` varchar(45) DEFAULT NULL,
-  `height` int(11) DEFAULT NULL,
-  `interest` varchar(255) DEFAULT NULL,
-  `favorite_color` varchar(45) DEFAULT NULL,
-  `favorite_sport` varchar(45) DEFAULT NULL,
-  `favorite_animal` varchar(45) DEFAULT NULL,
-  `favorite_place` varchar(45) DEFAULT NULL,
-  `teacher_word` varchar(45) DEFAULT NULL,
-  `adore_man` varchar(45) DEFAULT NULL,
-  `sammary` varchar(5000) DEFAULT NULL,
-  `tel` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `qq` varchar(45) DEFAULT NULL,
-  `weibo` varchar(45) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `household` varchar(45) DEFAULT NULL,
-  `teacher_id` bigint(20) NOT NULL,
+  `adore_man` varchar(255) DEFAULT NULL,
+  `birthday` varchar(255) DEFAULT NULL,
+  `bloodtype` varchar(255) DEFAULT NULL,
+  `class_type` varchar(255) DEFAULT NULL,
+  `education` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `en_name` varchar(255) DEFAULT NULL,
+  `favorite_animal` varchar(255) DEFAULT NULL,
+  `favorite_color` varchar(255) DEFAULT NULL,
+  `favorite_place` varchar(255) DEFAULT NULL,
+  `favorite_sport` varchar(255) DEFAULT NULL,
+  `height` int(11) NOT NULL,
+  `household` varchar(255) DEFAULT NULL,
+  `interest` varchar(255) DEFAULT NULL,
+  `qq` varchar(255) DEFAULT NULL,
+  `sammary` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) DEFAULT NULL,
+  `teacher_word` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `weibo` varchar(255) DEFAULT NULL,
+  `teacher_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_teacher_detail_teacher1` (`teacher_id`),
-  CONSTRAINT `fk_teacher_detail_teacher1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  KEY `FK41E7874E705656D6` (`teacher_id`),
+  CONSTRAINT `FK41E7874E705656D6` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -513,7 +515,6 @@ CREATE TABLE `teacher_detail` (
 
 LOCK TABLES `teacher_detail` WRITE;
 /*!40000 ALTER TABLE `teacher_detail` DISABLE KEYS */;
-INSERT INTO `teacher_detail` VALUES (4,'3T,快乐思维','anna','女','本科','o','1985-05-05',160,'吃饭','红色','睡觉','笨笨','荷兰',NULL,'张博瀚',' 杰睿英语教师，曾教授过《新概念英语》等课程。熟悉历年中考题型，擅于把握考点，授课讲究循序渐进，对重要知识点进行有层次有条理的着重讲解，同时也不忽略对基础知识的铺垫，从而使学生能牢固掌握重点难点。对学生要求严格，但也不失风趣幽默，时常在课堂上引用一些西方文化的片段来调节课堂气氛，同时也让学生了解更多与英语有关的知识。','',NULL,NULL,NULL,'朝阳区','辽宁',1);
 /*!40000 ALTER TABLE `teacher_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -557,12 +558,12 @@ DROP TABLE IF EXISTS `user_log`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `login_times` int(11) DEFAULT NULL,
-  `user_id` bigint(20) NOT NULL,
+  `login_times` int(11) NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_user_log_user` (`user_id`),
-  CONSTRAINT `fk_user_log_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  KEY `FKF022E0D047140EFE` (`user_id`),
+  CONSTRAINT `FKF022E0D047140EFE` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -571,7 +572,6 @@ CREATE TABLE `user_log` (
 
 LOCK TABLES `user_log` WRITE;
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
-INSERT INTO `user_log` VALUES (7,2,1);
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -584,4 +584,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-29 17:36:10
+-- Dump completed on 2012-03-30 13:21:03

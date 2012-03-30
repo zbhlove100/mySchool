@@ -14,4 +14,6 @@ public class LessonSystem extends Model{
 	public String type;
 	
 	public String state;
+	
+	public String description;
 }
