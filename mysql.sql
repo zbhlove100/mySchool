@@ -88,7 +88,7 @@ CREATE TABLE `class_level` (
   `level` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `class_level` (
 
 LOCK TABLES `class_level` WRITE;
 /*!40000 ALTER TABLE `class_level` DISABLE KEYS */;
+INSERT INTO `class_level` VALUES (1,'Please note that the whole 2.7.x series of ve',1,'快乐思维'),(2,'One of the most common questions we keep hear',2,'自然拼音'),(3,'After a year of work new versions of GEGL, ne',3,'一阶'),(4,'北京教育考试院 | 北京市民讲外语办公室 | 中国青少年宫协会 | 全国青少年全能王系列展',4,'二阶'),(5,'海淀区联 想 桥82121556/82121559都市网景82121556/8212155',5,'三阶'),(6,'3T二三综合班16次杨旭广渠门1680元查看详细\n中考冲刺提高班15次王巍',6,'四阶'),(7,'杰睿黄寺教学区开课有礼喽 杰睿白云桥教学点重磅优惠 杰睿两校区春季 开班优惠啦公主坟勇闯冒险',7,'五阶');
 /*!40000 ALTER TABLE `class_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,13 +133,17 @@ DROP TABLE IF EXISTS `code_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `code_table` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `code_name` varchar(255) DEFAULT NULL,
-  `code_value` varchar(255) DEFAULT NULL,
-  `discription` varchar(255) DEFAULT NULL,
-  `parent_code` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `code_value` varchar(5000) DEFAULT NULL,
+  `discription` varchar(5000) DEFAULT NULL,
+  `parent_code` int(11) DEFAULT '0',
+  `state` varchar(45) DEFAULT NULL,
+  `code_group_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_code_table_code_group1` (`code_group_id`),
+  CONSTRAINT `fk_code_table_code_group1` FOREIGN KEY (`code_group_id`) REFERENCES `code_group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +152,7 @@ CREATE TABLE `code_table` (
 
 LOCK TABLES `code_table` WRITE;
 /*!40000 ALTER TABLE `code_table` DISABLE KEYS */;
+INSERT INTO `code_table` VALUES (10,'lesson_time_type','寒假班',NULL,0,'Active',1),(11,'lesson_time_type','春季班',NULL,0,'Active',1),(12,'lesson_time_type','暑期班',NULL,0,'Active',1),(13,'lesson_time_type','秋季班',NULL,0,'Active',1),(14,'lesson_type','英语',NULL,0,'Active',1),(15,'lesson_type','数学',NULL,0,'Active',1),(16,'collection','少儿系列',NULL,0,'Active',1),(17,'collection','小升初系列',NULL,0,'Active',1),(23,'sub_collection','自然拼音',NULL,16,'Active',2),(24,'sub_collection','快乐思维',NULL,16,'Active',2),(25,'sub_collection','小升初基础',NULL,17,'Active',2),(26,'sub_collection','小升初提高',NULL,17,'Active',2),(27,'sub_collection','小升初强化',NULL,17,'Active',2),(28,'sub_collection','小升初冲刺',NULL,17,'Active',2),(36,'information_type','sale','优惠信息',0,'Active',NULL),(37,'information_type','main','新闻',0,'Active',NULL),(38,'information_type','notice','通知',0,'Active',NULL);
 /*!40000 ALTER TABLE `code_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +169,7 @@ CREATE TABLE `count_log` (
   `ipaddress` varchar(255) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,6 +178,7 @@ CREATE TABLE `count_log` (
 
 LOCK TABLES `count_log` WRITE;
 /*!40000 ALTER TABLE `count_log` DISABLE KEYS */;
+INSERT INTO `count_log` VALUES (1,'0000-00-00 00:00:00','127.0.0.1','2012-03-13 09:01:12'),(2,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 09:01:12'),(3,'0000-00-00 00:00:00','109.105.4.146','2012-03-13 08:52:11'),(4,NULL,NULL,'2012-03-14 09:55:07'),(5,NULL,NULL,'2012-03-17 07:52:22'),(6,NULL,NULL,'2012-03-20 01:28:38'),(7,'0000-00-00 00:00:00','127.0.0.1','2012-03-20 01:31:34'),(8,'0000-00-00 00:00:00','127.0.0.1','2012-03-21 07:11:46'),(9,'0000-00-00 00:00:00','127.0.0.1','2012-03-22 00:36:57'),(10,'0000-00-00 00:00:00','127.0.0.1','2012-03-26 10:10:58'),(11,'0000-00-00 00:00:00','127.0.0.1','2012-03-27 01:57:27');
 /*!40000 ALTER TABLE `count_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +235,7 @@ CREATE TABLE `information_log` (
   PRIMARY KEY (`id`),
   KEY `FK4DACD1B19D97CC96` (`information_id`),
   CONSTRAINT `FK4DACD1B19D97CC96` FOREIGN KEY (`information_id`) REFERENCES `information` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,6 +244,7 @@ CREATE TABLE `information_log` (
 
 LOCK TABLES `information_log` WRITE;
 /*!40000 ALTER TABLE `information_log` DISABLE KEYS */;
+INSERT INTO `information_log` VALUES (1,20120327,'5',16),(2,20120327,'1',8),(3,20120327,'13',1),(7,20120327,'2',10),(8,20120327,'1',11);
 /*!40000 ALTER TABLE `information_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,7 +343,7 @@ CREATE TABLE `lesson_table` (
   PRIMARY KEY (`id`),
   KEY `FKC3248207C4A942DE` (`lesson_id`),
   CONSTRAINT `FKC3248207C4A942DE` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,6 +352,7 @@ CREATE TABLE `lesson_table` (
 
 LOCK TABLES `lesson_table` WRITE;
 /*!40000 ALTER TABLE `lesson_table` DISABLE KEYS */;
+INSERT INTO `lesson_table` VALUES (1,'第1课','2012-03-05','Finish',1),(2,'第2课','2012-03-05','Finish',1),(3,'第3课','2012-03-05','Finish',1),(4,'第3课','2012-03-05','Active',1),(5,'第3课','2012-03-05','Active',1),(6,'第3课','2012-03-05','Active',1),(7,'第3课','2012-03-05','Finish',1),(8,'第3课','2012-03-05','Active',1),(9,'第3课','2012-03-05','Active',1),(10,'第3课','2012-03-05','Active',1),(11,'第3课','2012-03-05','Active',1),(12,'第3课','2012-03-05','Active',1),(13,'第3课','2012-03-05','Active',1),(14,'第3课','2012-03-05','Active',1),(15,'第3课','2012-03-05','Active',1),(16,'第3课','2012-03-05','Active',1),(17,'第3课','2012-03-05','Active',1);
 /*!40000 ALTER TABLE `lesson_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,32 +490,32 @@ DROP TABLE IF EXISTS `teacher_detail`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teacher_detail` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `address` varchar(255) DEFAULT NULL,
-  `adore_man` varchar(255) DEFAULT NULL,
-  `birthday` varchar(255) DEFAULT NULL,
-  `bloodtype` varchar(255) DEFAULT NULL,
   `class_type` varchar(255) DEFAULT NULL,
-  `education` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
   `en_name` varchar(255) DEFAULT NULL,
-  `favorite_animal` varchar(255) DEFAULT NULL,
-  `favorite_color` varchar(255) DEFAULT NULL,
-  `favorite_place` varchar(255) DEFAULT NULL,
-  `favorite_sport` varchar(255) DEFAULT NULL,
-  `height` int(11) NOT NULL,
-  `household` varchar(255) DEFAULT NULL,
+  `sex` varchar(45) DEFAULT NULL,
+  `education` varchar(45) DEFAULT NULL,
+  `bloodtype` varchar(2) DEFAULT NULL,
+  `birthday` varchar(45) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
   `interest` varchar(255) DEFAULT NULL,
-  `qq` varchar(255) DEFAULT NULL,
-  `sammary` varchar(255) DEFAULT NULL,
-  `sex` varchar(255) DEFAULT NULL,
-  `teacher_word` varchar(255) DEFAULT NULL,
-  `tel` varchar(255) DEFAULT NULL,
-  `weibo` varchar(255) DEFAULT NULL,
-  `teacher_id` bigint(20) DEFAULT NULL,
+  `favorite_color` varchar(45) DEFAULT NULL,
+  `favorite_sport` varchar(45) DEFAULT NULL,
+  `favorite_animal` varchar(45) DEFAULT NULL,
+  `favorite_place` varchar(45) DEFAULT NULL,
+  `teacher_word` varchar(45) DEFAULT NULL,
+  `adore_man` varchar(45) DEFAULT NULL,
+  `sammary` varchar(5000) DEFAULT NULL,
+  `tel` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `qq` varchar(45) DEFAULT NULL,
+  `weibo` varchar(45) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `household` varchar(45) DEFAULT NULL,
+  `teacher_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK41E7874E705656D6` (`teacher_id`),
-  CONSTRAINT `FK41E7874E705656D6` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_teacher_detail_teacher1` (`teacher_id`),
+  CONSTRAINT `fk_teacher_detail_teacher1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -515,6 +524,7 @@ CREATE TABLE `teacher_detail` (
 
 LOCK TABLES `teacher_detail` WRITE;
 /*!40000 ALTER TABLE `teacher_detail` DISABLE KEYS */;
+INSERT INTO `teacher_detail` VALUES (4,'3T,快乐思维','anna','女','本科','o','1985-05-05',160,'吃饭','红色','睡觉','笨笨','荷兰',NULL,'张博瀚',' 杰睿英语教师，曾教授过《新概念英语》等课程。熟悉历年中考题型，擅于把握考点，授课讲究循序渐进，对重要知识点进行有层次有条理的着重讲解，同时也不忽略对基础知识的铺垫，从而使学生能牢固掌握重点难点。对学生要求严格，但也不失风趣幽默，时常在课堂上引用一些西方文化的片段来调节课堂气氛，同时也让学生了解更多与英语有关的知识。','',NULL,NULL,NULL,'朝阳区','辽宁',1);
 /*!40000 ALTER TABLE `teacher_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -563,7 +573,7 @@ CREATE TABLE `user_log` (
   PRIMARY KEY (`id`),
   KEY `FKF022E0D047140EFE` (`user_id`),
   CONSTRAINT `FKF022E0D047140EFE` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -572,6 +582,7 @@ CREATE TABLE `user_log` (
 
 LOCK TABLES `user_log` WRITE;
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
+INSERT INTO `user_log` VALUES (7,2,1);
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -584,4 +595,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-30 13:21:03
+-- Dump completed on 2012-03-30 14:39:42

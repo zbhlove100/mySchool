@@ -1,6 +1,7 @@
 
 #ignore files
 *.class
-/tmp
-/eclipse
-/.setting
+tmp/
+eclipse/
+.setting/
+conf/
