@@ -78,6 +78,15 @@ function ajaxSubForm(form,container){
 	  });
 	  return false;
 }
+
+function initImg(){
+	$("img[rel]").each(function(e){
+		var img = this;
+		var url = $(img).attr("rel");
+		$(img).attr("src",url);
+	})	
+}
+
 function scollDiv(listObj,moveObj,speed,isSeries,direct,steplength){
 	
 	var pos,left,aniLeft,width;
